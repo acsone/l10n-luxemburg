@@ -77,9 +77,18 @@ def write_person_faia(partner, writer):
 def write_account_faia(account, writer):
     write_mandatory("AccountID", account.code, writer)
     write_mandatory("AccountDescription", account.name, writer)
+    # The type need to be improve
+    # Should be either Asset/Liability/Sale/Expense
     write_mandatory("AccountType", account.user_type.name, writer)
     write_mandatory("OpeningDebitBalance", "0.0", writer)
     write_mandatory("ClosingDebitBalance", "0.0", writer)
+
+
+def write_journal_faia(journal, writer):
+    write_mandatory("JournalID", journal.code, writer)
+    write_mandatory("Description", journal.name, writer)
+    # Type is 9 char max
+    write_mandatory("Type", journal.type[:9], writer)
 
 
 class account_fiscalyear(models.Model):
@@ -91,6 +100,8 @@ class account_fiscalyear(models.Model):
         date_now = date.today().isoformat()
         current_company = self.env.user.company_id
         accounts = self.env['account.account'].search(
+            [('company_id', '=', current_company.id)])
+        journals = self.env['account.journal'].search(
             [('company_id', '=', current_company.id)])
 
         with StreamingXMLWriter(s) as writer:
@@ -115,6 +126,13 @@ class account_fiscalyear(models.Model):
                         for account in accounts:
                             with writer.element("Account"):
                                 write_account_faia(account, writer)
+                with writer.element("GeneralLedgerEntries"):
+                    write_mandatory("NumberOfEntries", "0", writer)
+                    write_mandatory("TotalDebit", "0", writer)
+                    write_mandatory("TotalCredit", "0", writer)
+                    for journal in journals:
+                        with writer.element("Journal"):
+                            write_journal_faia(journal, writer)
 
         # validate the generated XML schema
         xsd = tools.file_open('l10n_lu_export_faia/'
