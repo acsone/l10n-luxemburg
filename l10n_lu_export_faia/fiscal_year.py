@@ -74,6 +74,14 @@ def write_person_faia(partner, writer):
     write_mandatory("LastName", partner.name, writer)
 
 
+def write_account_faia(account, writer):
+    write_mandatory("AccountID", account.code, writer)
+    write_mandatory("AccountDescription", account.name, writer)
+    write_mandatory("AccountType", account.user_type.name, writer)
+    write_mandatory("OpeningDebitBalance", "0.0", writer)
+    write_mandatory("ClosingDebitBalance", "0.0", writer)
+
+
 class account_fiscalyear(models.Model):
     _inherit = "account.fiscalyear"
 
@@ -82,6 +90,9 @@ class account_fiscalyear(models.Model):
         s = StringIO()
         date_now = date.today().isoformat()
         current_company = self.env.user.company_id
+        accounts = self.env['account.account'].search(
+            [('company_id', '=', current_company.id)])
+
         with StreamingXMLWriter(s) as writer:
             with writer.element("AuditFile"):
                 with writer.element("Header"):
@@ -99,6 +110,11 @@ class account_fiscalyear(models.Model):
                     write_mandatory("DefaultCurrencyCode",
                                     current_company.currency_id.name, writer)
                     write_mandatory("TaxAccountingBasis", "TODO", writer)
+                with writer.element("MasterFiles"):
+                    with writer.element("GeneralLedgerAccounts"):
+                        for account in accounts:
+                            with writer.element("Account"):
+                                write_account_faia(account, writer)
 
         # validate the generated XML schema
         xsd = tools.file_open('l10n_lu_export_faia/'
