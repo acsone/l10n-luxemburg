@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record id="action_export_faia_report" model="ir.actions.report.xml">
+            <field name="name">Export FAIA</field>
+            <field name="report_name">faia_lu</field>
+            <field name="model">account.fiscalyear</field>
+            <field name="report_type">controller</field>
+            <field name="report_file">/report/export_faia_lu</field>
+        </record>
+
         <record id="view_export_faia" model="ir.ui.view">
             <field name="name">Export FAIA</field>
             <field name="model">faia.export</field>
@@ -11,8 +19,8 @@ Export accounting data under the format FAIA (Fichier Audit Informatisé AED in 
 For more information see: http://www.aed.public.lu/FAIA/FAIA/index.html (french)<br/>
                             </p>
                     <footer>
-                        <button name="export" string="Export"
-                            type="object" class="oe_highlight" />
+                        <button name="%(action_export_faia_report)d" string="Export"
+                            type="action" class="oe_highlight" />
                         or
                         <button string="Cancel" class="oe_link"
                             special="cancel" />
@@ -35,7 +43,6 @@ For more information see: http://www.aed.public.lu/FAIA/FAIA/index.html (french)
             <field name="key">action</field>
             <field name="model">account.fiscalyear</field>
         </record>
-
     </data>
 </openerp>
 

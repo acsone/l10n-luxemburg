@@ -22,8 +22,22 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+
+import simplejson
+
+from openerp.addons.web.http import Controller, route, request
 
 
-class faia_export(models.TransientModel):
-    _name = 'faia.export'
+class main(Controller):
+
+    @route(['/report/export_faia_lu/<docids>'], type='http', auth='user')
+    def report_faia(self, docids):
+        fiscalyear_model = request.registry.get('account.fiscalyear')
+
+        result = fiscalyear_model.get_faia_data(
+            request.cr, request.uid, docids, context=request.context)
+        
+        return request.make_response(result[0], headers=[
+            ('Content-Type', 'application/xml'),
+            ('Content-Disposition', 'attachment; filename=faia.xml;')
+        ])
