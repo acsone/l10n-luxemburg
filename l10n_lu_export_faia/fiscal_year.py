@@ -36,13 +36,13 @@ _logger = logging.getLogger(__name__)
 
 def write_mandatory(element, string, writer):
     with writer.element(element):
-        writer.characters(string or "N/A")
+        writer.characters(str(string) or "N/A")
 
 
 def write_optional(element, string, writer):
     if string:
         with writer.element(element):
-            writer.characters(string)
+            writer.characters(str(string))
 
 
 def write_company_faia(company, writer):
@@ -84,11 +84,50 @@ def write_account_faia(account, writer):
     write_mandatory("ClosingDebitBalance", "0.0", writer)
 
 
-def write_journal_faia(journal, writer):
+def write_journal_faia(journal, account_period_ids, writer):
     write_mandatory("JournalID", journal.code, writer)
     write_mandatory("Description", journal.name, writer)
     # Type is 9 char max
     write_mandatory("Type", journal.type[:9], writer)
+    account_moves = journal.env['account.move'].search(
+        [('journal_id', '=', journal.id),
+         ('period_id', 'in', account_period_ids)])
+    for account_move in account_moves:
+        with writer.element("Transaction"):
+            write_account_move_faia(account_move, writer)
+
+
+def write_account_move_faia(move, writer):
+    write_mandatory("TransactionID", move.id, writer)
+    write_mandatory("Period", move.period_id.id, writer)
+    period_year = fields.Date.from_string(move.period_id.date_start).year
+    write_mandatory("PeriodYear", period_year, writer)
+    date = fields.Date.from_string(move.date).isoformat()
+    write_mandatory("TransactionDate", date, writer)
+    write_mandatory("Description", move.name, writer)
+    create_date = fields.Date.from_string(move.create_date).isoformat()
+    write_mandatory("SystemEntryDate", date, writer)
+    # No posting date in odoo, so use the create_date instead
+    write_mandatory("GLPostingDate", create_date, writer)
+    for move_line in move.line_id:
+        with writer.element("Line"):
+            write_account_move_line_faia(move_line, writer)
+
+
+def write_account_move_line_faia(move_line, writer):
+    write_mandatory("RecordID", move_line.id, writer)
+    write_mandatory("AccountID", move_line.account_id.code, writer)
+    write_mandatory("Description", move_line.name, writer)
+    if move_line.debit:
+        with writer.element("DebitAmount"):
+            write_amount_faia(move_line.debit, writer)
+    else:
+        with writer.element("CreditAmount"):
+            write_amount_faia(move_line.credit, writer)
+
+
+def write_amount_faia(amount, writer):
+    write_mandatory("Amount", amount, writer)
 
 
 class account_fiscalyear(models.Model):
@@ -103,6 +142,8 @@ class account_fiscalyear(models.Model):
             [('company_id', '=', current_company.id)])
         journals = self.env['account.journal'].search(
             [('company_id', '=', current_company.id)])
+
+        account_period_ids = [p.id for p in self.period_ids]
 
         with StreamingXMLWriter(s) as writer:
             with writer.element("AuditFile"):
@@ -132,7 +173,7 @@ class account_fiscalyear(models.Model):
                     write_mandatory("TotalCredit", "0", writer)
                     for journal in journals:
                         with writer.element("Journal"):
-                            write_journal_faia(journal, writer)
+                            write_journal_faia(journal, account_period_ids, writer)
 
         # validate the generated XML schema
         xsd = tools.file_open('l10n_lu_export_faia/'

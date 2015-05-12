@@ -27,3 +27,11 @@ from openerp import models, fields, api
 
 class faia_export(models.TransientModel):
     _name = 'faia.export'
+
+    def default_fiscal_year(self):
+        self.fiscal_year_id = self.env.context['active_ids'][0]
+
+    fiscal_year_id = fields.Many2one(
+        comodel='account.fiscalyear', string="Fiscal Year",
+        default=default_fiscal_year)
+

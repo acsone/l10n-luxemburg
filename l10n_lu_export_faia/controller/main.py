@@ -30,8 +30,10 @@ from openerp.addons.web.http import Controller, route, request
 
 class main(Controller):
 
+    #docids corresponds to the active_ids in the context
     @route(['/report/export_faia_lu/<docids>'], type='http', auth='user')
     def report_faia(self, docids):
+        docids = [int(i) for i in docids.split(',')]
         fiscalyear_model = request.registry.get('account.fiscalyear')
 
         result = fiscalyear_model.get_faia_data(
