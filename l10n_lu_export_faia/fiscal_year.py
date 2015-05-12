@@ -80,6 +80,7 @@ def write_account_faia(account, writer):
     # The type need to be improve
     # Should be either Asset/Liability/Sale/Expense
     write_mandatory("AccountType", account.user_type.name, writer)
+
     write_mandatory("OpeningDebitBalance", "0.0", writer)
     write_mandatory("ClosingDebitBalance", "0.0", writer)
 
@@ -145,6 +146,20 @@ class account_fiscalyear(models.Model):
 
         account_period_ids = [p.id for p in self.period_ids]
 
+        account_moves_count = self.env['account.move'].search_count([
+            ('period_id', 'in', account_period_ids)])
+
+        self.env.cr.execute("""
+            SELECT 
+                SUM(credit),
+                SUM(debit)
+            FROM account_move_line
+            WHERE
+                period_id in %s
+        """, (tuple(account_period_ids),))
+
+        total_credit, total_debit = self.env.cr.fetchall()[0]
+
         with StreamingXMLWriter(s) as writer:
             with writer.element("AuditFile"):
                 with writer.element("Header"):
@@ -168,9 +183,9 @@ class account_fiscalyear(models.Model):
                             with writer.element("Account"):
                                 write_account_faia(account, writer)
                 with writer.element("GeneralLedgerEntries"):
-                    write_mandatory("NumberOfEntries", "0", writer)
-                    write_mandatory("TotalDebit", "0", writer)
-                    write_mandatory("TotalCredit", "0", writer)
+                    write_mandatory("NumberOfEntries", account_moves_count, writer)
+                    write_mandatory("TotalDebit", total_debit, writer)
+                    write_mandatory("TotalCredit", total_credit, writer)
                     for journal in journals:
                         with writer.element("Journal"):
                             write_journal_faia(journal, account_period_ids, writer)
