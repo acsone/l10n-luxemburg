@@ -99,14 +99,23 @@ def write_journal_faia(journal, account_period_ids, writer):
 
 
 def write_account_move_faia(move, writer):
+    force_year = move.env.context.get('force_year_faia_export')
+    force_date = move.env.context.get('force_date_faia_export')
+
+    period_year = fields.Date.from_string(move.period_id.date_start).year
+    period_year = force_year and force_year or period_year
+
+    date = fields.Date.from_string(move.date).isoformat()
+    date = force_date and force_date or date
+
+    create_date = fields.Date.from_string(move.create_date).isoformat()
+    create_date = force_date and force_date or create_date
+
     write_mandatory("TransactionID", move.id, writer)
     write_mandatory("Period", move.period_id.id, writer)
-    period_year = fields.Date.from_string(move.period_id.date_start).year
     write_mandatory("PeriodYear", period_year, writer)
-    date = fields.Date.from_string(move.date).isoformat()
     write_mandatory("TransactionDate", date, writer)
     write_mandatory("Description", move.name, writer)
-    create_date = fields.Date.from_string(move.create_date).isoformat()
     write_mandatory("SystemEntryDate", date, writer)
     # No posting date in odoo, so use the create_date instead
     write_mandatory("GLPostingDate", create_date, writer)
@@ -137,7 +146,9 @@ class account_fiscalyear(models.Model):
     @api.one
     def get_faia_data(self):
         s = StringIO()
-        date_now = date.today().isoformat()
+        force_date = self.env.context.get('force_date_faia_export')
+
+        date_now = force_date and force_date or date.today().isoformat()
         current_company = self.env.user.company_id
         accounts = self.env['account.account'].search(
             [('company_id', '=', current_company.id)])
