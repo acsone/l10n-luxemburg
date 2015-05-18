@@ -46,9 +46,9 @@
 
     # always loaded
     'data': [
-        'data/l10n_lu_mis_reports.mis_report_pl.xml',
-        'data/l10n_lu_mis_reports.mis_report_bs.xml',
-        'data/l10n_lu_mis_reports.mis_report_abr_pl.xml',
-        'data/l10n_lu_mis_reports.mis_report_abr_bs.xml',
+        'data/mis_report_pl.xml',
+        'data/mis_report_bs.xml',
+        'data/mis_report_abr_pl.xml',
+        'data/mis_report_abr_bs.xml',
     ],
 }
