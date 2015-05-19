@@ -23,12 +23,12 @@ according to the desired time periods and using one of the following
 templates provided by this module:
 
 * Luxembourg Profit & Loss
-* Luxembourg Luxembourg Balance Sheet
+* Luxembourg Balance Sheet
 * Luxembourg Profit & Loss (abbreviated)
-* Luxembourg Luxembourg Balance Sheet (abbreviated)
+* Luxembourg Balance Sheet (abbreviated)
 
 To obtain correct results, the account codes prefixes must match the official
-Luxemburg chart of account.
+Luxembourg chart of account.
 
 Usage
 =====
