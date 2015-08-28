@@ -26,7 +26,7 @@
     'name': 'Luxembourg MIS Builder templates',
     'summary': """
         MIS Report templates for the Luxembourg P&L and Balance Sheets""",
-    'author': 'ACSONE SA/NV,
+    'author': 'ACSONE SA/NV,'
               'Odoo Community Association (OCA)',
     'website': 'http://acsone.eu',
     'category': 'Reporting',
