@@ -23,28 +23,18 @@
 #
 ##############################################################################
 {
-    'name': "l10n_lu_mis_reports",
-
+    'name': 'Luxembourg MIS Builder templates',
     'summary': """
         MIS Report templates for the Luxembourg P&L and Balance Sheets""",
-
-    # 'description': put the module description in README.rst
-
-    'author': "ACSONE SA/NV",
-    'website': "http://acsone.eu",
-
-    # Categories can be used to filter modules in modules listing
-    # Check http://goo.gl/0TfwzD for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
+    'author': 'ACSONE SA/NV,
+              'Odoo Community Association (OCA)',
+    'website': 'http://acsone.eu',
+    'category': 'Reporting',
+    'version': '8.0.1.0',
     'license': 'AGPL-3',
-
-    # any module necessary for this one to work correctly
     'depends': [
-        'mis_builder',
+        'mis_builder',  # OCA/account-financial-reporting
     ],
-
-    # always loaded
     'data': [
         'data/mis_report_pl.xml',
         'data/mis_report_bs.xml',
