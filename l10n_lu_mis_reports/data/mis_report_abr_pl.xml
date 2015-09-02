@@ -173,7 +173,7 @@
       <field name="report_id" ref="mis_report_abr_pl"/>
       <field name="name">fr444</field>
       <field name="description">b) autres intérêts et charges</field>
-      <field name="expression">balp[654%,6551%,6552%,6553%,6555%,6556%,6558%,656%,657%,658%,659%]</field>
+      <field name="expression">balp[654%,6551%,6552%,6553%,6555%,6556%,6558%,656%,658%,659%]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
