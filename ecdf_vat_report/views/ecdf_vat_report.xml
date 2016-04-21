@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	<!-- List view of VAT reports -->
+	<record model="ir.ui.view" id="vat_report_view_tree">
+            <field name="name">vat.report.view.tree</field>
+            <field name="model">vat.report</field>
+            <field name="arch" type="xml">
+                <tree string="VAT reports">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="type"/>
+                    <field name="year"/>
+                </tree>
+            </field>
+    </record>
+    
+    <!-- Search view of VAT reports -->
+    <record model="ir.ui.view" id="vat_report_view_search">
+    	<field name="name">vat.report.view.search</field>
+    	<field name="model">vat.report</field>
+    	<field name="arch" type="xml">
+    		<search>
+    			<field name="name" filter_domain="[('name', 'ilike', self)]"/>
+    			<field name="description" filter_domain="[('description', 'ilike', self)]"/>
+    			<field name="regime" filter_domain="[('regime', 'ilike', self)]"/>
+    			<field name="company_id" filter_domain="[('company_id.name', 'ilike', self)]"/>
+    			<field name="agent_id" filter_domain="[('agent_id.name', 'ilike', self)]"/>
+    			<field name="regime" filter_domain="[('regime', 'ilike', self)]"/>
+    			<field name="year" filter_domain="[('year', 'ilike', self)]"/>
+    			<field name="type" filter_domain="[('type', 'ilike', self)]"/>
+    			<filter string="This year" domain="[('year', '=', datetime.date.today().year)]" help="Declarations for this year"/>
+    			<filter string="Monthly" domain="[('type', '=', 'month')]" help="Monthly declarations"/>
+    			<filter string="Annual" domain="[('type', '=', 'year')]" help="Annual declarations"/>
+    			<filter string="Sales" domain="[('regime', '=', 'sales')]" help="Tax regime : sales"/>
+    			<filter string="Revenues" domain="[('regime', '=', 'revenues')]" help="tax regime : revenues"/>
+    			<group expand="0" string="Group by">
+    				<filter string="Type" domain="[]" context="{'group_by':'type'}"/>
+    				<filter string="Year" domain="[]" context="{'group_by':'year'}"/>
+    				<filter string="Language" domain="[]" context="{'group_by':'language'}"/>
+    				<filter string="Period" domain="[]" context="{'group_by':'period'}"/>
+    				<filter string="Agent" domain="[]" context="{'group_by':'agent_id'}"/>
+    				<filter string="Tax Regime" domain="[]" context="{'group_by':'regime'}"/>
+    			</group>
+    		</search>
+    	</field>
+    </record>
+    
+    <!-- Form view of VAT report -->
+    <record model="ir.ui.view" id="mis_report_view_form">
+    	<field name="name">vat.report.view.form</field>
+        <field name="model">vat.report</field>
+        <field name="arch" type="xml">
+        	<form string="VAT Report">
+        		<header>
+        			<button name="check_report" type="object" string="Download XML" class="oe_highlight" icon="fa-download" help="Download the VAT report in XML format, ready for eCDF"/>
+        			<button name="generate_lines" type="object" string="Generate" class="oe_edit_only" icon="fa-play" help="Generate the automatic lines and erase user-added lines"/>
+        			<button name="refresh_lines" type="object" string="Refresh" class="oe_edit_only" icon="fa-refresh" help="Refresh the automatic lines and keep user-added lines"/>
+        			<button name="clear_lines" type="object" string="Clean up" class="oe_edit_only" icon="fa-eraser" help="Remove all lines"/>
+		               			
+        		</header>
+        		<sheet>
+	        		<group>
+			        	<group>
+			        		<separator string="Main information"/>
+			        		<separator></separator>
+		        			<field name="name"/>
+		        			<field name="description"/>
+		        			<field name="company_id"/>
+		        			<field name="language" widget="radio"/>
+	        				
+		        		</group>
+		        		<group>
+		        			<separator string="Report options"/>
+		        			<separator></separator>
+		        			<field name="agent_id" help="If no agent, company data will be used"/>
+		        			<field name="year"/>
+	        				<field name="type" widget="radio"/>
+	        				<field name="period" attrs="{'invisible': [('type', '=', 'year')]}"/>
+		        		</group>
+		        	</group>
+		        		<separator string="Lines"/>
+		        		<field name="line_ids">
+	                    	<tree editable="bottom">
+	                    		<field name="sequence" widget="handle"/>
+		                        <field name="description" attrs="{'readonly':[('isAutomatic', '=', True)]}"/>
+		                        <field name="code" attrs="{'readonly':[('isAutomatic', '=', True)]}"/>
+		                        <field name="value" attrs="{'readonly':[('isAutomatic', '=', True)]}"/>
+		                        <field name="isAutomatic" invisible="1"/>
+	                    	</tree>
+                		</field>
+        		</sheet>
+        	</form>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="vat_report_view_action">
+		<field name="name">VAT Reports</field>
+		<field name="view_id" ref="vat_report_view_tree"/>
+		<field name="res_model">vat.report</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="vat_report_menu" parent="account.menu_finance_reports" name="VAT Reports" action="vat_report_view_action" sequence="101"/>
+	
+	</data>
+</openerp>
