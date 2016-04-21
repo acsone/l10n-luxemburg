@@ -622,7 +622,8 @@ class VatReport(models.Model):
                             'report_id': record.id})
 
             else:
-                print("TODO : ANNUAL DECLARATION")
+                raise osv.except_osv(_('Not implemented'),
+                                     _('Annual declaration is not available'))
 
     @api.multi
     def refresh_lines(self):
@@ -675,7 +676,8 @@ class VatReport(models.Model):
                             'report_id': record.id})
 
             else:
-                print("TODO : ANNUAL DECLARATION")
+                raise osv.except_osv(_('Not implemented'),
+                                     _('Annual declaration is not available'))
 
 
 class VatReportLine(models.Model):
