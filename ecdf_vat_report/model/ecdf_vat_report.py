@@ -373,7 +373,7 @@ class VatReport(models.Model):
             declaration.append(form_data)
 
             return declaration
-        
+
     @api.multi
     def _fetch_queries(self):
         '''
@@ -400,7 +400,7 @@ class VatReport(models.Model):
         localdict = {
             'registry': self.pool,
         }
-        
+
         # Update the local dictionary with the user-added lines values
         localdict.update(self._fetch_queries())
 
@@ -567,7 +567,7 @@ class VatReport(models.Model):
             for line in record.line_ids:
                 line.isAutomatic = False
             record.line_ids = False
-            
+
     @api.multi
     def generate_lines(self):
         '''
@@ -578,7 +578,7 @@ class VatReport(models.Model):
             if record.type == 'month':
                 # Clear lines
                 record.clear_lines()
-                
+
                 # Initialize the period to compute
                 nb_days = calendar.monthrange(record.year, record.period)[1]
                 date_start = datetime.date(record.year, record.period, 1)
@@ -620,7 +620,7 @@ class VatReport(models.Model):
                             'value': line['cols'][0]['val'],
                             'isAutomatic': False,
                             'report_id': record.id})
-                    
+
             else:
                 print("TODO : ANNUAL DECLARATION")
 
@@ -634,7 +634,7 @@ class VatReport(models.Model):
             # If no line, stop
             if not record.line_ids:
                 return
-            
+
             if record.type == 'month':
                 # Initialize the period to compute
                 nb_days = calendar.monthrange(record.year, record.period)[1]
@@ -673,7 +673,7 @@ class VatReport(models.Model):
                             'value': line['cols'][0]['val'],
                             'isAutomatic': True,
                             'report_id': record.id})
-                    
+
             else:
                 print("TODO : ANNUAL DECLARATION")
 
