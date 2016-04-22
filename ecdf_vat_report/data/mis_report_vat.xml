@@ -1423,7 +1423,7 @@
       <field name="default_css_style"/>
       <field name="sequence">1290</field>
     </record>
-    <record id="mis_report_vat_ecdf_152" model="mis.report.kpi">
+    <record id="mis_report_vat_ext_152" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ext_152</field>
       <field name="description">II.C. Acquisitions effectuées dans le cadre d'opérations triangulaires – base</field>
@@ -1819,16 +1819,82 @@
       <field name="default_css_style">font-style: italic</field>
       <field name="sequence">1650</field>
     </record>
+    <record id="mis_report_vat_ecdf_765" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_765</field>
+      <field name="description">II.E.3. base</field>
+      <field name="expression">ecdf_761+ecdf_420</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">1551</field>
+    </record>
+    <record id="mis_report_vat_ext_761" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_761</field>
+      <field name="description">II.E.3. base 17%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1650</field>
+    </record>
+    <record id="mis_report_vat_ext_420" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_420</field>
+      <field name="description">II.E.3. base 15%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1650</field>
+    </record>
     <record id="mis_report_vat_ecdf_409" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_409</field>
       <field name="description">II.E. Prestations de services à déclarer par le preneur redevable de la taxe – base</field>
-      <field name="expression">+ecdf_436+ecdf_463</field>
+      <field name="expression">+ecdf_436+ecdf_463+ecdf_765+ecdf_435</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="default_css_style">font-weight: bold</field>
       <field name="sequence">1660</field>
+    </record>
+    <record id="mis_report_vat_ecdf_767" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_767</field>
+      <field name="description">II.F. Livraisons de biens à déclarer par l'acquéreur redevable de la taxe – base</field>
+      <field name="expression">+ecdf_763+ecdf_222</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-weight: bold</field>
+      <field name="sequence">1661</field>
+    </record>
+    <record id="mis_report_vat_ext_763" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_763</field>
+      <field name="description">II.F. base 8%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1662</field>
+    </record>
+    <record id="mis_report_vat_ext_222" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_222</field>
+      <field name="description">II.F. base 6%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1663</field>
     </record>
     <record id="mis_report_vat_ecdf_b_V_ART_43_60b" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
@@ -2131,12 +2197,45 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_012</field>
       <field name="description">I.A. Chiffre d'affaires global</field>
-      <field name="expression">+ecdf_021+ecdf_022</field>
+      <field name="expression">+ecdf_454+ecdf_455+ecdf_456</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="default_css_style">font-weight: bold</field>
       <field name="sequence">1940</field>
+    </record>
+    <record id="mis_report_vat_ext_454" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_454</field>
+      <field name="description">I.A.2. Total des Ventes / Recettes</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1941</field>
+    </record>
+    <record id="mis_report_vat_ext_455" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_455</field>
+      <field name="description">I.A.3. Prélèvements privés de biens et affectation de biens (art.13)</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1942</field>
+    </record>
+    <record id="mis_report_vat_ext_456" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_456</field>
+      <field name="description">I.A.4. Utilisation privée de biens et prélèvements privés de services (art.16) </field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">1943</field>
     </record>
     <record id="mis_report_vat_ecdf_457" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
@@ -2226,7 +2325,7 @@
       <field name="default_css_style">font-style: italic</field>
       <field name="sequence">2020</field>
     </record>
-    <record id="mis_report_vat_ecdf_226" model="mis.report.kpi">
+    <record id="mis_report_vat_ext_226" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ext_226</field>
       <field name="description">I.B.6.c) Opérations réalisées dans le cadre du régime particulier de l'article 56sexies</field>
@@ -2248,9 +2347,9 @@
       <field name="default_css_style">font-style: italic</field>
       <field name="sequence">2040</field>
     </record>
-    <record id="mis_report_vat_ecdf_419" model="mis.report.kpi">
+    <record id="mis_report_vat_ext_419" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
-      <field name="name">ecdf_419</field>
+      <field name="name">ext_419</field>
       <field name="description">I.B.7. Opérations à l'intérieur du pays pour lesquelles le preneur est le redevable</field>
       <field name="expression">0</field>
       <field name="suffix">€</field>
@@ -2373,7 +2472,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_037</field>
       <field name="description">II.A. Ventilation du chiffre d'affaires imposable – base</field>
-      <field name="expression">+ecdf_029+ecdf_030+ecdf_031+ecdf_032+ecdf_033+ecdf_701+ecdf_703+ecdf_705</field>
+      <field name="expression">+ecdf_029+ecdf_030+ecdf_031+ecdf_032+ecdf_033+ecdf_701+ecdf_703+ecdf_705+ecdf_416+ecdf_451</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3011,7 +3110,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_046</field>
       <field name="description">II.A. Ventilation du chiffre d'affaires imposable – taxe</field>
-      <field name="expression">+ecdf_038+ecdf_039+ecdf_040+ecdf_041+ecdf_042+ecdf_702+ecdf_704+ecdf_706</field>
+      <field name="expression">+ecdf_038+ecdf_039+ecdf_040+ecdf_041+ecdf_042+ecdf_702+ecdf_704+ecdf_706+ecdf_417+ecdf_452</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3447,22 +3546,99 @@
       <field name="default_css_style"/>
       <field name="sequence">3130</field>
     </record>
+    <record id="mis_report_vat_ecdf_766" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_766</field>
+      <field name="description">II.E.3. taxe</field>
+      <field name="expression">+ecdf_762+ecdf_421</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3131</field>
+    </record>
+    <record id="mis_report_vat_ext_762" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_762</field>
+      <field name="description">II.E.3. taxe 17%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3132</field>
+    </record>
+    <record id="mis_report_vat_ext_421" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_421</field>
+      <field name="description">II.E.3. taxe 15%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3133</field>
+    </record>
     <record id="mis_report_vat_ecdf_410" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_410</field>
       <field name="description">II.E. Prestations de services à déclarer par le preneur redevable de la taxe – taxe</field>
-      <field name="expression">+ecdf_462+ecdf_464</field>
+      <field name="expression">+ecdf_462+ecdf_464+ecdf_766</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="default_css_style"/>
       <field name="sequence">3140</field>
     </record>
+    <record id="mis_report_vat_ecdf_768" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_768</field>
+      <field name="description">II.F. Livraisons de biens à déclarer par l'acquéreur redevable de la taxe – taxe</field>
+      <field name="expression">+ecdf_764+ecdf_223</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3141</field>
+    </record>
+    <record id="mis_report_vat_ext_764" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_764</field>
+      <field name="description">II.F. taxe 8%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3142</field>
+    </record>
+    <record id="mis_report_vat_ext_223" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_223</field>
+      <field name="description">II.F. taxe 6%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3143</field>
+    </record>
+    <record id="mis_report_vat_ext_227" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_227</field>
+      <field name="description">II.G. Régime particulier suspensif: régularisation (art.60bis, par.5 et 8)</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3141</field>
+    </record>
     <record id="mis_report_vat_ecdf_076" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_076</field>
       <field name="description">II.H. Total de la taxe en aval</field>
-      <field name="expression">+ecdf_046+ecdf_056+ecdf_407+ecdf_410</field>
+      <field name="expression">+ecdf_046+ecdf_056+ecdf_407+ecdf_410+ecdf_768+ecdf_227</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3502,7 +3678,7 @@
       <field name="default_css_style"/>
       <field name="sequence">3180</field>
     </record>
-    <record id="mis_report_vat_ecdf_090" model="mis.report.kpi">
+    <record id="mis_report_vat_ext_090" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ext_090</field>
       <field name="description">III.A.4. Affectations de biens (art.48/1/d)</field>
@@ -3524,7 +3700,7 @@
       <field name="default_css_style"/>
       <field name="sequence">3200</field>
     </record>
-    <record id="mis_report_vat_ecdf_092" model="mis.report.kpi">
+    <record id="mis_report_vat_ext_092" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ext_092</field>
       <field name="description">III.A.6. Taxe acquittée comme caution solidaire</field>
@@ -3535,7 +3711,7 @@
       <field name="default_css_style"/>
       <field name="sequence">3210</field>
     </record>
-    <record id="mis_report_vat_ecdf_228" model="mis.report.kpi">
+    <record id="mis_report_vat_ext_228" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ext_228</field>
       <field name="description">III.A.7. Taxe régularisée - régime particulier suspensif (art.60bis/9, al. 2)</field>
@@ -3557,16 +3733,49 @@
       <field name="default_css_style"/>
       <field name="sequence">3230</field>
     </record>
-    <record id="mis_report_vat_ecdf_102" model="mis.report.kpi">
+    <record id="mis_report_vat_ecdf_097" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
-      <field name="name">ecdf_102</field>
-      <field name="description">III.C. Total de la taxe en amont déductible</field>
-      <field name="expression">+ecdf_093</field>
+      <field name="name">ecdf_097</field>
+      <field name="description">III.B. Total de la taxe en amont non déductible</field>
+      <field name="expression">ecdf_094+ecdf_095</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="default_css_style">font-style: italic</field>
-      <field name="sequence">3240</field>
+      <field name="sequence">3231</field>
+    </record>
+    <record id="mis_report_vat_ext_094" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_094</field>
+      <field name="description">III.B.1. en rapport avec des opérations exonérées en vertu des art. 44 et 56quater</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3232</field>
+    </record>
+    <record id="mis_report_vat_ext_095" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_095</field>
+      <field name="description">III.B.2. en application du prorata visé à l'article 50 </field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">3233</field>
+    </record>
+    <record id="mis_report_vat_ecdf_102" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_102</field>
+      <field name="description">III.C. Total de la taxe en amont déductible</field>
+      <field name="expression">+ecdf_093-ecdf_097</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style">font-style: italic</field>
+      <field name="sequence">3233</field>
     </record>
     <record id="mis_report_vat_ecdf_104" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
