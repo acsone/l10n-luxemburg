@@ -38,5 +38,5 @@
         "views/res_company.xml",
     ],
     "active": False,
-    'installable': False
+    'installable': True
 }
