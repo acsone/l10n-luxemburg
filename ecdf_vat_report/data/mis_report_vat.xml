@@ -2380,6 +2380,17 @@
       <field name="default_css_style"/>
       <field name="sequence">2070</field>
     </record>
+    <record id="mis_report_vat_ecdf_403" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_403</field>
+      <field name="description">II.A 0%</field>
+      <field name="expression">+0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2080</field>
+    </record>
     <record id="mis_report_vat_ecdf_033" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_033</field>
