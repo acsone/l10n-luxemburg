@@ -9,7 +9,8 @@
     'author': 'ACSONE SA/NV',
     'licence': 'AGPL-3',
     'website': 'http://acsone.eu',
-    'depends': ["l10n_lu_ext"],
+    'depends': ["l10n_lu_ext",
+                "mis_builder"],
     'data': [
         'views/ecdf_vat_report.xml',
         'views/res_company.xml',
