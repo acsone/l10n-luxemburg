@@ -14,6 +14,7 @@ from openerp.exceptions import ValidationError
 from openerp.osv import osv
 from openerp.report import report_sxw
 from openerp.tools.safe_eval import safe_eval
+from openerp.addons.mis_builder.models.accounting_none import AccountingNone
 
 
 class VatAgent(models.Model):
@@ -186,7 +187,8 @@ class VatReport(models.Model):
         for record in self:
             matr = record.company_id.l10n_lu_matricule
             if not matr:
-                raise ValueError("Matricule not present")
+                raise osv.except_osv(_('No matricule'), _('Matricule is not \
+                present'))
             return matr
 
     @api.multi
@@ -325,12 +327,8 @@ class VatReport(models.Model):
             choice_regime_sales = etree.Element('Choice', id='204')
             choice_regime_revenues = etree.Element('Choice', id='205')
             # 1 : True, 0: False
-            if regime == 'sales':
-                choice_regime_sales.text = '1'
-                choice_regime_revenues.text = '0'
-            else:
-                choice_regime_sales.text = '0'
-                choice_regime_revenues.text = '1'
+            choice_regime_sales.text = '1' if regime == 'sales' else '0'
+            choice_regime_revenues.text = '0' if regime == 'sales' else '1'
 
             # Append Tax regime fields
             form_data.append(choice_regime_sales)
@@ -338,10 +336,8 @@ class VatReport(models.Model):
 
             # Append numeric fields
             for line in record.line_ids:
-                record._append_num_field(form_data,
-                                         str(line.code),
-                                         line.value,
-                                         comment=line.description)
+                record._append_num_field(form_data, str(line.code),
+                                         line.value, comment=line.description)
 
     @api.multi
     def _get_vat_declaration(self, decl_type):
@@ -399,12 +395,14 @@ class VatReport(models.Model):
 
         localdict = {
             'registry': self.pool,
+            'AccountingNone': AccountingNone
         }
 
         # Update the local dictionary with the user-added lines values
         localdict.update(self._fetch_queries())
 
-        aep.do_queries(date_start, date_stop, self.target_move, [])
+        aep.do_queries(self.company_id, date_start, date_stop,
+                       self.target_move, [])
 
         compute_queue = kpi_ids
         recompute_queue = []
@@ -453,7 +451,7 @@ class VatReport(models.Model):
             aep = AEP(record.env)
             for kpi in mis_template.kpi_ids:
                 aep.parse_expr(kpi.expression)
-            aep.done_parsing()
+            aep.done_parsing(record.company_id)
             kpi_values = record._compute_period(date_start,
                                                 date_stop,
                                                 mis_template.kpi_ids,
