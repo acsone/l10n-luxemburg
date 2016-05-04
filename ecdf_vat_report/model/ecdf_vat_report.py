@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+'''
+This module provides a generated monthly VAT declaration ready for eCDF
+Values are computed with MIS Builder
+Some lines of the declaration are editable
+'''
 
 import calendar
 import datetime
@@ -290,6 +295,13 @@ class VatReport(models.Model):
             mis_report = mis_env.search([('id', '=', mis_report_id)])
             return mis_report
 
+    # Mandatory codes
+    KEEP_ZERO = (
+        "012", "014", "018", "021", "022", "037", "046", "051", "056", "065",
+        "076", "093", "097", "102", "103", "104", "105", "152", "407", "409",
+        "410", "419", "423", "436", "457", "462", "463", "464", "765", "766",
+        "767", "768",)
+
     def _append_num_field(self, element, ecdf, val, comment=None):
         '''
         A numeric field's value can be a integer or a float
@@ -299,10 +311,9 @@ class VatReport(models.Model):
         :param element: XML node
         :param ecdf: eCDF technical code
         :param val: value to add in the XML node
-        :param zero: if True, val has to be turned into 0.0 (default False)
         :param comment: Optional comment (default None)
         '''
-        if val is None:
+        if val in [None, AccountingNone] and ecdf not in self.KEEP_ZERO:
             return
         # Round value, two decimal places
         value = round(val, 2)
