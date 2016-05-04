@@ -2197,7 +2197,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_012</field>
       <field name="description">I.A. Chiffre d'affaires global</field>
-      <field name="expression">+ecdf_021+ecdf_022</field>
+      <field name="expression">+ecdf_454+ecdf_455+ecdf_456</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2384,12 +2384,34 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_403</field>
       <field name="description">II.A 0%</field>
-      <field name="expression">+0</field>
+      <field name="expression">0</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="default_css_style"/>
-      <field name="sequence">2080</field>
+      <field name="sequence">2071</field>
+    </record>
+    <record id="mis_report_vat_ext_418" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_418</field>
+      <field name="description">II.A _%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2072</field>
+    </record>
+    <record id="mis_report_vat_ext_453" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ecdf_453</field>
+      <field name="description">II.A _%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2073</field>
     </record>
     <record id="mis_report_vat_ecdf_033" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
@@ -2401,6 +2423,28 @@
       <field name="compare_method">pct</field>
       <field name="default_css_style"/>
       <field name="sequence">2080</field>
+    </record>
+    <record id="mis_report_vat_ext_416" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_416</field>
+      <field name="description">II.A. base _%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2081</field>
+    </record>
+    <record id="mis_report_vat_ext_451" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_451</field>
+      <field name="description">II.A. base _%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2082</field>
     </record>
     <record id="mis_report_vat_ecdf_032" model="mis.report.kpi">
       <field ref="mis_report_vat" name="report_id"/>
@@ -3033,6 +3077,28 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ext_042</field>
       <field name="description">II.A. taxe 0%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2660</field>
+    </record>
+    <record id="mis_report_vat_ext_417" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_417</field>
+      <field name="description">II.A. taxe _%</field>
+      <field name="expression">0</field>
+      <field name="suffix">€</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="default_css_style"/>
+      <field name="sequence">2660</field>
+    </record>
+    <record id="mis_report_vat_ext_452" model="mis.report.kpi">
+      <field ref="mis_report_vat" name="report_id"/>
+      <field name="name">ext_452</field>
+      <field name="description">II.A. taxe _%</field>
       <field name="expression">0</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
