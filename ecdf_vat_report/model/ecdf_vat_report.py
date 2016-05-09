@@ -295,12 +295,11 @@ class VatReport(models.Model):
             mis_report = mis_env.search([('id', '=', mis_report_id)])
             return mis_report
 
-    # Mandatory codes
-    KEEP_ZERO = (
-        "012", "014", "018", "021", "022", "037", "046", "051", "056", "065",
-        "076", "093", "097", "102", "103", "104", "105", "152", "407", "409",
-        "410", "419", "423", "436", "457", "462", "463", "464", "765", "766",
-        "767", "768",)
+    # Codes of lines that can be hidden if no move
+    HIDE_NO_MOVE = (
+        "015", "016", "017", "019", "090", "092", "094", "095", "194", "195",
+        "196", "226", "227", "228", "424", "435", "445", "454", "455", "456",
+        "458", "459", "460", "461",)
 
     def _append_num_field(self, element, ecdf, val, comment=None):
         '''
@@ -313,7 +312,7 @@ class VatReport(models.Model):
         :param val: value to add in the XML node
         :param comment: Optional comment (default None)
         '''
-        if val in [None, AccountingNone] and ecdf not in self.KEEP_ZERO:
+        if val in [None, AccountingNone] and ecdf in self.HIDE_NO_MOVE:
             return
         # Round value, two decimal places
         value = round(val, 2)
