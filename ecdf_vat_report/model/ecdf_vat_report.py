@@ -381,19 +381,24 @@ class VatReport(models.Model):
             return declaration
 
     @api.multi
-    def _fetch_queries(self):
+    def _fetch_queries(self, kpi_ids):
         '''
-        Fetch the user-added lines and store them in a dictionary
+        Set a value to each manual lines
         :returns: Dictionary ecdf_code: value
         '''
         res = {}
+        # first, set all manual codes to zero
+        for kpi in kpi_ids:
+            if kpi.name.startswith('ext_'):
+                res[str('ecdf_%s' % kpi.name.split('_')[1])] = 0
+        # then, set maual codes with user-added values
         for record in self:
             for line in record.line_ids:
                 if not line.isAutomatic:
                     res[str('ecdf_%s' % line.code)] = line.value
         return res
 
-    def _compute_period(self, date_start, date_stop, kpi_ids, aep):
+    def compute_period(self, date_start, date_stop, kpi_ids, aep):
         '''
         Computes the value of the kpi's for the specified period
         :param fiscal_year: Fiscal year to take into account
@@ -409,10 +414,9 @@ class VatReport(models.Model):
         }
 
         # Update the local dictionary with the user-added lines values
-        localdict.update(self._fetch_queries())
+        localdict.update(self._fetch_queries(kpi_ids))
 
-        aep.do_queries(self.company_id, date_start, date_stop,
-                       self.target_move, [])
+        aep.do_queries(self.company_id, date_start, date_stop)
 
         compute_queue = kpi_ids
         recompute_queue = []
