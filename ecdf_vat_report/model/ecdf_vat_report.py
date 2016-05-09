@@ -169,15 +169,15 @@ class VatReport(models.Model):
         for record in self:
             record.period = 1
 
-    @api.multi
-    def get_ecdf_file_version(self):
+    @staticmethod
+    def get_ecdf_file_version():
         '''
         :returns: the XML file version
         '''
         return '1.1'
 
-    @api.multi
-    def get_interface(self):
+    @staticmethod
+    def get_interface():
         '''
         :returns: eCDF interface ID (provided by eCDF)
         '''
@@ -452,7 +452,7 @@ class VatReport(models.Model):
         return res
 
     @api.multi
-    def _compute(self, mis_template, date_start, date_stop):
+    def compute(self, mis_template, date_start, date_stop):
         '''
         Builds the "content" dictionary, with name, technical name and values\
         for each KPI expression
@@ -466,10 +466,10 @@ class VatReport(models.Model):
             for kpi in mis_template.kpi_ids:
                 aep.parse_expr(kpi.expression)
             aep.done_parsing(record.company_id)
-            kpi_values = record._compute_period(date_start,
-                                                date_stop,
-                                                mis_template.kpi_ids,
-                                                aep)
+            kpi_values = record.compute_period(date_start,
+                                               date_stop,
+                                               mis_template.kpi_ids,
+                                               aep)
 
             # prepare content
             content = []
@@ -542,11 +542,7 @@ class VatReport(models.Model):
             declarer.append(rcs_declarer)
             declarer.append(vat_declarer)
             # Declaration lines
-            decl_type = ''
-            if record.type == 'month':  # Monthly declaration
-                decl_type = 'TVA_DECM'
-            else:  # Annual declaration
-                decl_type = 'TVA_DECA'
+            decl_type = 'TVA_DECM' if record.type == 'month' else 'TVA_DECA'
             declarer.append(record._get_vat_declaration(decl_type))
             # Declarer
             declarations.append(declarer)
@@ -606,7 +602,7 @@ class VatReport(models.Model):
                              has not been found.'))
 
                 # Compute values
-                mis_data = record._compute(mis_template, date_start, date_stop)
+                mis_data = record.compute(mis_template, date_start, date_stop)
 
                 # Regular expression to catch effective ecdf codes
                 exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
@@ -618,21 +614,15 @@ class VatReport(models.Model):
                 for line in mis_data['content']:
                     lm_ecdf = rexp_ecdf.match(line['kpi_technical_name'])
                     lm_ext = rexp_ext.match(line['kpi_technical_name'])
-                    if lm_ecdf:  # Read only lines
-                        record.env['vat.report.line'].create({
-                            'description': line['kpi_name'],
-                            'code': lm_ecdf.group('ecdf_code'),
-                            'value': line['cols'][0]['val'],
-                            'isAutomatic': True,
-                            'report_id': record.id})
-                    elif lm_ext:  # Editable lines
-                        record.env['vat.report.line'].create({
-                            'description': line['kpi_name'],
-                            'code': lm_ext.group('ecdf_code'),
-                            'value': line['cols'][0]['val'],
-                            'isAutomatic': False,
-                            'report_id': record.id})
-
+                    if not lm_ecdf and not lm_ext:
+                        continue
+                    record.env['vat.report.line'].create({
+                        'description': line['kpi_name'],
+                        'code': lm_ecdf.group('ecdf_code') if lm_ecdf
+                        else lm_ext.group('ecdf_code'),
+                        'value': line['cols'][0]['val'],
+                        'isAutomatic': True if lm_ecdf else False,
+                        'report_id': record.id})
             else:
                 raise osv.except_osv(_('Not implemented'),
                                      _('Annual declaration is not available'))
@@ -664,7 +654,7 @@ class VatReport(models.Model):
                              has not been found.'))
 
                 # Compute values
-                mis_data = record._compute(mis_template, date_start, date_stop)
+                mis_data = record.compute(mis_template, date_start, date_stop)
 
                 # Regular expression to catch effective ecdf codes
                 exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
@@ -686,7 +676,6 @@ class VatReport(models.Model):
                             'value': line['cols'][0]['val'],
                             'isAutomatic': True,
                             'report_id': record.id})
-
             else:
                 raise osv.except_osv(_('Not implemented'),
                                      _('Annual declaration is not available'))
@@ -752,13 +741,13 @@ class VatReportLine(models.Model):
             return models.Model.unlink(self)
 
 
-class create_xml(report_sxw.report_sxw):
+class CreateXML(report_sxw.report_sxw):
     '''
     XML report file
     '''
 
     def __init__(self, name):
-        super(create_xml, self).__init__(name, '')
+        super(CreateXML, self).__init__(name, '')
 
     def create(self, cr, uid, ids, data, context=None):
         xml = data['form']['xml']
@@ -780,4 +769,4 @@ class create_xml(report_sxw.report_sxw):
                 error.message
             )
 
-create_xml('report.create.xml')
+CreateXML('report.create.xml')
