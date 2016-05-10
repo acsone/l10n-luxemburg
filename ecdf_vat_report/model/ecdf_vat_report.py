@@ -13,13 +13,13 @@ from StringIO import StringIO
 from lxml import etree
 
 from openerp import api, fields, models, _, tools
+from openerp.addons.mis_builder.models.accounting_none import AccountingNone
 from openerp.addons.mis_builder.models.aep import\
     AccountingExpressionProcessor as AEP
 from openerp.exceptions import ValidationError
 from openerp.osv import osv
 from openerp.report import report_sxw
 from openerp.tools.safe_eval import safe_eval
-from openerp.addons.mis_builder.models.accounting_none import AccountingNone
 
 
 class VatAgent(models.Model):
@@ -296,7 +296,7 @@ class VatReport(models.Model):
             return mis_report
 
     # Codes of lines that can be hidden if no move
-    HIDE_NO_MOVE = (
+    NO_REQUIRED = (
         "015", "016", "017", "019", "090", "092", "094", "095", "194", "195",
         "196", "226", "227", "228", "424", "435", "445", "454", "455", "456",
         "458", "459", "460", "461",)
@@ -312,8 +312,12 @@ class VatReport(models.Model):
         :param val: value to add in the XML node
         :param comment: Optional comment (default None)
         '''
-        if val in [None, AccountingNone] and ecdf in self.HIDE_NO_MOVE:
+        if (val is None or val is AccountingNone) and ecdf in self.NO_REQUIRED:
             return
+
+        if val is None or val is AccountingNone:
+            val = 0.0
+
         # Round value, two decimal places
         value = round(val, 2)
         # Insert optional comment
@@ -346,8 +350,11 @@ class VatReport(models.Model):
 
             # Append numeric fields
             for line in record.line_ids:
-                record._append_num_field(form_data, str(line.code),
-                                         line.value, comment=line.description)
+                record._append_num_field(
+                    form_data, str(line.code),
+                    AccountingNone if line.isAccountingNone and
+                    line.value == 0.0 else line.value,
+                    comment=line.description)
 
     @api.multi
     def _get_vat_declaration(self, decl_type):
@@ -621,6 +628,8 @@ class VatReport(models.Model):
                         'code': lm_ecdf.group('ecdf_code') if lm_ecdf
                         else lm_ext.group('ecdf_code'),
                         'value': line['cols'][0]['val'],
+                        'isAccountingNone': True if line['cols'][0]['val']
+                        is AccountingNone else False,
                         'isAutomatic': True if lm_ecdf else False,
                         'report_id': record.id})
             else:
@@ -674,6 +683,8 @@ class VatReport(models.Model):
                             'description': line['kpi_name'],
                             'code': lm_ecdf.group('ecdf_code'),
                             'value': line['cols'][0]['val'],
+                            'isAccountingNone': True if line['cols'][0]['val']
+                            is AccountingNone else False,
                             'isAutomatic': True,
                             'report_id': record.id})
             else:
@@ -695,6 +706,8 @@ class VatReportLine(models.Model):
     code = fields.Char(string='eCDF code', required=True)
     # (Computed) value
     value = fields.Float(string='Value', required=True)
+    # Flag : true if value is from AccountingNone
+    isAccountingNone = fields.Boolean(required=True, default=False)
     # Sequence number
     sequence = fields.Integer(string='Sequence')
     # Flag : true if computed value, false otherwise
