@@ -62,18 +62,19 @@
         		</header>
         		<sheet>
 	        		<group>
+	        			<group>
+	        				<separator string="Main information"/>
+	        			</group>
 			        	<group>
-			        		<separator string="Main information"/>
-			        		<separator></separator>
+			        		<separator string="Report options"/>
+		        		</group>
+		        		<group>
 		        			<field name="name"/>
 		        			<field name="description"/>
 		        			<field name="company_id"/>
 		        			<field name="language" widget="radio"/>
-	        				
 		        		</group>
 		        		<group>
-		        			<separator string="Report options"/>
-		        			<separator></separator>
 		        			<field name="agent_id" help="If no agent, company data will be used"/>
 		        			<field name="year"/>
 	        				<field name="type" widget="radio"/>
