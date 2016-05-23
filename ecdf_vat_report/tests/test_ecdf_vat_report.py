@@ -3,7 +3,7 @@
 from openerp.tests import common
 # from lxml import etree
 # from datetime import datetime
-# import re as re
+import re as re
 from openerp.exceptions import ValidationError
 
 
@@ -106,4 +106,54 @@ class TestEcdfVatReport(common.TransactionCase):
         except ValidationError:
             self.fail()
 
-    # VAT REPORT # VAT REPORT LINE
+    # VAT REPORT 
+
+    def test_compute_file_name(self):
+        '''
+        File name must match the following pattern : 000000XyyyymmddThhmmssNN
+        '''
+        # Regular expression of the expected file name
+        exp = r"""^\d{6}X\d{8}T\d{8}$"""
+        rexp = re.compile(exp, re.X)
+
+        self.report._compute_file_name()
+
+        self.assertIsNotNone(rexp.match(self.report.file_name))
+        
+    def test_get_ecdf_file_version(self):
+        report_file_version = self.report.get_ecdf_file_version()
+        file_version = '1.1'
+
+        self.assertEqual(report_file_version, file_version)
+
+    def test_get_interface(self):
+        report_interface = self.report.get_interface()
+        interface = 'CODL7'
+
+        self.assertEqual(report_interface, interface)
+
+    def test_get_language(self):
+        language = self.report.get_language()
+        expected = 'FR'
+
+        self.assertEqual(language, expected)
+
+    def test_get_matr_agent(self):
+        report_matr = self.report.get_matr_agent()
+        expected = '1111111111111'
+
+        self.assertEqual(report_matr, expected)
+
+    def test_get_rcs_agent(self):
+        report_rcs = self.report.get_rcs_agent()
+        expected = 'L123456'
+
+        self.assertEqual(report_rcs, expected)
+
+    def test_get_vat_agent(self):
+        report_vat = self.report.get_vat_agent()
+        expected = '12345678'
+
+        self.assertEqual(report_vat, expected)
+    
+    # VAT REPORT LINE
