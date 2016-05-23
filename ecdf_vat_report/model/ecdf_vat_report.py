@@ -388,7 +388,7 @@ class VatReport(models.Model):
             return declaration
 
     @api.multi
-    def _fetch_queries(self, kpi_ids):
+    def _fetch_manual_lines(self, kpi_ids):
         '''
         Set a value to each manual lines
         :returns: Dictionary ecdf_code: value
@@ -421,7 +421,7 @@ class VatReport(models.Model):
         }
 
         # Update the local dictionary with the user-added lines values
-        localdict.update(self._fetch_queries(kpi_ids))
+        localdict.update(self._fetch_manual_lines(kpi_ids))
 
         aep.do_queries(self.company_id, date_start, date_stop)
 
