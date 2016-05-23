@@ -17,13 +17,13 @@ class TestEcdfVatReport(common.TransactionCase):
 
         self.agent = self.vat_agent.create({
             'name': 'Test Agent',
-            'matr': '0000000000000',
+            'matr': '1111111111111',
             'rcs': 'L123456',
             'vat': 'LU12345678'})
 
         self.report = self.vat_report.create({
-            'name': 'Test report',
-            'description': 'A report for unit tests...',
+            'name': 'Test Vat Report',
+            'description': 'A VAT report for unit tests',
             'language': 'FR',
             'type': 'month',
             'year': 2016,
@@ -32,19 +32,13 @@ class TestEcdfVatReport(common.TransactionCase):
             'regime': 'sales'})
 
         self.line1 = self.vat_report_line.create({
-            'description': 'Test Line 1',
+            'description': 'Vat report line 1',
             'code': '101',
             'value': 11.1,
             'report_id': self.report.id})
 
-        self.line2 = self.vat_report_line.create({
-            'description': 'Test Line 2',
-            'code': '102',
-            'value': 22.2,
-            'isAutomatic': True,
-            'report_id': self.report.id})
-
     # VAT AGENT
+
     def test_check_matr(self):
         '''
         Matricule must be 11 or 13 characters long
@@ -62,10 +56,6 @@ class TestEcdfVatReport(common.TransactionCase):
             self.agent.matr = '11111111111'
         except ValidationError:
             self.fail()
-
-        # No matricule
-        with self.assertRaises(ValidationError), self.cr.savepoint():
-            self.agent.matr = None
 
     def test_check_rcs(self):
         '''
@@ -94,10 +84,6 @@ class TestEcdfVatReport(common.TransactionCase):
         except ValidationError:
             self.fail()
 
-        # No RCS
-        with self.assertRaises(ValidationError), self.cr.savepoint():
-            self.agent.rcs = None
-
     def test_check_vat(self):
         '''
         VAT number must begin with two uppercase letters followed by 8 digits.
@@ -120,8 +106,4 @@ class TestEcdfVatReport(common.TransactionCase):
         except ValidationError:
             self.fail()
 
-        # No VAT
-        with self.assertRaises(ValidationError), self.cr.savepoint():
-            self.agent.vat = None
-
-    # VAT report # VAT REPORT LINE
+    # VAT REPORT # VAT REPORT LINE
