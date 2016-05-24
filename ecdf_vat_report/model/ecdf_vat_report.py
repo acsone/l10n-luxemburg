@@ -423,7 +423,7 @@ class VatReport(models.Model):
         # Update the local dictionary with the user-added lines values
         localdict.update(self._fetch_manual_lines(kpi_ids))
 
-        aep.do_queries(self.company_id, date_start, date_stop)
+        aep.do_queries(date_start, date_stop)
 
         compute_queue = kpi_ids
         recompute_queue = []
@@ -469,10 +469,10 @@ class VatReport(models.Model):
         '''
         for record in self:
             # prepare AccountingExpressionProcessor
-            aep = AEP(record.env)
+            aep = AEP(record.company_id)
             for kpi in mis_template.kpi_ids:
                 aep.parse_expr(kpi.expression)
-            aep.done_parsing(record.company_id)
+            aep.done_parsing()
             kpi_values = record.compute_period(date_start,
                                                date_stop,
                                                mis_template.kpi_ids,
