@@ -11,16 +11,26 @@ class TestEcdfVatReport(common.TransactionCase):
     def setUp(self):
         super(TestEcdfVatReport, self).setUp()
 
+        # Environements
         self.vat_agent = self.env['vat.agent']
         self.vat_report = self.env['vat.report']
         self.vat_report_line = self.env['vat.report.line']
+        self.res_company = self.env['res.company']
 
+        # Company instance
+        self.company = self.env.ref('base.main_company')
+        self.company.l10n_lu_matricule = '0000000000000'
+        self.company.company_registry = 'L654321'
+        self.company.vat = 'LU12345613'
+
+        # VAT agent instance
         self.agent = self.vat_agent.create({
             'name': 'Test Agent',
             'matr': '1111111111111',
             'rcs': 'L123456',
             'vat': 'LU12345678'})
 
+        # VAT report instance
         self.report = self.vat_report.create({
             'name': 'Test Vat Report',
             'description': 'A VAT report for unit tests',
@@ -31,6 +41,7 @@ class TestEcdfVatReport(common.TransactionCase):
             'agent_id': self.agent.id,
             'regime': 'sales'})
 
+        # VAT report line instance
         self.line1 = self.vat_report_line.create({
             'description': 'Vat report line 1',
             'code': '101',
