@@ -8,7 +8,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_12</field>
       <field name="description">Base - Achat Biens 12% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -19,7 +19,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_12</field>
       <field name="description">Base - Achat Biens 12% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -30,7 +30,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_12</field>
       <field name="description">Base - Achat Biens 12% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -41,7 +41,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_14</field>
       <field name="description">Base - Achat Biens 14% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -52,7 +52,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_14</field>
       <field name="description">Base - Achat Biens 14% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -63,7 +63,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_14</field>
       <field name="description">Base - Achat Biens 14% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -74,7 +74,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_15</field>
       <field name="description">Base - Achat Biens 15% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -85,7 +85,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_15</field>
       <field name="description">Base - Achat Biens 15% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -96,7 +96,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_15</field>
       <field name="description">Base - Achat Biens 15% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -107,7 +107,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_17</field>
       <field name="description">Base - Achat Biens 17% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -118,7 +118,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_17</field>
       <field name="description">Base - Achat Biens 17% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -129,7 +129,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_17</field>
       <field name="description">Base - Achat Biens 17% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -140,7 +140,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_3</field>
       <field name="description">Base - Achat Biens 3% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -151,7 +151,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_3</field>
       <field name="description">Base - Achat Biens 3% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -162,7 +162,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_3</field>
       <field name="description">Base - Achat Biens 3% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -173,7 +173,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_6</field>
       <field name="description">Base - Achat Biens 6% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -184,7 +184,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_6</field>
       <field name="description">Base - Achat Biens 6% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -195,7 +195,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_6</field>
       <field name="description">Base - Achat Biens 6% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -206,7 +206,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_8</field>
       <field name="description">Base - Achat Biens 8% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -217,7 +217,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_8</field>
       <field name="description">Base - Achat Biens 8% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -228,7 +228,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_8</field>
       <field name="description">Base - Achat Biens 8% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -239,7 +239,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_EC_0</field>
       <field name="description">Base - Achat Biens Exonéré - Extracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-EC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -250,7 +250,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_ECP_0</field>
       <field name="description">Base - Achat Biens Exonéré - Extracommunautaire fin privées</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-ECP-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-ECP-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -261,7 +261,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_IC_0</field>
       <field name="description">Base - Achat Biens Exonéré - Intracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-IC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -272,7 +272,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_12</field>
       <field name="description">Base - Achat Prestations 12% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -283,7 +283,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_12</field>
       <field name="description">Base - Achat Prestations 12% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -294,7 +294,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_14</field>
       <field name="description">Base - Achat Prestations 14% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -305,7 +305,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_14</field>
       <field name="description">Base - Achat Prestations 14% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -316,7 +316,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_15</field>
       <field name="description">Base - Achat Prestations 15% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -327,7 +327,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_15</field>
       <field name="description">Base - Achat Prestations 15% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -338,7 +338,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_17</field>
       <field name="description">Base - Achat Prestations 17% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -349,7 +349,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_17</field>
       <field name="description">Base - Achat Prestations 17% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -360,7 +360,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_3</field>
       <field name="description">Base - Achat Prestations 3% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -371,7 +371,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_3</field>
       <field name="description">Base - Achat Prestations 3% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -382,7 +382,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_6</field>
       <field name="description">Base - Achat Prestations 6% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -393,7 +393,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_6</field>
       <field name="description">Base - Achat Prestations 6% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -404,7 +404,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_8</field>
       <field name="description">Base - Achat Prestations 8% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -415,7 +415,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_8</field>
       <field name="description">Base - Achat Prestations 8% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -426,7 +426,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_EC_0</field>
       <field name="description">Base - Achat Prestations Exonérées - Extracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-EC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -437,7 +437,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_IC_0</field>
       <field name="description">Base - Achat Prestations Exonérées - Intracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-IC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -448,7 +448,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_12</field>
       <field name="description">Base - Frais Biens 12% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -459,7 +459,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_12</field>
       <field name="description">Base - Frais Biens 12% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -470,7 +470,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_12</field>
       <field name="description">Base - Frais Biens 12% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -481,7 +481,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_14</field>
       <field name="description">Base - Frais Biens 14% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -492,7 +492,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_14</field>
       <field name="description">Base - Frais Biens 14% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -503,7 +503,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_14</field>
       <field name="description">Base - Frais Biens 14% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -514,7 +514,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_15</field>
       <field name="description">Base - Frais Biens 15% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -525,7 +525,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_15</field>
       <field name="description">Base - Frais Biens 15% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -536,7 +536,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_15</field>
       <field name="description">Base - Frais Biens 15% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -547,7 +547,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_17</field>
       <field name="description">Base - Frais Biens 17% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -558,7 +558,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_17</field>
       <field name="description">Base - Frais Biens 17% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -569,7 +569,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_17</field>
       <field name="description">Base - Frais Biens 17% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -580,7 +580,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_3</field>
       <field name="description">Base - Frais Biens 3% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -591,7 +591,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_3</field>
       <field name="description">Base - Frais Biens 3% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -602,7 +602,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_3</field>
       <field name="description">Base - Frais Biens 3% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -613,7 +613,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_6</field>
       <field name="description">Base - Frais Biens 6% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -624,7 +624,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_6</field>
       <field name="description">Base - Frais Biens 6% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -635,7 +635,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_6</field>
       <field name="description">Base - Frais Biens 6% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -646,7 +646,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_8</field>
       <field name="description">Base - Frais Biens 8% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -657,7 +657,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_8</field>
       <field name="description">Base - Frais Biens 8% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -668,7 +668,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_8</field>
       <field name="description">Base - Frais Biens 8% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -679,7 +679,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_EC_0</field>
       <field name="description">Base - Frais Biens Exonéré - Extracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-EC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -690,7 +690,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_ECP_0</field>
       <field name="description">Base - Frais Biens Exonéré - Extracommunautaire fin privées</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-ECP-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-ECP-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -701,7 +701,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_IC_0</field>
       <field name="description">Base - Frais Biens Exonéré - Intracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-IC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -712,7 +712,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_12</field>
       <field name="description">Base - Frais Prestations 12% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -723,7 +723,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_12</field>
       <field name="description">Base - Frais Prestations 12% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -734,7 +734,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_14</field>
       <field name="description">Base - Frais Prestations 14% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -745,7 +745,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_14</field>
       <field name="description">Base - Frais Prestations 14% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -756,7 +756,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_15</field>
       <field name="description">Base - Frais Prestations 15% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -767,7 +767,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_15</field>
       <field name="description">Base - Frais Prestations 15% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -778,7 +778,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_17</field>
       <field name="description">Base - Frais Prestations 17% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -789,7 +789,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_17</field>
       <field name="description">Base - Frais Prestations 17% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -800,7 +800,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_3</field>
       <field name="description">Base - Frais Prestations 3% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -811,7 +811,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_3</field>
       <field name="description">Base - Frais Prestations 3% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -822,7 +822,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_6</field>
       <field name="description">Base - Frais Prestations 6% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -833,7 +833,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_6</field>
       <field name="description">Base - Frais Prestations 6% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -844,7 +844,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_8</field>
       <field name="description">Base - Frais Prestations 8% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -855,7 +855,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_8</field>
       <field name="description">Base - Frais Prestations 8% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -866,7 +866,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_EC_0</field>
       <field name="description">Base - Frais Prestations Exonérées - Extracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-EC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -877,7 +877,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_IC_0</field>
       <field name="description">Base - Frais Prestations Exonérées - Intracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-IC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -888,7 +888,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_12</field>
       <field name="description">Base - Investissement Biens 12% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -899,7 +899,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_12</field>
       <field name="description">Base - Investissement Biens 12% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -910,7 +910,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_12</field>
       <field name="description">Base - Investissement Biens 12% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -921,7 +921,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_14</field>
       <field name="description">Base - Investissement Biens 14% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -932,7 +932,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_14</field>
       <field name="description">Base - Investissement Biens 14% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -943,7 +943,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_14</field>
       <field name="description">Base - Investissement Biens 14% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -954,7 +954,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_15</field>
       <field name="description">Base - Investissement Biens 15% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -965,7 +965,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_15</field>
       <field name="description">Base - Investissement Biens 15% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -976,7 +976,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_15</field>
       <field name="description">Base - Investissement Biens 15% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -987,7 +987,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_17</field>
       <field name="description">Base - Investissement Biens 17% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -998,7 +998,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_17</field>
       <field name="description">Base - Investissement Biens 17% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1009,7 +1009,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_17</field>
       <field name="description">Base - Investissement Biens 17% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1020,7 +1020,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_3</field>
       <field name="description">Base - Investissement Biens 3% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1031,7 +1031,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_3</field>
       <field name="description">Base - Investissement Biens 3% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1042,7 +1042,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_3</field>
       <field name="description">Base - Investissement Biens 3% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1053,7 +1053,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_6</field>
       <field name="description">Base - Investissement Biens 6% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1064,7 +1064,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_6</field>
       <field name="description">Base - Investissement Biens 6% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1075,7 +1075,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_6</field>
       <field name="description">Base - Investissement Biens 6% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1086,7 +1086,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_8</field>
       <field name="description">Base - Investissement Biens 8% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1097,7 +1097,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_8</field>
       <field name="description">Base - Investissement Biens 8% - Extracommunautaire fin privées (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1108,7 +1108,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_8</field>
       <field name="description">Base - Investissement Biens 8% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1119,7 +1119,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_EC_0</field>
       <field name="description">Base - Investissement Biens Exonéré - Extracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-EC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1130,7 +1130,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_ECP_0</field>
       <field name="description">Base - Investissement Biens Exonéré - Extracommunautaire fin privées</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-ECP-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-ECP-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1141,7 +1141,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_IC_0</field>
       <field name="description">Base - Investissement Biens Exonéré - Intracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-IC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1152,7 +1152,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_12</field>
       <field name="description">Base - Investissement Prestations 12% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1163,7 +1163,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_12</field>
       <field name="description">Base - Investissement Prestations 12% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1174,7 +1174,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_14</field>
       <field name="description">Base - Investissement Prestations 14% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1185,7 +1185,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_14</field>
       <field name="description">Base - Investissement Prestations 14% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1196,7 +1196,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_15</field>
       <field name="description">Base - Investissement Prestations 15% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1207,7 +1207,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_15</field>
       <field name="description">Base - Investissement Prestations 15% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1218,7 +1218,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_17</field>
       <field name="description">Base - Investissement Prestations 17% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1229,7 +1229,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_17</field>
       <field name="description">Base - Investissement Prestations 17% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1240,7 +1240,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_3</field>
       <field name="description">Base - Investissement Prestations 3% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1251,7 +1251,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_3</field>
       <field name="description">Base - Investissement Prestations 3% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1262,7 +1262,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_6</field>
       <field name="description">Base - Investissement Prestations 6% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1273,7 +1273,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_6</field>
       <field name="description">Base - Investissement Prestations 6% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1284,7 +1284,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_8</field>
       <field name="description">Base - Investissement Prestations 8% - Extracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1295,7 +1295,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_8</field>
       <field name="description">Base - Investissement Prestations 8% - Intracommunautaire (+)</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1306,7 +1306,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_EC_0</field>
       <field name="description">Base - Investissement Prestations Exonérées - Extracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-EC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1317,7 +1317,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_IC_0</field>
       <field name="description">Base - Investissement Prestations Exonérées - Intracommunautaire</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-IC-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1900,7 +1900,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_V_ART_43_60b</field>
       <field name="description">Base - Vente - Autres Exonérations (Article 43 et 60 bis)</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'V-ART-43_60b')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'V-ART-43_60b')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1911,7 +1911,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_V_ART_44_56q</field>
       <field name="description">Base - Vente - Autres Exonérations (Article 44 et 56 quarter)</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'V-ART-44_56q')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'V-ART-44_56q')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1922,7 +1922,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_0</field>
       <field name="description">Base - Vente Biens 0% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1933,7 +1933,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_12</field>
       <field name="description">Base - Vente Biens 12% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-12')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1944,7 +1944,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_14</field>
       <field name="description">Base - Vente Biens 14% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-14')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1955,7 +1955,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_15</field>
       <field name="description">Base - Vente Biens 15% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-15')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1966,7 +1966,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_17</field>
       <field name="description">Base - Vente Biens 17% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-17')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1977,7 +1977,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_3</field>
       <field name="description">Base - Vente Biens 3% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-3')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1988,7 +1988,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_6</field>
       <field name="description">Base - Vente Biens 6% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-6')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -1999,7 +1999,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_8</field>
       <field name="description">Base - Vente Biens 8% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-8')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2010,7 +2010,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_EC_0</field>
       <field name="description">Base - Vente Biens - Extracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-EC-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2021,7 +2021,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_IC_0</field>
       <field name="description">Base - Vente Biens - Intracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-IC-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2032,7 +2032,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_EC_Tab</field>
       <field name="description">Base - Vente Biens Tabacs - Extracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-EC-Tab')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-EC-Tab')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2043,7 +2043,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_IC_Tab</field>
       <field name="description">Base - Vente Biens Tabacs - Intracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-IC-Tab')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-IC-Tab')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2054,7 +2054,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_PA_Tab</field>
       <field name="description">Base - Vente Biens Tabacs - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-PA-Tab')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-PA-Tab')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2065,7 +2065,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VB_TR_0</field>
       <field name="description">Base - Vente Biens – Triangulaire Intracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VB-TR-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VB-TR-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2076,7 +2076,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_0</field>
       <field name="description">Base - Vente Prestations 0% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2087,7 +2087,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_12</field>
       <field name="description">Base - Vente Prestations 12% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-12')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2098,7 +2098,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_14</field>
       <field name="description">Base - Vente Prestations 14% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-14')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2109,7 +2109,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_15</field>
       <field name="description">Base - Vente Prestations 15% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-15')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2120,7 +2120,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_17</field>
       <field name="description">Base - Vente Prestations 17% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-17')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2131,7 +2131,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_3</field>
       <field name="description">Base - Vente Prestations 3% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-3')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2142,7 +2142,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_6</field>
       <field name="description">Base - Vente Prestations 6% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-6')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2153,7 +2153,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_PA_8</field>
       <field name="description">Base - Vente Prestations 8% - Pays</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-8')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2164,7 +2164,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_EC_0</field>
       <field name="description">Base - Vente Prestations - Extracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-EC-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-EC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2175,7 +2175,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_IC_0</field>
       <field name="description">Base - Vente Prestations - Intracommunautaire</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-IC-0')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-IC-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2186,7 +2186,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_VP_IC_EX</field>
       <field name="description">Base - Vente Prestations - Intracommunautaire exonérées dans l'état membre</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-IC-EX')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-IC-EX')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2538,7 +2538,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_0</field>
       <field name="description">Base - Achat Biens 0% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2549,7 +2549,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_12</field>
       <field name="description">Base - Achat Biens 12% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2560,7 +2560,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_14</field>
       <field name="description">Base - Achat Biens 14% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2571,7 +2571,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_15</field>
       <field name="description">Base - Achat Biens 15% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2582,7 +2582,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_17</field>
       <field name="description">Base - Achat Biens 17% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2593,7 +2593,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_3</field>
       <field name="description">Base - Achat Biens 3% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2604,7 +2604,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_6</field>
       <field name="description">Base - Achat Biens 6% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2615,7 +2615,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AB_PA_8</field>
       <field name="description">Base - Achat Biens 8% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AB-PA-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AB-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2626,7 +2626,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_0</field>
       <field name="description">Base - Achat Prestations 0% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2637,7 +2637,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_12</field>
       <field name="description">Base - Achat Prestations 12% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2648,7 +2648,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_14</field>
       <field name="description">Base - Achat Prestations 14% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2659,7 +2659,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_15</field>
       <field name="description">Base - Achat Prestations 15% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2670,7 +2670,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_17</field>
       <field name="description">Base - Achat Prestations 17% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2681,7 +2681,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_3</field>
       <field name="description">Base - Achat Prestations 3% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2692,7 +2692,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_6</field>
       <field name="description">Base - Achat Prestations 6% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2703,7 +2703,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_AP_PA_8</field>
       <field name="description">Base - Achat Prestations 8% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'AP-PA-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'AP-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2714,7 +2714,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_0</field>
       <field name="description">Base - Frais Biens 0% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2725,7 +2725,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_12</field>
       <field name="description">Base - Frais Biens 12% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2736,7 +2736,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_14</field>
       <field name="description">Base - Frais Biens 14% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2747,7 +2747,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_15</field>
       <field name="description">Base - Frais Biens 15% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2758,7 +2758,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_17</field>
       <field name="description">Base - Frais Biens 17% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2769,7 +2769,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_3</field>
       <field name="description">Base - Frais Biens 3% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2780,7 +2780,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_6</field>
       <field name="description">Base - Frais Biens 6% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2791,7 +2791,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FB_PA_8</field>
       <field name="description">Base - Frais Biens 8% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FB-PA-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FB-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2802,7 +2802,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_0</field>
       <field name="description">Base - Frais Prestations 0% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2813,7 +2813,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_12</field>
       <field name="description">Base - Frais Prestations 12% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2824,7 +2824,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_14</field>
       <field name="description">Base - Frais Prestations 14% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2835,7 +2835,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_15</field>
       <field name="description">Base - Frais Prestations 15% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2846,7 +2846,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_17</field>
       <field name="description">Base - Frais Prestations 17% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2857,7 +2857,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_3</field>
       <field name="description">Base - Frais Prestations 3% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2868,7 +2868,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_6</field>
       <field name="description">Base - Frais Prestations 6% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2879,7 +2879,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_FP_PA_8</field>
       <field name="description">Base - Frais Prestations 8% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'FP-PA-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'FP-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2890,7 +2890,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_0</field>
       <field name="description">Base - Investissement Biens 0% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2901,7 +2901,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_12</field>
       <field name="description">Base - Investissement Biens 12% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2912,7 +2912,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_14</field>
       <field name="description">Base - Investissement Biens 14% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2923,7 +2923,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_15</field>
       <field name="description">Base - Investissement Biens 15% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2934,7 +2934,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_17</field>
       <field name="description">Base - Investissement Biens 17% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2945,7 +2945,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_3</field>
       <field name="description">Base - Investissement Biens 3% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2956,7 +2956,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_6</field>
       <field name="description">Base - Investissement Biens 6% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2967,7 +2967,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IB_PA_8</field>
       <field name="description">Base - Investissement Biens 8% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IB-PA-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IB-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2978,7 +2978,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_0</field>
       <field name="description">Base - Investissement Prestations 0% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-0')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-0')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -2989,7 +2989,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_12</field>
       <field name="description">Base - Investissement Prestations 12% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-12')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-12')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3000,7 +3000,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_14</field>
       <field name="description">Base - Investissement Prestations 14% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-14')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-14')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3011,7 +3011,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_15</field>
       <field name="description">Base - Investissement Prestations 15% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-15')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-15')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3022,7 +3022,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_17</field>
       <field name="description">Base - Investissement Prestations 17% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-17')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-17')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3033,7 +3033,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_3</field>
       <field name="description">Base - Investissement Prestations 3% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-3')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-3')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3044,7 +3044,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_6</field>
       <field name="description">Base - Investissement Prestations 6% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-6')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-6')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3055,7 +3055,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">ecdf_b_IP_PA_8</field>
       <field name="description">Base - Investissement Prestations 8% - Pays</field>
-      <field name="expression">bal[][('tax_line_id.tag_ids.name', '=', 'IP-PA-8')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.name', '=', 'IP-PA-8')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -3066,7 +3066,7 @@
       <field ref="mis_report_vat" name="report_id"/>
       <field name="name">b_SANS</field>
       <field name="description">Base - Sans Taxe</field>
-      <field name="expression">-bal[][('tax_line_id.tag_ids.name', '=', 'VP-PA-SANS')]</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.name', '=', 'VP-PA-SANS')]</field>
       <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
