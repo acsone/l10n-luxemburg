@@ -117,7 +117,7 @@ class TestEcdfVatReport(common.TransactionCase):
         except ValidationError:
             self.fail()
 
-    # VAT REPORT 
+    # VAT REPORT
 
     def test_compute_file_name(self):
         '''
@@ -130,7 +130,7 @@ class TestEcdfVatReport(common.TransactionCase):
         self.report._compute_file_name()
 
         self.assertIsNotNone(rexp.match(self.report.file_name))
-        
+
     def test_get_ecdf_file_version(self):
         report_file_version = self.report.get_ecdf_file_version()
         file_version = '1.1'
@@ -149,22 +149,46 @@ class TestEcdfVatReport(common.TransactionCase):
 
         self.assertEqual(language, expected)
 
+    # GETTERS AGENT
+
     def test_get_matr_agent(self):
+        # Report has an agent set
         report_matr = self.report.get_matr_agent()
         expected = '1111111111111'
+        self.assertEqual(report_matr, expected)
 
+        # Report has no agent set
+        self.report.agent_id = False
+        report_matr = self.report.get_matr_agent()
+        # The expected matricule is the company one
+        expected = '0000000000000'
         self.assertEqual(report_matr, expected)
 
     def test_get_rcs_agent(self):
+        # Report has an agent set
         report_rcs = self.report.get_rcs_agent()
         expected = 'L123456'
+        self.assertEqual(report_rcs, expected)
 
+        # Report has no agent set
+        self.report.agent_id = False
+        report_rcs = self.report.get_rcs_agent()
+        # The expected rcs is the company one
+        expected = 'L654321'
         self.assertEqual(report_rcs, expected)
 
     def test_get_vat_agent(self):
+        # Report has an agent set
         report_vat = self.report.get_vat_agent()
         expected = '12345678'
-
         self.assertEqual(report_vat, expected)
-    
+
+        # Report has no agent set
+        self.report.agent_id = False
+        report_vat = self.report.get_vat_agent()
+        # The expected VAT is the company one
+        expected = 'LU12345613'
+        self.assertEqual(report_vat, expected)
+
+    # GETTERS DECLARER
     # VAT REPORT LINE
