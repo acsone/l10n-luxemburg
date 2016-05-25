@@ -11,13 +11,11 @@ import re
 from StringIO import StringIO
 
 from lxml import etree
-
 from openerp import api, fields, models, _, tools
 from openerp.addons.mis_builder.models.accounting_none import AccountingNone
 from openerp.addons.mis_builder.models.aep import\
     AccountingExpressionProcessor as AEP
-from openerp.exceptions import ValidationError
-from openerp.osv import osv
+from openerp.exceptions import ValidationError, Warning as UserError
 from openerp.report import report_sxw
 from openerp.tools.safe_eval import safe_eval
 
@@ -192,8 +190,7 @@ class VatReport(models.Model):
         for record in self:
             matr = record.company_id.l10n_lu_matricule
             if not matr:
-                raise osv.except_osv(_('No matricule'), _('Matricule is not \
-                present'))
+                raise ValueError(_('Matricule is not present'))
             return matr
 
     @api.multi
@@ -504,8 +501,7 @@ class VatReport(models.Model):
         for record in self:
             # If no line has been generated, stop
             if not record.line_ids:
-                raise osv.except_osv(_('No line'), _('No line to compute !\
-                    Please generate or create some lines.'))
+                raise UserError(_('No line'))
 
             # Build XML
             # the default namespace(no prefix)
@@ -603,9 +599,7 @@ class VatReport(models.Model):
                 mis_template = record.get_mis_template_month()
                 # If the MIS template has not been found
                 if not mis_template or not len(mis_template):
-                    raise osv.except_osv(
-                        _('MIS Template not found :'),
-                        _('The MIS Template vor VAT declaration \
+                    raise UserError(_('The MIS Template vor VAT declaration \
                              has not been found.'))
 
                 # Compute values
@@ -633,8 +627,7 @@ class VatReport(models.Model):
                         'isAutomatic': True if lm_ecdf else False,
                         'report_id': record.id})
             else:
-                raise osv.except_osv(_('Not implemented'),
-                                     _('Annual declaration is not available'))
+                raise UserError(_('Annual declaration is not available'))
 
     @api.multi
     def refresh_lines(self):
@@ -657,9 +650,7 @@ class VatReport(models.Model):
                 mis_template = record.get_mis_template_month()
                 # If the MIS template has not been found
                 if not mis_template or not len(mis_template):
-                    raise osv.except_osv(
-                        _('MIS Template not found :'),
-                        _('The MIS Template vor VAT declaration \
+                    raise UserError(_('The MIS Template vor VAT declaration \
                              has not been found.'))
 
                 # Compute values
@@ -688,8 +679,7 @@ class VatReport(models.Model):
                             'isAutomatic': True,
                             'report_id': record.id})
             else:
-                raise osv.except_osv(_('Not implemented'),
-                                     _('Annual declaration is not available'))
+                raise UserError(_('Annual declaration is not available'))
 
 
 class VatReportLine(models.Model):
@@ -724,7 +714,6 @@ class VatReportLine(models.Model):
     def check_code(self):
         '''
         Check if the line's code is unique
-        :returns: List of duplicated codes
         '''
         for record in self:
             seen_codes = set()
@@ -735,11 +724,10 @@ class VatReportLine(models.Model):
                 else:
                     duplicates_codes.append(line.code)
             if duplicates_codes:
-                raise osv.except_osv(_('Duplicated lines'),
-                                     _(str('Some lines are not unique ! \
-                                     Please check and remove duplicates. \
-                                     Duplicated codes : \
-                                     %s' % ', '.join(duplicates_codes))))
+                raise UserError(_(str('Some lines are not unique ! \
+                                Please check and remove duplicates. \
+                                Duplicated codes : \
+                                %s' % ', '.join(duplicates_codes))))
 
     @api.multi
     def unlink(self):
@@ -749,8 +737,7 @@ class VatReportLine(models.Model):
         '''
         for record in self:
             if record.isAutomatic:
-                raise osv.except_osv(_('Missing automatic lines'),
-                                     _('You cannot delete automatic lines.'))
+                raise UserError(_('You cannot delete automatic lines.'))
             return models.Model.unlink(self)
 
 
@@ -776,10 +763,8 @@ class CreateXML(report_sxw.report_sxw):
             return (xml_to_validate.getvalue(), 'xml')
         else:
             error = xmlschema.error_log[0]
-            raise osv.except_osv(
-                _('The generated XML file does not fit the\
-                required schema !'),
-                error.message
-            )
+            raise UserError(_('The generated XML file does not fit the\
+required schema !'),
+                            error.message)
 
 CreateXML('report.create.xml')
