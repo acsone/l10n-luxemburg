@@ -13,11 +13,8 @@ from StringIO import StringIO
 from lxml import etree
 from openerp import api, fields, models, _, tools
 from openerp.addons.mis_builder.models.accounting_none import AccountingNone
-from openerp.addons.mis_builder.models.aep import\
-    AccountingExpressionProcessor as AEP
 from openerp.exceptions import ValidationError, Warning as UserError
 from openerp.report import report_sxw
-from openerp.tools.safe_eval import safe_eval
 
 
 class VatAgent(models.Model):
@@ -282,7 +279,7 @@ class VatReport(models.Model):
             return record.language
 
     @api.multi
-    def get_mis_template_month(self):
+    def get_mis_report_month(self):
         '''
         :returns: the mis report template for monthly vat declaration
         '''
@@ -402,83 +399,55 @@ class VatReport(models.Model):
                     res[str('ecdf_%s' % line.code)] = line.value
         return res
 
-    def compute_period(self, date_start, date_stop, kpi_ids, aep):
-        '''
-        Computes the value of the kpi's for the specified period
-        :param fiscal_year: Fiscal year to take into account
-        :param kpi_ids: List of KPI's
-        :param aep: Accounting Expression Processor
-        :returns: Dictionary of values by KPI names
-        '''
-        res = {}
-
-        localdict = {
-            'registry': self.pool,
-            'AccountingNone': AccountingNone
-        }
-
-        # Update the local dictionary with the user-added lines values
-        localdict.update(self._fetch_manual_lines(kpi_ids))
-
-        aep.do_queries(date_start, date_stop)
-
-        compute_queue = kpi_ids
-        recompute_queue = []
-        while True:
-            for kpi in compute_queue:
-                try:
-                    kpi_eval_expression = aep.replace_expr(kpi.expression)
-                    kpi_val = safe_eval(kpi_eval_expression, localdict)
-                except (NameError, ValueError):
-                    recompute_queue.append(kpi)
-                    kpi_val = None
-                except:
-                    kpi_val = None
-
-                localdict[kpi.name] = kpi_val
-
-                res[kpi.name] = {
-                    'val': kpi_val,
-                }
-
-            if len(recompute_queue) == 0:
-                # nothing to recompute, we are done
-                break
-            if len(recompute_queue) == len(compute_queue):
-                # could not compute anything in this iteration
-                # (ie real Value errors or cyclic dependency)
-                # so we stop trying
-                break
-            # try again
-            compute_queue = recompute_queue
-            recompute_queue = []
-
-        return res
-
     @api.multi
-    def compute(self, mis_template, date_start, date_stop):
+    def compute(self, mis_report, date_start, date_stop):
         '''
         Builds the "content" dictionary, with name, technical name and values\
         for each KPI expression
-        :param mis_template: template MIS Builder of the report
+        :param mis_report: template MIS Builder of the report
         :param fiscal_year: fiscal year to compute
         :returns: computed content dictionary
         '''
         for record in self:
-            # prepare AccountingExpressionProcessor
-            aep = AEP(record.company_id)
-            for kpi in mis_template.kpi_ids:
-                aep.parse_expr(kpi.expression)
-            aep.done_parsing()
-            kpi_values = record.compute_period(date_start,
-                                               date_stop,
-                                               mis_template.kpi_ids,
-                                               aep)
+            # Prepare AccountingExpressionProcessor
+            aep = mis_report.prepare_aep(record.company_id)
+
+            # Prepare KPI Matrix
+            kpi_matrix = mis_report.prepare_kpi_matrix()
+
+            # Prepare the locals_dict
+            locals_dict = {}
+            locals_dict.update(mis_report.prepare_locals_dict())
+            locals_dict.update(record._fetch_manual_lines(mis_report.kpi_ids))
+
+            # Populate the kpi_matrix
+            mis_report.declare_and_compute_period(
+                kpi_matrix,
+                'col_key',
+                'col_label',
+                'col_description',
+                aep,
+                date_start, date_stop,
+                record.target_move,
+                record.company_id,
+                locals_dict=locals_dict)
+
+            # Get the columns of the kpi_matrik
+            matrix_cols = kpi_matrix.iter_cols()
+
+            # Dictionary of values by code
+            kpi_values = {}
+
+            # Iterate the matrix to fetch data
+            for col in matrix_cols:
+                for cell in col.iter_cell_tuples():
+                    for c in cell:
+                        kpi_values[c.row.kpi.name] = {'val': c.val}
 
             # prepare content
             content = []
             rows_by_kpi_name = {}
-            for kpi in mis_template.kpi_ids:
+            for kpi in mis_report.kpi_ids:
                 rows_by_kpi_name[kpi.name] = {
                     'kpi_name': kpi.description,
                     'kpi_technical_name': kpi.name,
@@ -595,15 +564,15 @@ class VatReport(models.Model):
                 date_start = datetime.date(record.year, record.period, 1)
                 date_stop = datetime.date(record.year, record.period, nb_days)
 
-                # Get mis_template for monthly VAT declaration
-                mis_template = record.get_mis_template_month()
+                # Get mis_report for monthly VAT declaration
+                mis_report = record.get_mis_report_month()
                 # If the MIS template has not been found
-                if not mis_template or not len(mis_template):
+                if not mis_report or not len(mis_report):
                     raise UserError(_('The MIS Template vor VAT declaration \
                              has not been found.'))
 
                 # Compute values
-                mis_data = record.compute(mis_template, date_start, date_stop)
+                mis_data = record.compute(mis_report, date_start, date_stop)
 
                 # Regular expression to catch effective ecdf codes
                 exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
@@ -646,15 +615,15 @@ class VatReport(models.Model):
                 date_start = datetime.date(record.year, record.period, 1)
                 date_stop = datetime.date(record.year, record.period, nb_days)
 
-                # Get mis_template for monthly VAT declaration
-                mis_template = record.get_mis_template_month()
+                # Get mis_report for monthly VAT declaration
+                mis_report = record.get_mis_report_month()
                 # If the MIS template has not been found
-                if not mis_template or not len(mis_template):
+                if not mis_report or not len(mis_report):
                     raise UserError(_('The MIS Template vor VAT declaration \
                              has not been found.'))
 
                 # Compute values
-                mis_data = record.compute(mis_template, date_start, date_stop)
+                mis_data = record.compute(mis_report, date_start, date_stop)
 
                 # Regular expression to catch effective ecdf codes
                 exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
