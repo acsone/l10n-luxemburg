@@ -1,7 +1,7 @@
 <openerp>
     <data>
 
-    <menuitem id="legal_lu" parent="account.menu_finance_legal_statement" name="Luxembourg"/>
+    <menuitem id="legal_lu" parent="account.menu_finance_reports" name="Luxembourg"/>
 
     <record id="action_account_report_lu_bs" model="ir.actions.act_window">
          <field name="name">Balance Sheet</field>
