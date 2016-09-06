@@ -1,78 +1,65 @@
 # -*- coding: utf-8 -*-
+# Copyright 2016 ACSONE SA/NV
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import re as re
 
 from lxml import etree
 from openerp.addons.mis_builder.models.accounting_none import AccountingNone
 from openerp.exceptions import ValidationError, Warning as UserError
-from openerp.tests import common
+from openerp.tests import SavepointCase
 
 
-class TestEcdfVatReport(common.TransactionCase):
-    def setUp(self):
-        super(TestEcdfVatReport, self).setUp()
+class TestEcdfVatReport(SavepointCase):
 
-        # Environements
-        self.vat_agent = self.env['vat.agent']
-        self.vat_report = self.env['vat.report']
-        self.vat_report_line = self.env['vat.report.line']
-        self.res_company = self.env['res.company']
+    @classmethod
+    def setUpClass(cls):
+        super(TestEcdfVatReport, cls).setUpClass()
 
-        # Company instance
-        self.company = self.env.ref('base.main_company')
-        self.company.l10n_lu_matricule = '0000000000000'
-        self.company.company_registry = 'L654321'
-        self.company.vat = 'LU12345613'
+        # ENVIRONMENTS
+        cls.vat_report = cls.env['vat.report']
+        cls.vat_report_line = cls.env['vat.report.line']
+        cls.res_company = cls.env['res.company']
 
-        # VAT agent instance
-        self.agent = self.vat_agent.create({
-            'name': 'Test Agent',
-            'matr': '1111111111111',
-            'rcs': 'L123456',
-            'vat': 'LU12345678'})
+        # INSTANCES
+        # Instance: company
+        cls.company = cls.env.ref('base.main_company')
+
+        # Instance: VAT agent
+        cls.agent = cls.env.ref('ecdf_vat_report.demo_vat_agent')
 
         # VAT report instance
-        self.report = self.vat_report.create({
-            'name': 'Test Vat Report',
-            'description': 'A VAT report for unit tests',
-            'language': 'FR',
-            'type': 'month',
-            'year': 2016,
-            'period': 3,
-            'agent_id': self.agent.id,
-            'regime': 'sales'})
+        cls.report = cls.env.ref('ecdf_vat_report.demo_vat_report')
 
         # VAT report line instance (manual) | Not a valid eCDF VAT code
-        self.line1 = self.vat_report_line.create({
+        cls.line1 = cls.vat_report_line.create({
             'description': 'Vat report line 1',
             'code': '101',
             'value': 11.1,
-            'report_id': self.report.id})
+            'report_id': cls.report.id})
 
         # VAT report line instance (automatic) | Not a valid eCDF VAT code
-        self.line2 = self.vat_report_line.create({
+        cls.line2 = cls.vat_report_line.create({
             'description': 'Vat report line 2',
             'code': '102',
             'value': 22.2,
             'isAutomatic': True,
-            'report_id': self.report.id})
+            'report_id': cls.report.id})
 
         # VAT report line instance (manual) | Valid eCDF VAT code
-        self.line3 = self.vat_report_line.create({
+        cls.line3 = cls.vat_report_line.create({
             'description': 'Vat report line 3',
             'code': '454',
             'value': 33.3,
-            'report_id': self.report.id})
+            'report_id': cls.report.id})
 
         # VAT report line instance (automatic) | Valid eCDF VAT code
-        self.line4 = self.vat_report_line.create({
+        cls.line4 = cls.vat_report_line.create({
             'description': 'Vat report line 4',
             'code': '457',
             'value': 44.4,
             'isAutomatic': True,
-            'report_id': self.report.id})
-
-    # VAT AGENT
+            'report_id': cls.report.id})
 
     def test_check_matr(self):
         '''

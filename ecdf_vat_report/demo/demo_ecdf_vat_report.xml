@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Acsone SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <!-- Company -->
+    <record id="base.main_company" model="base.company">
+        <field name="l10n_lu_matricule">0000000000000</field>
+        <field name="company_registry">L654321</field>
+        <field name="vat">LU12345613</field>
+    </record>
+    
+    <!-- VAT Agent -->
+    <record id="demo_vat_agent" model="vat.agent">
+        <field name="name">Test Agent</field>
+        <field name="matr">1111111111111</field>
+        <field name="rcs">L123456</field>
+        <field name="vat">LU12345678</field>
+    </record>
+    
+    <record id="demo_vat_report" model="vat.report">
+        <field name="name">Test Vat Report</field>
+        <field name="description">A VAT report for unit tests</field>
+        <field name="language">FR</field>
+        <field name="type">month</field>
+        <field name="year">2016</field>
+        <field name="period">3</field>
+        <field name="agent_id" ref="ecdf_vat_report.demo_vat_agent" />
+        <field name="regime">sales</field>
+    </record>
+
+</odoo>

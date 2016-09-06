@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+# Copyright 2016 ACSONE SA/NV
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 '''
 This module provides a generated monthly VAT declaration ready for eCDF
 Values are computed with MIS Builder
 Some lines of the declaration are editable
+The VAT report can be downloaded in XML format
 '''
 
 import calendar
@@ -23,10 +27,21 @@ class VatAgent(models.Model):
     '''
     _name = 'vat.agent'
 
-    name = fields.Char(string='Name', required=True)
-    matr = fields.Char('Matricule', size=13, required=True)
-    rcs = fields.Char('Company Registry', size=7, required=True)
-    vat = fields.Char('Tax ID', size=10, required=True)
+    name = fields.Char(
+        string='Name',
+        required=True)
+    matr = fields.Char(
+        'Matricule',
+        size=13,
+        required=True)
+    rcs = fields.Char(
+        'Company Registry',
+        size=7,
+        required=True)
+    vat = fields.Char(
+        'Tax ID',
+        size=10,
+        required=True)
 
     @api.multi
     @api.constrains('matr')
@@ -34,10 +49,10 @@ class VatAgent(models.Model):
         '''
         Constraint : lenght of Matricule must be 11 or 13
         '''
-        for record in self:
-            if len(record.matr) not in [11, 13]:
-                raise ValidationError('Matricule must be 11 or 13 characters \
-                long.')
+        for rec in self:
+            if len(rec.matr) not in [11, 13]:
+                raise ValidationError(_(
+                    'Matricule must be 11 or 13 characters long.'))
 
     @api.multi
     @api.constrains('rcs')
@@ -47,11 +62,11 @@ class VatAgent(models.Model):
         '''
         exp = r"""^[A-Z][^0]\d{1,5}"""
         rexp = re.compile(exp, re.X)
-        for record in self:
-            if not rexp.match(record.rcs):
-                raise ValidationError('RCS number must begin with an uppercase\
-                 letter followed by 2 to 6 digits. The first digit must not be\
-                  0.')
+        for rec in self:
+            if not rexp.match(rec.rcs):
+                raise ValidationError(_(
+                    'RCS number must begin with an uppercase letter followed '
+                    'by 2 to 6 digits. The first digit must not be 0.'))
 
     @api.multi
     @api.constrains('vat')
@@ -61,10 +76,11 @@ class VatAgent(models.Model):
         '''
         exp = r"""^[A-Z]{2}\d{8}"""
         rexp = re.compile(exp, re.X)
-        for record in self:
-            if not rexp.match(record.vat):
-                raise ValidationError('VAT number must begin with two \
-                uppercase letters followed by 8 digits.')
+        for rec in self:
+            if not rexp.match(rec.vat):
+                raise ValidationError(_(
+                    'VAT number must begin with two uppercase letters '
+                    'followed by 8 digits.'))
 
 
 class VatReport(models.Model):
@@ -75,61 +91,71 @@ class VatReport(models.Model):
     _description = 'eCDF VAT Report'
     _inherit = "account.common.report"
 
-    # Report name
-    name = fields.Char(string='Name', required=True)
-    # Report description
-    description = fields.Char(string='Description', required=False)
-    # Language
+    name = fields.Char(
+        string='Name',
+        required=True)
+    description = fields.Char(
+        string='Description')
     language = fields.Selection(
-        [('FR', 'French'), ('DE', 'German'), ('EN', 'English')],
         string='Language',
+        selection=[('FR', 'French'),
+                   ('DE', 'German'),
+                   ('EN', 'English')],
         required=True,
         default='FR'
     )
-    # Type of report (monthly or annual)
-    type = fields.Selection([('month', 'Monthly'), ('year', 'Annual')],
-                            string='Declaration Type',
-                            default='month',
-                            required=True)
+    type = fields.Selection(
+        string='Declaration Type',
+        selection=[('month', 'Monthly'),
+                   ('year', 'Annual')],
+        default='month',
+        required=True)
     # Fiscal Year
     # (not before 2015, cfr. eCDF_file_v1.1-XML_documentation-02-FR.pdf)
     this_year = (datetime.date.today().year) + 1
     year = fields.Selection([(n, str(n)) for n in range(2015, this_year)],
-                            'Year',
+                            string='Year',
                             required=True,
                             default=this_year - 1)
-    # Month (monthly repport)
-    period = fields.Selection([(1, 'January'),
-                               (2, 'February'),
-                               (3, 'March'),
-                               (4, 'April'),
-                               (5, 'May'),
-                               (6, 'June'),
-                               (7, 'July'),
-                               (8, 'August'),
-                               (9, 'September'),
-                               (10, 'October'),
-                               (11, 'November'),
-                               (12, 'December')],
-                              string="Period",
-                              required=True,
-                              default=1)
-    # Agent
-    agent_id = fields.Many2one('vat.agent', string='Agent')
-    # Tax regime
-    regime = fields.Selection([('sales', 'Sales'), ('revenues', 'Revenues')],
-                              string='Tax regime',
-                              required=True,
-                              default='sales')
-    # Report lines
-    line_ids = fields.One2many('vat.report.line', 'report_id', string='Lines')
+    # Month (monthly repports)
+    period = fields.Selection(
+        string="Period",
+        selection=[(1, 'January'),
+                   (2, 'February'),
+                   (3, 'March'),
+                   (4, 'April'),
+                   (5, 'May'),
+                   (6, 'June'),
+                   (7, 'July'),
+                   (8, 'August'),
+                   (9, 'September'),
+                   (10, 'October'),
+                   (11, 'November'),
+                   (12, 'December')],
+        required=True,
+        default=1)
+    agent_id = fields.Many2one(
+        string='Agent',
+        comodel_name='vat.agent',
+        ondelete='restrict')
+    regime = fields.Selection(
+        string='Tax regime',
+        selection=[('sales', 'Sales'),
+                   ('revenues', 'Revenues')],
+        required=True,
+        default='sales')
+    line_ids = fields.One2many(
+        string='Lines',
+        comodel_name='vat.report.line',
+        inverse_name='report_id')
 
     # File name (computed)
-    file_name = fields.Char('File name',
-                            size=24,
-                            compute='_compute_file_name')
+    file_name = fields.Char(
+        sring='File name',
+        size=24,
+        compute='_compute_file_name')
 
-    @api.depends('company_id')
+    @api.depends('company_id.ecdf_prefixe')
     @api.multi
     def _compute_file_name(self):
         '''
@@ -142,37 +168,33 @@ class VatReport(models.Model):
         Position 23 - 24: sequence number (NN) in range (01 - 99)
         for the unicity of the names of the files created in the same second
         '''
-        for record in self:
+        for rec in self:
             res = ""
             nbr = 1
             dtf = "X%Y%m%dT%H%M%S"
-            prefixe = record.company_id.ecdf_prefixe
+            prefixe = rec.company_id.ecdf_prefixe
             if not prefixe:
                 prefixe = '000000'
             res = str("%s%s%02d" % (prefixe,
                                     datetime.datetime.now().strftime(dtf),
                                     nbr))
-            record.file_name = res
+            rec.file_name = res
 
-    @api.multi
     @api.onchange('type')
     def _onchange_type(self):
         '''
         On Change : 'type'
         Field period is reset to its default value
         '''
-        for record in self:
-            record.period = 1
+        self.period = 1
 
-    @staticmethod
-    def get_ecdf_file_version():
+    def get_ecdf_file_version(self):
         '''
         :returns: the XML file version
         '''
         return '1.1'
 
-    @staticmethod
-    def get_interface():
+    def get_interface(self):
         '''
         :returns: eCDF interface ID (provided by eCDF)
         '''
@@ -182,12 +204,12 @@ class VatReport(models.Model):
     def get_matr_declarer(self):
         '''
         :returns: Luxemburg matricule of the company
-        If no matricule, ValueError exception is raised
+        :raises: UserError: if no matricule
         '''
-        for record in self:
-            matr = record.company_id.l10n_lu_matricule
+        for rec in self:
+            matr = rec.company_id.l10n_lu_matricule
             if not matr:
-                raise ValueError(_('Matricule is not present'))
+                raise UserError(_('The company has no matricule set.'))
             return matr
 
     @api.multi
@@ -197,12 +219,9 @@ class VatReport(models.Model):
         If no RCS number, default value 'NE' is returned
         (RCS : 'Numéro de registre de Commerce et des Sociétés')
         '''
-        for record in self:
-            rcs = record.company_id.company_registry
-            if rcs:
-                return rcs
-            else:
-                return 'NE'
+        for rec in self:
+            rcs = rec.company_id.company_registry
+            return rcs if rcs else 'NE'
 
     @api.multi
     def get_vat_declarer(self):
@@ -210,14 +229,13 @@ class VatReport(models.Model):
         :returns: VAT number of the company, 8 characters
         If no VAT number, default value 'NE' is returned
         '''
-        for record in self:
-            vat = record.company_id.vat
+        for rec in self:
+            vat = rec.company_id.vat
             if vat:
                 if vat.startswith('LU'):
                     vat = vat[2:]
                 return vat
-            else:
-                return 'NE'
+            return 'NE'
 
     @api.multi
     def get_matr_agent(self):
@@ -225,11 +243,11 @@ class VatReport(models.Model):
         :returns: Agent matricule provided in the form
         If no agent matricule provided, the company one is returned
         '''
-        for record in self:
-            if record.agent_id:
-                return record.agent_id.matr
+        for rec in self:
+            if rec.agent_id:
+                return rec.agent_id.matr
             else:
-                return record.get_matr_declarer()
+                return rec.get_matr_declarer()
 
     @api.multi
     def get_rcs_agent(self):
@@ -239,14 +257,13 @@ class VatReport(models.Model):
         If no RCS number has been provided, the company one is returned
         If no RCS number of the company, default value 'NE' is returned
         '''
-        for record in self:
-            if record.agent_id:
-                if record.agent_id.rcs:
-                    return record.agent_id.rcs
+        for rec in self:
+            if rec.agent_id:
+                if rec.agent_id.rcs:
+                    return rec.agent_id.rcs
                 else:
                     return 'NE'
-            else:
-                return record.get_rcs_declarer()
+            return rec.get_rcs_declarer()
 
     @api.multi
     def get_vat_agent(self):
@@ -255,17 +272,16 @@ class VatReport(models.Model):
         provided, the VAT number of the company is returned.
         If no VAT number of the company, default value 'NE' is returned
         '''
-        for record in self:
-            if record.agent_id:
-                vat = record.agent_id.vat
+        for rec in self:
+            if rec.agent_id:
+                vat = rec.agent_id.vat
                 if vat:
                     if vat.startswith('LU'):
                         vat = vat[2:]
                     return vat
                 else:
                     return 'NE'
-            else:
-                return record.get_vat_declarer()
+            return rec.get_vat_declarer()
 
     @api.multi
     def get_language(self):
@@ -275,17 +291,17 @@ class VatReport(models.Model):
                     - "DE" for german
                     - "EN" for english
         '''
-        for record in self:
-            return record.language
+        for rec in self:
+            return rec.language
 
     @api.multi
     def get_mis_report_month(self):
         '''
         :returns: the mis report template for monthly vat declaration
         '''
-        for record in self:
-            mis_env = record.env['mis.report']
-            mis_report_id = record.env.ref("ecdf_vat_report.mis_report_vat").id
+        for rec in self:
+            mis_env = rec.env['mis.report']
+            mis_report_id = rec.env.ref("ecdf_vat_report.mis_report_vat").id
             mis_report = mis_env.search([('id', '=', mis_report_id)])
             return mis_report
 
@@ -330,7 +346,7 @@ class VatReport(models.Model):
         :param form_data: Data node of the XML file
         :param regime: Tax regime (set by user)
         '''
-        for record in self:
+        for rec in self:
             # Choice : Tax regime
             choice_regime_sales = etree.Element('Choice', id='204')
             choice_regime_revenues = etree.Element('Choice', id='205')
@@ -343,8 +359,8 @@ class VatReport(models.Model):
             form_data.append(choice_regime_revenues)
 
             # Append numeric fields
-            for line in record.line_ids:
-                record._append_num_field(
+            for line in rec.line_ids:
+                rec._append_num_field(
                     form_data, str(line.code),
                     AccountingNone if line.isAccountingNone and
                     line.value == 0.0 else line.value,
@@ -356,23 +372,23 @@ class VatReport(models.Model):
         Generates the declaration node of the xml file
         :param decl_type: Type of the declaration (monthly or annual)
         '''
-        for record in self:
+        for rec in self:
             # Declaration node
             declaration = etree.Element('Declaration',
                                         type=decl_type,
                                         model='1',
-                                        language=record.get_language())
+                                        language=rec.get_language())
             # Year field
             year = etree.Element('Year')
-            year.text = str(record.year)
+            year.text = str(rec.year)
             # Period
             period = etree.Element('Period')
-            period.text = str(record.period)
+            period.text = str(rec.period)
             # Form Data
             form_data = etree.Element('FormData')
 
             # Generates data fields
-            record._append_vd_lines(form_data, record.regime)
+            rec._append_vd_lines(form_data, rec.regime)
 
             # Append fields
             declaration.append(year)
@@ -381,7 +397,6 @@ class VatReport(models.Model):
 
             return declaration
 
-    @api.multi
     def _fetch_manual_lines(self, kpi_ids):
         '''
         Set a value to each manual lines
@@ -393,8 +408,8 @@ class VatReport(models.Model):
             if kpi.name.startswith('ext_'):
                 res[str('ecdf_%s' % kpi.name.split('_')[1])] = 0
         # then, set maual codes with user-added values
-        for record in self:
-            for line in record.line_ids:
+        for rec in self:
+            for line in rec.line_ids:
                 if not line.isAutomatic:
                     res[str('ecdf_%s' % line.code)] = line.value
         return res
@@ -408,9 +423,9 @@ class VatReport(models.Model):
         :param fiscal_year: fiscal year to compute
         :returns: computed content dictionary
         '''
-        for record in self:
+        for rec in self:
             # Prepare AccountingExpressionProcessor
-            aep = mis_report.prepare_aep(record.company_id)
+            aep = mis_report.prepare_aep(rec.company_id)
 
             # Prepare KPI Matrix
             kpi_matrix = mis_report.prepare_kpi_matrix()
@@ -418,7 +433,7 @@ class VatReport(models.Model):
             # Prepare the locals_dict
             locals_dict = {}
             locals_dict.update(mis_report.prepare_locals_dict())
-            locals_dict.update(record._fetch_manual_lines(mis_report.kpi_ids))
+            locals_dict.update(rec._fetch_manual_lines(mis_report.kpi_ids))
 
             # Populate the kpi_matrix
             mis_report.declare_and_compute_period(
@@ -428,11 +443,11 @@ class VatReport(models.Model):
                 'col_description',
                 aep,
                 date_start, date_stop,
-                record.target_move,
-                record.company_id,
+                rec.target_move,
+                rec.company_id,
                 locals_dict=locals_dict)
 
-            # Get the columns of the kpi_matrik
+            # Get the columns of the kpi_matrix
             matrix_cols = kpi_matrix.iter_cols()
 
             # Dictionary of values by code
@@ -467,9 +482,9 @@ class VatReport(models.Model):
         Generates the VAT declaration in XML format
         :param data: dictionary of values for the xml file
         '''
-        for record in self:
+        for rec in self:
             # If no line has been generated, stop
-            if not record.line_ids:
+            if not rec.line_ids:
                 raise UserError(_('No line'))
 
             # Build XML
@@ -479,24 +494,24 @@ class VatReport(models.Model):
             root = etree.Element("eCDFDeclarations", nsmap=nsmap)
             # File Reference
             file_reference = etree.Element('FileReference')
-            file_reference.text = record.file_name
+            file_reference.text = rec.file_name
             root.append(file_reference)
             # File Version
             file_version = etree.Element('eCDFFileVersion')
-            file_version.text = record.get_ecdf_file_version()
+            file_version.text = rec.get_ecdf_file_version()
             root.append(file_version)
             # Interface
             interface = etree.Element('Interface')
-            interface.text = record.get_interface()
+            interface.text = rec.get_interface()
             root.append(interface)
             # Agent
             agent = etree.Element('Agent')
             matr_agent = etree.Element('MatrNbr')
-            matr_agent.text = record.get_matr_agent()
+            matr_agent.text = rec.get_matr_agent()
             rcs_agent = etree.Element('RCSNbr')
-            rcs_agent.text = record.get_rcs_agent()
+            rcs_agent.text = rec.get_rcs_agent()
             vat_agent = etree.Element('VATNbr')
-            vat_agent.text = record.get_vat_agent()
+            vat_agent.text = rec.get_vat_agent()
             agent.append(matr_agent)
             agent.append(rcs_agent)
             agent.append(vat_agent)
@@ -505,17 +520,17 @@ class VatReport(models.Model):
             declarations = etree.Element('Declarations')
             declarer = etree.Element('Declarer')
             matr_declarer = etree.Element('MatrNbr')
-            matr_declarer.text = record.get_matr_declarer()
+            matr_declarer.text = rec.get_matr_declarer()
             rcs_declarer = etree.Element('RCSNbr')
-            rcs_declarer.text = record.get_rcs_declarer()
+            rcs_declarer.text = rec.get_rcs_declarer()
             vat_declarer = etree.Element('VATNbr')
-            vat_declarer.text = record.get_vat_declarer()
+            vat_declarer.text = rec.get_vat_declarer()
             declarer.append(matr_declarer)
             declarer.append(rcs_declarer)
             declarer.append(vat_declarer)
             # Declaration lines
-            decl_type = 'TVA_DECM' if record.type == 'month' else 'TVA_DECA'
-            declarer.append(record._get_vat_declaration(decl_type))
+            decl_type = 'TVA_DECM' if rec.type == 'month' else 'TVA_DECA'
+            declarer.append(rec._get_vat_declaration(decl_type))
             # Declarer
             declarations.append(declarer)
             root.append(declarations)
@@ -526,7 +541,7 @@ class VatReport(models.Model):
             data['form'].update({'xml': xml})
 
             # set filename
-            data['form']['filename'] = record.file_name
+            data['form']['filename'] = rec.file_name
 
             # Launch xml file download
             return {
@@ -541,12 +556,12 @@ class VatReport(models.Model):
         '''
         Erase all lines of the current report
         '''
-        for record in self:
-            if not record.line_ids:
+        for rec in self:
+            if not rec.line_ids:
                 return
-            for line in record.line_ids:
+            for line in rec.line_ids:
                 line.isAutomatic = False
-            record.line_ids = False
+            rec.line_ids = False
 
     @api.multi
     def generate_lines(self):
@@ -554,49 +569,50 @@ class VatReport(models.Model):
         Generate the automatic lines of the report
         Non automatic lines are lost
         '''
-        for record in self:
-            if record.type == 'month':
-                # Clear lines
-                record.clear_lines()
+        for rec in self:
+            if rec.type != 'month':
+                raise UserError(_(
+                    'Only month declaration is not available'))
 
-                # Initialize the period to compute
-                nb_days = calendar.monthrange(record.year, record.period)[1]
-                date_start = datetime.date(record.year, record.period, 1)
-                date_stop = datetime.date(record.year, record.period, nb_days)
+            # Clear lines
+            rec.clear_lines()
 
-                # Get mis_report for monthly VAT declaration
-                mis_report = record.get_mis_report_month()
-                # If the MIS template has not been found
-                if not mis_report or not len(mis_report):
-                    raise UserError(_('The MIS Template vor VAT declaration \
-                             has not been found.'))
+            # Initialize the period to compute
+            nb_days = calendar.monthrange(rec.year, rec.period)[1]
+            date_start = datetime.date(rec.year, rec.period, 1)
+            date_stop = datetime.date(rec.year, rec.period, nb_days)
 
-                # Compute values
-                mis_data = record.compute(mis_report, date_start, date_stop)
+            # Get mis_report for monthly VAT declaration
+            mis_report = rec.get_mis_report_month()
+            # If the MIS template has not been found
+            if not mis_report or not len(mis_report):
+                raise UserError(_(
+                    'No MIS Template for VAT declaration found.'))
 
-                # Regular expression to catch effective ecdf codes
-                exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
-                rexp_ecdf = re.compile(exp_ecdf, re.X)
-                exp_ext = r"""^ext\_(?P<ecdf_code>\d{3})"""
-                rexp_ext = re.compile(exp_ext, re.X)
+            # Compute values
+            mis_data = rec.compute(mis_report, date_start, date_stop)
 
-                # Create new lines
-                for line in mis_data['content']:
-                    lm_ecdf = rexp_ecdf.match(line['kpi_technical_name'])
-                    lm_ext = rexp_ext.match(line['kpi_technical_name'])
-                    if not lm_ecdf and not lm_ext:
-                        continue
-                    record.env['vat.report.line'].create({
-                        'description': line['kpi_name'],
-                        'code': lm_ecdf.group('ecdf_code') if lm_ecdf
-                        else lm_ext.group('ecdf_code'),
-                        'value': line['cols'][0]['val'],
-                        'isAccountingNone': True if line['cols'][0]['val']
-                        is AccountingNone else False,
-                        'isAutomatic': True if lm_ecdf else False,
-                        'report_id': record.id})
-            else:
-                raise UserError(_('Annual declaration is not available'))
+            # Regular expression to catch effective ecdf codes
+            exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
+            rexp_ecdf = re.compile(exp_ecdf, re.X)
+            exp_ext = r"""^ext\_(?P<ecdf_code>\d{3})"""
+            rexp_ext = re.compile(exp_ext, re.X)
+
+            # Create new lines
+            for line in mis_data['content']:
+                lm_ecdf = rexp_ecdf.match(line['kpi_technical_name'])
+                lm_ext = rexp_ext.match(line['kpi_technical_name'])
+                if not lm_ecdf and not lm_ext:
+                    continue
+                rec.env['vat.report.line'].create({
+                    'description': line['kpi_name'],
+                    'code': lm_ecdf.group('ecdf_code') if lm_ecdf
+                    else lm_ext.group('ecdf_code'),
+                    'value': line['cols'][0]['val'],
+                    'isAccountingNone': True if line['cols'][0]['val']
+                    is AccountingNone else False,
+                    'isAutomatic': True if lm_ecdf else False,
+                    'report_id': rec.id})
 
     @api.multi
     def refresh_lines(self):
@@ -604,51 +620,52 @@ class VatReport(models.Model):
         Refreshes automatic lines of the current report with computed values
         User-added lines are kept
         '''
-        for record in self:
+        for rec in self:
             # If no line, stop
-            if not record.line_ids:
+            if not rec.line_ids:
                 return
 
-            if record.type == 'month':
-                # Initialize the period to compute
-                nb_days = calendar.monthrange(record.year, record.period)[1]
-                date_start = datetime.date(record.year, record.period, 1)
-                date_stop = datetime.date(record.year, record.period, nb_days)
+            if rec.type != 'month':
+                raise UserError(_(
+                    'Only month declaration is not available'))
 
-                # Get mis_report for monthly VAT declaration
-                mis_report = record.get_mis_report_month()
-                # If the MIS template has not been found
-                if not mis_report or not len(mis_report):
-                    raise UserError(_('The MIS Template vor VAT declaration \
-                             has not been found.'))
+            # Initialize the period to compute
+            nb_days = calendar.monthrange(rec.year, rec.period)[1]
+            date_start = datetime.date(rec.year, rec.period, 1)
+            date_stop = datetime.date(rec.year, rec.period, nb_days)
 
-                # Compute values
-                mis_data = record.compute(mis_report, date_start, date_stop)
+            # Get mis_report for monthly VAT declaration
+            mis_report = rec.get_mis_report_month()
+            # If the MIS template has not been found
+            if not mis_report or not len(mis_report):
+                raise UserError(_(
+                    'No MIS Template for VAT declaration found.'))
 
-                # Regular expression to catch effective ecdf codes
-                exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
-                rexp_ecdf = re.compile(exp_ecdf, re.X)
+            # Compute values
+            mis_data = rec.compute(mis_report, date_start, date_stop)
 
-                # Clear computed lines
-                for line in record.line_ids:
-                    if line.isAutomatic:
-                        line.isAutomatic = False
-                        line.report_id = False
+            # Regular expression to catch effective ecdf codes
+            exp_ecdf = r"""^ecdf\_(?P<ecdf_code>\d{3})"""
+            rexp_ecdf = re.compile(exp_ecdf, re.X)
 
-                # Create new lines
-                for line in mis_data['content']:
-                    lm_ecdf = rexp_ecdf.match(line['kpi_technical_name'])
-                    if lm_ecdf:  # Read only lines
-                        record.env['vat.report.line'].create({
-                            'description': line['kpi_name'],
-                            'code': lm_ecdf.group('ecdf_code'),
-                            'value': line['cols'][0]['val'],
-                            'isAccountingNone': True if line['cols'][0]['val']
-                            is AccountingNone else False,
-                            'isAutomatic': True,
-                            'report_id': record.id})
-            else:
-                raise UserError(_('Annual declaration is not available'))
+            # Clear computed lines
+            for line in rec.line_ids:
+                if line.isAutomatic:
+                    line.isAutomatic = False
+                    line.report_id = False
+
+            # Create new lines
+            for line in mis_data['content']:
+                lm_ecdf = rexp_ecdf.match(line['kpi_technical_name'])
+                if lm_ecdf:  # Read only lines
+                    rec.env['vat.report.line'].create({
+                        'description': line['kpi_name'],
+                        'code': lm_ecdf.group('ecdf_code'),
+                        'value': line['cols'][0]['val'],
+                        'isAccountingNone': True if line['cols'][0]['val']
+                        is AccountingNone else False,
+                        'isAutomatic': True,
+                        'report_id': rec.id})
 
 
 class VatReportLine(models.Model):
@@ -660,52 +677,62 @@ class VatReportLine(models.Model):
     _order = 'sequence, id'
 
     # Line description
-    description = fields.Char(string='Description', required=True)
+    description = fields.Char(
+        string='Description',
+        required=True)
     # eCDF code : code of a computed line is read only (view)
-    code = fields.Char(string='eCDF code', required=True)
+    code = fields.Char(
+        string='eCDF code',
+        required=True)
     # (Computed) value
-    value = fields.Float(string='Value', required=True)
+    value = fields.Float(
+        string='Value',
+        required=True)
     # Flag : true if value is from AccountingNone
-    isAccountingNone = fields.Boolean(required=True, default=False)
+    isAccountingNone = fields.Boolean(
+        default=False)
     # Sequence number
-    sequence = fields.Integer(string='Sequence')
+    sequence = fields.Integer(
+        string='Sequence')
     # Flag : true if computed value, false otherwise
-    isAutomatic = fields.Boolean(string='Automatic value',
-                                 default=False,
-                                 readonly=True)
+    isAutomatic = fields.Boolean(
+        string='Automatic value',
+        default=False,
+        readonly=True)
     # VAT report
-    report_id = fields.Many2one('vat.report',
-                                string='Report',
-                                ondelete='cascade')
+    report_id = fields.Many2one(
+        string='Report',
+        comodel_name='vat.report',
+        ondelete='cascade')
 
     @api.multi
-    @api.constrains('code')
+    @api.constrains('report_id.line_ids.code', 'code')
     def check_code(self):
         '''
         Check if the line's code is unique
         '''
-        for record in self:
+        for rec in self:
             seen_codes = set()
             duplicates_codes = []
-            for line in record.report_id.line_ids:
+            for line in rec.report_id.line_ids:
                 if line.code not in seen_codes:
                     seen_codes.add(line.code)
                 else:
                     duplicates_codes.append(line.code)
             if duplicates_codes:
-                raise UserError(_(str('Some lines are not unique ! \
-                                Please check and remove duplicates. \
-                                Duplicated codes : \
-                                %s' % ', '.join(duplicates_codes))))
+                raise UserError(_(
+                    'Some lines are not unique ! Please check and remove '
+                    'duplicates. Duplicated codes : '
+                    '%s' % ', '.join(duplicates_codes)))
 
     @api.multi
     def unlink(self):
         '''
-        Overriding of suppression method
+        Overriding of deletion method
         Automatic lines cannot be deleted
         '''
-        for record in self:
-            if record.isAutomatic:
+        for rec in self:
+            if rec.isAutomatic:
                 raise UserError(_('You cannot delete automatic lines.'))
             return models.Model.unlink(self)
 
@@ -728,12 +755,11 @@ class CreateXML(report_sxw.report_sxw):
         # reparse only to have line numbers in error messages?
         xml_to_validate = StringIO(xml)
         parse_result = etree.parse(xml_to_validate)
-        if xmlschema.validate(parse_result):
-            return (xml_to_validate.getvalue(), 'xml')
-        else:
+        if not xmlschema.validate(parse_result):
             error = xmlschema.error_log[0]
-            raise UserError(_('The generated XML file does not fit the\
-required schema !'),
-                            error.message)
+            raise UserError(
+                _('The generated XML file does not fit the required schema !'),
+                error.message)
+        return (xml_to_validate.getvalue(), 'xml')
 
 CreateXML('report.create.xml')
