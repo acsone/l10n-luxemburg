@@ -10,7 +10,6 @@
     'version': '9.0.1.0.0',
     'licence': 'AGPL-3',
     'author': 'ACSONE SA/NV, Odoo Community Association (OCA)',
-    'website': 'http://acsone.eu',
     'website': 'www.acsone.eu',
     'depends': [
         'l10n_lu_ext',
