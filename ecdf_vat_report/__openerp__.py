@@ -4,7 +4,7 @@
 
 {
     'name': 'eCDF VAT Report',
-    'summary': """
+    'description': """
         This modules allows to make VAT reports in XML format, ready for eCDF.
     """,
     'version': '9.0.1.0.0',

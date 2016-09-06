@@ -102,6 +102,6 @@
         <field name="view_mode">tree,form</field>
     </record>
     
-    <menuitem id="vat_report_menu" parent="account.menu_finance_reports" name="VAT Reports" action="vat_report_view_action" sequence="101"/>
+    <menuitem id="vat_report_menu" parent="l10n_lu.account_reports_lu_statements_menu" name="eCDF VAT Reports" action="vat_report_view_action" sequence="101"/>
     
 </odoo>
