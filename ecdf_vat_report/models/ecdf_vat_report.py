@@ -706,7 +706,7 @@ class VatReportLine(models.Model):
         ondelete='cascade')
 
     @api.multi
-    @api.constrains('report_id.line_ids.code', 'code')
+    @api.constrains('code')
     def check_code(self):
         '''
         Check if the line's code is unique

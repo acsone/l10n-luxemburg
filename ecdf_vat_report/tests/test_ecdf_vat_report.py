@@ -180,7 +180,7 @@ class TestEcdfVatReport(SavepointCase):
 
         # With no matricule set to the company
         self.company.l10n_lu_matricule = False
-        with self.assertRaises(ValueError), self.cr.savepoint():
+        with self.assertRaises(UserError), self.cr.savepoint():
             declarer_matr = self.report.get_matr_declarer()
 
     def test_get_rcs_declarer(self):
@@ -324,7 +324,7 @@ class TestEcdfVatReport(SavepointCase):
         '''
         Test _fetch_manual_lines : check the returned dictionary
         '''
-        mis_template = self.report.get_mis_template_month()
+        mis_template = self.report.get_mis_report_month()
         manual_lines = self.report._fetch_manual_lines(mis_template.kpi_ids)
 
         try:
