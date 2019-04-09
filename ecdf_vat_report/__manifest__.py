@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2016 ACSONE SA/NV
+# Copyright 2016-2019 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
@@ -7,7 +7,7 @@
     'description': """
         This modules allows to make VAT reports in XML format, ready for eCDF.
     """,
-    'version': '9.0.1.0.0',
+    'version': '10.0.0.0.1',
     'licence': 'AGPL-3',
     'author': 'ACSONE SA/NV, Odoo Community Association (OCA)',
     'website': 'www.acsone.eu',

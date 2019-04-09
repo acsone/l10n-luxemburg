@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2016 ACSONE SA/NV
+# Copyright 2016-2019 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 '''
@@ -15,10 +15,10 @@ import re
 from StringIO import StringIO
 
 from lxml import etree
-from openerp import api, fields, models, _, tools
-from openerp.addons.mis_builder.models.accounting_none import AccountingNone
-from openerp.exceptions import ValidationError, Warning as UserError
-from openerp.report import report_sxw
+from odoo import api, fields, models, _, tools
+from odoo.addons.mis_builder.models.accounting_none import AccountingNone
+from odoo.exceptions import ValidationError, Warning as UserError
+from odoo.report import report_sxw
 
 
 class VatAgent(models.Model):
@@ -85,11 +85,12 @@ class VatAgent(models.Model):
 
 class VatReport(models.Model):
     '''
-    Editable VAT report instance, abble to create a eCDF XML file
+    Editable VAT report instance, able to create a eCDF XML file
     '''
-    _name = 'vat.report'
-    _description = 'eCDF VAT Report'
     _inherit = "account.common.report"
+    _description = 'eCDF VAT Report'
+    _name = 'vat.report'
+    _transient = False
 
     name = fields.Char(
         string='Name',
@@ -112,7 +113,7 @@ class VatReport(models.Model):
         required=True)
     # Fiscal Year
     # (not before 2015, cfr. eCDF_file_v1.1-XML_documentation-02-FR.pdf)
-    this_year = (datetime.date.today().year) + 1
+    this_year = datetime.date.today().year + 1
     year = fields.Selection([(n, str(n)) for n in range(2015, this_year)],
                             string='Year',
                             required=True,
@@ -425,7 +426,7 @@ class VatReport(models.Model):
         '''
         for rec in self:
             # Prepare AccountingExpressionProcessor
-            aep = mis_report.prepare_aep(rec.company_id)
+            aep = mis_report._prepare_aep(rec.company_id)
 
             # Prepare KPI Matrix
             kpi_matrix = mis_report.prepare_kpi_matrix()
@@ -442,7 +443,7 @@ class VatReport(models.Model):
                 'col_label',
                 'col_description',
                 aep,
-                date_start, date_stop,
+                fields.Date.to_string(date_start), fields.Date.to_string(date_stop),
                 rec.target_move,
                 rec.company_id,
                 locals_dict=locals_dict)

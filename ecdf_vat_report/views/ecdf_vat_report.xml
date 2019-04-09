@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2016 Acsone SA/NV
+<!-- Copyright 2019 Acsone SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
  
 <odoo>
-    
     <!-- List view of VAT reports -->
     <record model="ir.ui.view" id="vat_report_view_tree">
             <field name="name">vat.report.view.tree</field>
@@ -103,5 +102,4 @@
     </record>
     
     <menuitem id="vat_report_menu" parent="l10n_lu.account_reports_lu_statements_menu" name="eCDF VAT Reports" action="vat_report_view_action" sequence="101"/>
-    
 </odoo>

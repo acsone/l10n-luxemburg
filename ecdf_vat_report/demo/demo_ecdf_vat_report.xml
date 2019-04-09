@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2016 Acsone SA/NV
+<!-- Copyright 2019 Acsone SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
 <odoo>
-
     <!-- Company -->
     <record id="base.main_company" model="res.company">
         <field name="l10n_lu_matricule">0000000000000</field>
