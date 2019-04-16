@@ -56,10 +56,7 @@
             <form string="VAT Report">
                 <header>
                     <button name="check_report" type="object" string="Download XML" class="oe_highlight" icon="fa-download" help="Download the VAT report in XML format, ready for eCDF"/>
-                    <button name="generate_lines" type="object" string="Generate" class="oe_edit_only" icon="fa-play" help="Generate the automatic lines and erase user-added lines"/>
-                    <button name="refresh_lines" type="object" string="Refresh" class="oe_edit_only" icon="fa-refresh" help="Refresh the automatic lines and keep user-added lines"/>
-                    <button name="clear_lines" type="object" string="Clean up" class="oe_edit_only" icon="fa-eraser" help="Remove all lines"/>
-                                   
+                    <button name="preview" type="object" string="Preview"/>
                 </header>
                 <sheet>
                     <group>
@@ -68,26 +65,28 @@
                             <field name="description"/>
                             <field name="company_id"/>
                             <field name="language"/>
-                            
                         </group>
                         <group name="group_report_options" string="Report options">
                             <field name="agent_id" help="If no agent, company data will be used"/>
                             <field name="year"/>
-                            <field name="type" widget="radio"/>
-                            <field name="period" attrs="{'invisible': [('type', '=', 'year')]}"/>
+                            <field name="type" readonly="1"/>
+                            <field name="period" attrs="{'invisible': [('type', '!=', 'month')]}"/>
                         </group>
                     </group>
-                        <separator string="Lines"/>
-                        <field name="regime" widget="radio"/>
-                        <field name="line_ids">
-                            <tree editable="bottom">
-                                <field name="sequence" widget="handle"/>
-                                <field name="description" attrs="{'readonly':[('isAutomatic', '=', True)]}"/>
-                                <field name="code" attrs="{'readonly':[('isAutomatic', '=', True)]}"/>
-                                <field name="value" attrs="{'readonly':[('isAutomatic', '=', True)]}"/>
-                                <field name="isAutomatic" invisible="1"/>
-                            </tree>
-                        </field>
+                    <notebook>
+                        <page string="Manual Input(s)">
+                            <group>
+                                <field name="regime" widget="radio"/>
+                            </group>
+                            <field name="manual_ids">
+                                <tree editable="0" delete="0" create="0">
+                                    <field name="name" readonly="1"/>
+                                    <field name="description" readonly="1"/>
+                                    <field name="value"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

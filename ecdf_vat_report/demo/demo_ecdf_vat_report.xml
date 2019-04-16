@@ -23,7 +23,7 @@
         <field name="description">A VAT report for unit tests</field>
         <field name="language">FR</field>
         <field name="type">month</field>
-        <field name="year" eval="2016" />
+        <field name="year" eval="2019" />
         <field name="period" eval="3" />
         <field name="agent_id" ref="ecdf_vat_report.demo_vat_agent" />
         <field name="regime">sales</field>

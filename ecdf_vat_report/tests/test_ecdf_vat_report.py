@@ -18,7 +18,6 @@ class TestEcdfVatReport(SavepointCase):
 
         # ENVIRONMENTS
         cls.vat_report = cls.env['vat.report']
-        cls.vat_report_line = cls.env['vat.report.line']
         cls.res_company = cls.env['res.company']
 
         # INSTANCES
@@ -30,36 +29,6 @@ class TestEcdfVatReport(SavepointCase):
 
         # VAT report instance
         cls.report = cls.env.ref('ecdf_vat_report.demo_vat_report')
-
-        # VAT report line instance (manual) | Not a valid eCDF VAT code
-        cls.line1 = cls.vat_report_line.create({
-            'description': 'Vat report line 1',
-            'code': '101',
-            'value': 11.1,
-            'report_id': cls.report.id})
-
-        # VAT report line instance (automatic) | Not a valid eCDF VAT code
-        cls.line2 = cls.vat_report_line.create({
-            'description': 'Vat report line 2',
-            'code': '102',
-            'value': 22.2,
-            'isAutomatic': True,
-            'report_id': cls.report.id})
-
-        # VAT report line instance (manual) | Valid eCDF VAT code
-        cls.line3 = cls.vat_report_line.create({
-            'description': 'Vat report line 3',
-            'code': '454',
-            'value': 33.3,
-            'report_id': cls.report.id})
-
-        # VAT report line instance (automatic) | Valid eCDF VAT code
-        cls.line4 = cls.vat_report_line.create({
-            'description': 'Vat report line 4',
-            'code': '457',
-            'value': 44.4,
-            'isAutomatic': True,
-            'report_id': cls.report.id})
 
     def test_check_matr(self):
         '''
@@ -319,91 +288,3 @@ class TestEcdfVatReport(SavepointCase):
         expected = '<FormData><NumericField id="015">5,50</NumericField>\
 </FormData>'
         self.assertEqual(etree.tostring(element), expected)
-
-    def test_fetch_manual_lines(self):
-        '''
-        Test _fetch_manual_lines : check the returned dictionary
-        '''
-        mis_template = self.report.get_mis_report_month()
-        manual_lines = self.report._fetch_manual_lines(mis_template.kpi_ids)
-
-        try:
-            manual_value = manual_lines['ecdf_101']
-            self.assertEqual(manual_value, 11.1)
-        except KeyError:
-            self.fail()
-
-    def test_clear_lines(self):
-        '''
-        Delete report's lines
-        '''
-        self.report.clear_lines()
-        if len(self.report.line_ids) > 0:
-            self.fail()
-
-    def test_generate_lines(self):
-        '''
-        Lines generation is not available for annual declaration
-        '''
-        self.report.generate_lines()
-        self.assertEqual(len(self.report.line_ids), 157)
-
-        self.report.type = 'year'
-        with self.assertRaises(UserError), self.cr.savepoint():
-            self.report.generate_lines()
-
-    def test_refresh_lines(self):
-        '''
-        Lines refresh is not available for annual declaration
-        '''
-        self.report.generate_lines()
-        self.report.refresh_lines()
-        self.assertEqual(len(self.report.line_ids), 157)
-
-        self.report.type = 'year'
-        with self.assertRaises(UserError), self.cr.savepoint():
-            self.report.generate_lines()
-
-    def test_print_report(self):
-        '''
-        Main test : print report
-        '''
-        self.report.generate_lines()
-        self.report._print_report({'form': {}})
-
-        # Report with no line
-        self.report.clear_lines()
-        with self.assertRaises(UserError), self.cr.savepoint():
-            self.report._print_report({'form': {}})
-
-    # VAT REPORT LINE
-
-    def test_check_code(self):
-        '''
-        A line's code must be unique in the VAT report
-        '''
-        # Try to insert a line with a already existing code in the VAT report
-        with self.assertRaises(ValidationError), self.cr.savepoint():
-            self.vat_report_line.create({
-                'description': 'Vat report line 1',
-                'code': '101',
-                'value': 11.1,
-                'report_id': self.report.id})
-
-        # Try to insert a line with a new code in the VAT report
-        self.vat_report_line.create({
-            'description': 'Vat report line 1',
-            'code': '109',
-            'value': 11.1,
-            'report_id': self.report.id})
-
-    def test_unlink(self):
-        '''
-        Automatic lines cannot be deleted
-        '''
-        # Try to delete an automatic line
-        with self.assertRaises(UserError), self.cr.savepoint():
-            self.line2.unlink()
-
-        # Try to delete a manual line
-        self.line1.unlink()

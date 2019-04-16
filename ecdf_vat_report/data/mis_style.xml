@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Acsone SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="style_tva_title" model="mis.report.style">
+      <field name="name">tva_title</field>
+      <field name="background_color_inherit" eval="0"/>
+      <field name="background_color">#ffa500</field>
+      <field name="font_weight_inherit" eval="0"/>
+      <field name="font_weight">bold</field>
+    </record>
+
+    <record id="style_tva_sub_1" model="mis.report.style">
+      <field name="name">tva_sub_1</field>
+      <field name="font_weight_inherit" eval="0"/>
+      <field name="font_weight">bold</field>
+    </record>
+
+    <record id="style_tva_sub_2" model="mis.report.style">
+      <field name="name">tva_sub_2</field>
+      <field name="font_weight_inherit" eval="0"/>
+        <field name="indent_level">2</field>
+    </record>
+
+    <record id="style_tva_sub_3" model="mis.report.style">
+      <field name="name">tva_sub_3</field>
+      <field name="indent_level_inherit" eval="0"/>
+      <field name="indent_level">2</field>
+      <field name="font_style_inherit" eval="0"/>
+      <field name="font_style">italic</field>
+    </record>
+
+    <record id="style_tva_sub_4" model="mis.report.style">
+      <field name="name">tva_sub_4</field>
+      <field name="indent_level_inherit" eval="0"/>
+      <field name="indent_level">3</field>
+      <field name="font_style_inherit" eval="0"/>
+    </record>
+</odoo>

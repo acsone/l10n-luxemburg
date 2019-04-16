@@ -18,10 +18,15 @@
     'data': [
         'views/ecdf_vat_report.xml',
         'views/res_company.xml',
-        'data/mis_report_vat.xml',
-        'security/vat_agent.xml',
-        'security/vat_report_line.xml',
-        'security/vat_report.xml',
+
+        'data/mis_report.xml',
+        'data/mis_style.xml',
+        'data/mis_sub_kpi.xml',
+        'data/ecdf.manual.data.csv',
+        'data/mis.report.kpi.csv',
+        'data/mis.report.kpi.expression.csv',
+
+        'security/ir.model.access.csv',
     ],
     'demo': [
         'demo/demo_ecdf_vat_report.xml',
