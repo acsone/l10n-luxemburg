@@ -11,21 +11,21 @@
     </record>
     
     <!-- VAT Agent -->
-    <record id="demo_vat_agent" model="vat.agent">
+    <record id="demo_vat_agent" model="ecdf.vat.agent">
         <field name="name">Test Agent</field>
         <field name="matr">1111111111111</field>
         <field name="rcs">L123456</field>
         <field name="vat">LU12345678</field>
     </record>
     
-    <record id="demo_vat_report" model="vat.report">
+    <record id="demo_vat_report" model="ecdf.vat.report">
         <field name="name">Test Vat Report</field>
         <field name="description">A VAT report for unit tests</field>
         <field name="language">FR</field>
-        <field name="type">month</field>
+        <field name="period_type">month</field>
         <field name="year" eval="2019" />
-        <field name="period" eval="3" />
-        <field name="agent_id" ref="ecdf_vat_report.demo_vat_agent" />
+        <field name="period_month" eval="3" />
+        <field name="agent_id" ref="l10n_lu_ecdf.demo_vat_agent" />
         <field name="regime">sales</field>
     </record>
 

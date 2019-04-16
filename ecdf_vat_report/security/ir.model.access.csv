@@ -1,5 +1,0 @@
-id,name,model_id/id,group_id/id,perm_read,perm_create,perm_write,perm_unlink
-ecdf_vat_report.vat_agent_access_name,vat.agent access name,ecdf_vat_report.model_vat_agent,account.group_account_manager,True,True,True,True
-ecdf_vat_report.vat_report_access_name,vat.report access name,ecdf_vat_report.model_vat_report,account.group_account_manager,True,True,True,True
-ecdf_vat_report.ecdf_manual_input_access_name,ecdf.manual.input access name,ecdf_vat_report.model_ecdf_manual_input,account.group_account_manager,True,True,True,True
-ecdf_vat_report.ecdf_manual_data_access_name,ecdf.manual.data access name,ecdf_vat_report.model_ecdf_manual_data,account.group_account_manager,True,True,True,True

@@ -17,7 +17,7 @@ class TestEcdfVatReport(SavepointCase):
         super(TestEcdfVatReport, cls).setUpClass()
 
         # ENVIRONMENTS
-        cls.vat_report = cls.env['vat.report']
+        cls.vat_report = cls.env['ecdf.vat.report']
         cls.res_company = cls.env['res.company']
 
         # INSTANCES
@@ -25,10 +25,10 @@ class TestEcdfVatReport(SavepointCase):
         cls.company = cls.env.ref('base.main_company')
 
         # Instance: VAT agent
-        cls.agent = cls.env.ref('ecdf_vat_report.demo_vat_agent')
+        cls.agent = cls.env.ref('l10n_lu_ecdf.demo_vat_agent')
 
         # VAT report instance
-        cls.report = cls.env.ref('ecdf_vat_report.demo_vat_report')
+        cls.report = cls.env.ref('l10n_lu_ecdf.demo_vat_report')
 
     def test_check_matr(self):
         '''
@@ -111,12 +111,12 @@ class TestEcdfVatReport(SavepointCase):
 
         self.assertIsNotNone(rexp.match(self.report.file_name))
 
-    def test_onchange_type(self):
+    def test_onchange_period_type(self):
         '''
-        onchange_type set the report.period to 1
+        onchange_type set the report.period_month to 1
         '''
-        self.report._onchange_type()
-        self.assertEqual(self.report.period, 1)
+        self.report._onchange_period_type()
+        self.assertEqual(self.report.period_month, 1)
 
     def test_get_ecdf_file_version(self):
         report_file_version = self.report.get_ecdf_file_version()

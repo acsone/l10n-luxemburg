@@ -25,7 +25,7 @@ class VatAgent(models.Model):
     '''
     Declarer agent
     '''
-    _name = 'vat.agent'
+    _name = 'ecdf.vat.agent'
 
     name = fields.Char(string='Name', required=True)
     matr = fields.Char(string='Matricule', size=13, required=True)
@@ -93,7 +93,7 @@ class MisReport(models.Model):
             locals_dict = {}
         if get_additional_query_filter:
             if get_additional_query_filter.im_self and get_additional_query_filter.im_self.report_instance_id:
-                vat_report = self.env['vat.report'].search(
+                vat_report = self.env['ecdf.vat.report'].search(
                     [('mis_instance_id', '=', get_additional_query_filter.im_self.report_instance_id.id)])
                 if vat_report and vat_report.manual_ids:
                     manuals = {}
@@ -119,7 +119,7 @@ class MisReport(models.Model):
 class EcdfManualInput(models.Model):
     _name = 'ecdf.manual.input'
 
-    report_id = fields.Many2one('vat.report', string="Report")
+    report_id = fields.Many2one('ecdf.vat.report', string="Report")
     name = fields.Char('Name', required=True)
     description = fields.Char('Description')
     value = fields.Float('Value')
@@ -138,7 +138,7 @@ class VatReport(models.Model):
     '''
     _inherit = "account.common.report"
     _description = 'eCDF VAT Report'
-    _name = 'vat.report'
+    _name = 'ecdf.vat.report'
     _transient = False
 
     name = fields.Char(string='Name', required=True)
@@ -152,7 +152,7 @@ class VatReport(models.Model):
                    ('EN', 'English')],
         required=True,
         default='FR')
-    type = fields.Selection(string='Declaration Type',
+    period_type = fields.Selection(string='Declaration Type',
         selection=[('month', 'Monthly'),
                    ('quarter', 'Quarterly'),
                    ('year', 'Annually')],
@@ -163,7 +163,7 @@ class VatReport(models.Model):
         selection=[(n, str(n)) for n in range(2019, this_year+1)],
         required=True,
         default=this_year)
-    period = fields.Selection(string="Period",
+    period_month = fields.Selection(string="Period",
         selection=[(1, 'January'),
                    (2, 'February'),
                    (3, 'March'),
@@ -178,7 +178,7 @@ class VatReport(models.Model):
                    (12, 'December')],
         required=True,
         default=1)
-    agent_id = fields.Many2one(string='Agent', comodel_name='vat.agent', ondelete='restrict')
+    agent_id = fields.Many2one(string='Agent', comodel_name='ecdf.vat.agent', ondelete='restrict')
     regime = fields.Selection(string='VAT accounting scheme',
         selection=[('sales', 'On sales [204]'),
                    ('revenues', 'On payments received [205]')],
@@ -195,23 +195,23 @@ class VatReport(models.Model):
         return super(VatReport, self).unlink()
 
     @api.multi
-    @api.constrains('period', 'year')
+    @api.constrains('period_month', 'year')
     def update_instance(self):
         self.ensure_one()
         if not self.mis_instance_id:
             return
-        report = self.get_mis_report_month(self.year)
+        report = self.get_mis_report(self.year, self.period_type)
         if not report:
-            raise UserError(_('We cannot create the report for the selected year.'))
-        nb_days = calendar.monthrange(self.year, self.period)[1]
-        date_start = datetime.date(self.year, self.period, 1)
-        date_stop = datetime.date(self.year, self.period, nb_days)
+            raise UserError(_('Cannot find the "%s" MIS report for the year "%s".') % (self.period_type, self.year))
+        nb_days = calendar.monthrange(self.year, self.period_month)[1]
+        date_start = datetime.date(self.year, self.period_month, 1)
+        date_stop = datetime.date(self.year, self.period_month, nb_days)
         self.mis_instance_id.write({
             'report_id': report.id,
             'date_from': date_start,
             'date_to': date_stop,
             'period_ids': [(1, self.mis_instance_id.period_ids.ids[0], {
-                'name': _('VAT %s-%02d') % (self.year, self.period),
+                'name': _('VAT %s-%02d') % (self.year, self.period_month),
             })],
         })
 
@@ -245,13 +245,13 @@ class VatReport(models.Model):
                                     nbr))
             report.file_name = res
 
-    @api.onchange('type')
-    def _onchange_type(self):
+    @api.onchange('period_type')
+    def _onchange_period_type(self):
         '''
-        On Change : 'type'
-        Field period is reset to its default value
+        On Change : 'period_type'
+        Field period_month is reset to its default value
         '''
-        self.period = 1
+        self.period_month = 1
 
     def get_ecdf_file_version(self):
         '''
@@ -350,11 +350,11 @@ class VatReport(models.Model):
         return self.language
 
     @api.multi
-    def get_mis_report_month(self, year='2019'):
+    def get_mis_report(self, year, period_type):
         '''
         :returns: the mis report template for monthly vat declaration
         '''
-        xml_id = "ecdf_vat_report.mis_report_vat_%s" % year
+        xml_id = "l10n_lu_ecdf.mis_report_%s_vat_%s" % (period_type, year)
         return self.env.ref(xml_id)
 
     def _append_num_field(self, element, ecdf, val, comment=None):
@@ -438,7 +438,7 @@ class VatReport(models.Model):
         year.text = str(self.year)
         # Period
         period = etree.Element('Period')
-        period.text = str(self.period)
+        period.text = str(self.period_month)
         # Form Data
         form_data = etree.Element('FormData')
 
@@ -456,16 +456,16 @@ class VatReport(models.Model):
     def get_report_instance(self):
         self.ensure_one()
         if not self.mis_instance_id:
-            nb_days = calendar.monthrange(self.year, self.period)[1]
-            date_start = datetime.date(self.year, self.period, 1)
-            date_stop = datetime.date(self.year, self.period, nb_days)
+            nb_days = calendar.monthrange(self.year, self.period_month)[1]
+            date_start = datetime.date(self.year, self.period_month, 1)
+            date_stop = datetime.date(self.year, self.period_month, nb_days)
             instance = self.env['mis.report.instance'].create({
                 'name': self.name,
-                'report_id': self.get_mis_report_month(self.year).id,
+                'report_id': self.get_mis_report(self.year, self.period_type).id,
                 'date_from': date_start,
                 'date_to': date_stop,
                 'period_ids': [(0, 0, {
-                    'name': _('VAT %s-%02d') % (self.year, self.period),
+                    'name': _('VAT %s-%02d') % (self.year, self.period_month),
                 })],
             })
             self.mis_instance_id = instance
@@ -537,7 +537,7 @@ class VatReport(models.Model):
         declarer.append(rcs_declarer)
         declarer.append(vat_declarer)
         # Declaration lines
-        decl_type = 'TVA_DECM' if self.type == 'month' else 'TVA_DECA'
+        decl_type = 'TVA_DECM' if self.period_type == 'month' else 'TVA_DECA'
         declarer.append(self._get_vat_declaration(decl_type))
         # Declarer
         declarations.append(declarer)
@@ -572,7 +572,7 @@ class CreateXML(report_sxw.report_sxw):
         xml = data['form']['xml']
         xml = xml.encode('utf-8')
         # Validate the generated XML schema
-        xsd = tools.file_open('ecdf_vat_report/xsd/eCDF_file_v1.1.xsd')
+        xsd = tools.file_open('l10n_lu_ecdf/xsd/eCDF_file_v1.1.xsd')
         xmlschema_doc = etree.parse(xsd)
         xmlschema = etree.XMLSchema(xmlschema_doc)
         # re-parse only to have line numbers in error messages?

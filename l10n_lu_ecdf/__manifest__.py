@@ -3,17 +3,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'eCDF VAT Report',
+    'name': 'Luxemburg eCDF Reports',
     'description': """
-        This modules allows to make VAT reports in XML format, ready for eCDF.
+        This modules allows to make VAT and annual reports (P&L, Balance Sheet, Chart of Accounts) in XML format, ready for eCDF.
     """,
     'version': '10.0.0.0.1',
     'licence': 'AGPL-3',
     'author': 'ACSONE SA/NV, Odoo Community Association (OCA)',
     'website': 'www.acsone.eu',
     'depends': [
-        'l10n_lu_ext',
-        'mis_builder'
+        'l10n_lu_mis_reports_tax',
     ],
     'data': [
         'views/ecdf_vat_report.xml',

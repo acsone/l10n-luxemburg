@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Acsone SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <!--  IMPORTANT: The XMLID of the mis report should be mis_report_%s_vat_%s % (type, year) where type can be 'month', 'quarter' or 'year'  -->
+    <record id="mis_report_month_vat_2019" model="mis.report">
+        <field name="name">Monthly VAT 2019</field>
+    </record>
+</odoo>

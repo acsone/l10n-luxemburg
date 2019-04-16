@@ -7,4 +7,9 @@ from odoo import models, fields
 
 class res_company(models.Model):
     _inherit = "res.company"
+
     ecdf_prefixe = fields.Char("eCDF Prefix", size=6)
+    l10n_lu_matricule = fields.Char(
+        string='Luxembourg Matricule', size=13,
+        help='Identification Number delivered by the Luxembourg authorities '
+             'as soon as the company is registered')
