@@ -28,6 +28,9 @@ class EcdfAbstractReport(models.AbstractModel):
         required=True, default='EN')
     agent_id = fields.Many2one(string='Agent', comodel_name='ecdf.agent',
                                help='Contains Matricule, VAT and Company Registry')
+    matr = fields.Char(string='Matricule', related="agent_id.matr", readonly=True)
+    rcs = fields.Char(string='Company Registry', related="agent_id.rcs", readonly=True)
+    vat = fields.Char(string='Tax ID', related="agent_id.vat", readonly=True)
     file_name = fields.Char(sring='File name', size=24, compute='_compute_file_name')
     xml_file = fields.Binary('XML File', readonly=True)
 

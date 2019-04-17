@@ -57,10 +57,13 @@
                             <field name="name"/>
                             <field name="description"/>
                             <field name="company_id"/>
-                            <field name="language"/>
-                        </group>
-                        <group name="group_report_options" string="Report options">
                             <field name="agent_id" help="If no agent, company data will be used"/>
+                            <field name="matr" attrs="{'invisible': [('agent_id', '=', False)]}"/>
+                            <field name="rcs" attrs="{'invisible': [('agent_id', '=', False)]}"/>
+                            <field name="vat" attrs="{'invisible': [('agent_id', '=', False)]}"/>
+                        </group>
+                        <group name="group_report_options" string="Report Options">
+                            <field name="language"/>
                             <field name="year"/>
                             <field name="period_type" readonly="1"/>
                             <field name="period_month" attrs="{'invisible': [('period_type', '!=', 'month')]}"/>

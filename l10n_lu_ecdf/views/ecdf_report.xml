@@ -58,18 +58,21 @@
                 </header>
                 <sheet>
                     <group name="top_group">
-                        <group name="left_group">
+                        <group name="left_group" string="Main Information">
                             <field name="name"/>
                             <field name="company_id"/>
+                            <field name="agent_id" help="If no agent, company data will be used"/>
+                            <field name="matr" attrs="{'invisible': [('agent_id', '=', False)]}"/>
+                            <field name="rcs" attrs="{'invisible': [('agent_id', '=', False)]}"/>
+                            <field name="vat" attrs="{'invisible': [('agent_id', '=', False)]}"/>
+                        </group>
+                        <group name="right_group" string="Report Options">
+                            <field name="language"/>
                             <label for="date_from"/>
                             <div>
                                 <field name="date_from" class="oe_inline" nolabel="1"/><b> To </b>
                                 <field name="date_to" class="oe_inline" nolabel="1"/>
                             </div>
-                            <field name="agent_id" help="If no agent, company data will be used"/>
-                            <field name="language"/>
-                        </group>
-                        <group name="right_group">
                             <field name="target_move"/>
                             <field name="reports_type" attrs="{'invisible': [('with_bs', '=', False), ('with_pl', '=', False)]}"/>
                             <field name="with_ac"/>
