@@ -103,6 +103,7 @@ class EcdfVatReport(models.Model):
             'period_ids': [(1, self.mis_instance_id.period_ids.ids[0], {
                 'name': _('VAT %s-%02d') % (self.year, self.period_month),
             })],
+            'temporary': True,
         })
 
     def _default_manual(self):
@@ -212,6 +213,7 @@ class EcdfVatReport(models.Model):
                 'period_ids': [(0, 0, {
                     'name': _('VAT %s-%02d') % (self.year, self.period_month),
                 })],
+                'temporary': True,
             })
             self.mis_instance_id = instance
         return self.mis_instance_id
