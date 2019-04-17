@@ -11,7 +11,7 @@
     </record>
     
     <!-- VAT Agent -->
-    <record id="demo_vat_agent" model="ecdf.vat.agent">
+    <record id="demo_vat_agent" model="ecdf.agent">
         <field name="name">Test Agent</field>
         <field name="matr">1111111111111</field>
         <field name="rcs">L123456</field>

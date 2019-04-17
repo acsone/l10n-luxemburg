@@ -13,9 +13,11 @@
     'website': 'www.acsone.eu',
     'depends': [
         'l10n_lu_mis_reports_tax',
+        'l10n_lu_mis_reports',
     ],
     'data': [
         'views/ecdf_vat_report.xml',
+        'views/ecdf_report.xml',
         'views/res_company.xml',
 
         'data/mis_report.xml',

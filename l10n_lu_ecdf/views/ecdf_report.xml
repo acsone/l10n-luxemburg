@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Acsone SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record model="ir.ui.view" id="ecdf_report_view_tree">
+        <field name="name">ecdf.report.view.tree</field>
+        <field name="model">ecdf.report</field>
+        <field name="arch" type="xml">
+            <tree string="eCDF Financial Reports">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="reports_type"/>
+                <field name="target_move"/>
+                <field name="with_pl"/>
+                <field name="with_bs"/>
+                <field name="with_ac"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="ecdf_report_search">
+        <field name="name">ecdf.report.search</field>
+        <field name="model">ecdf.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="company_id" filter_domain="[('company_id.name', 'ilike', self)]"/>
+                <field name="agent_id" filter_domain="[('agent_id.name', 'ilike', self)]"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="reports_type"/>
+                <field name="target_move"/>
+                <filter string="This year" domain="[('date_from', '&lt;=', datetime.date.today()), ('date_to', '&gt;=', datetime.date.today())]"/>
+                <filter string="Profit &amp; Loss" domain="[('with_pl', '=', True)]"/>
+                <filter string="Balance Sheet" domain="[('with_bs', '=', True)]"/>
+                <filter string="Chart of Accounts" domain="[('with_ac', '=', True)]"/>
+                <group expand="0" string="Group by">
+                    <filter string="Language" domain="[]" context="{'group_by':'language'}"/>
+                    <filter string="Agent" domain="[]" context="{'group_by':'agent_id'}"/>
+                    <filter string="Company" domain="[]" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="ecdf_report_view" model="ir.ui.view">
+        <field name="name">eCDF Report</field>
+        <field name="model">ecdf.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="print_xml" type="object" string="Generate XML" class="oe_highlight" icon="fa-download" help="Download the Financial Report in XML format, ready for eCDF"/>
+                </header>
+                <sheet>
+                    <group name="top_group">
+                        <group name="left_group">
+                            <field name="name"/>
+                            <field name="company_id"/>
+                            <label for="date_from"/>
+                            <div>
+                                <field name="date_from" class="oe_inline" nolabel="1"/> to
+                                <field name="date_to" class="oe_inline" nolabel="1"/>
+                            </div>
+                            <field name="agent_id" help="If no agent, company data will be used"/>
+                            <field name="language"/>
+                        </group>
+                        <group name="right_group">
+                            <field name="target_move"/>
+                            <field name="reports_type" attrs="{'invisible': [('with_bs', '=', False), ('with_pl', '=', False)]}"/>
+                            <field name="with_ac"/>
+                            <field name="with_bs"/>
+                            <field name="with_pl"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Remarks" attrs="{'invisible': [('with_ac','=',False)]}">
+                            <field name="remarks"/>
+                        </page>
+                        <page string="XML report" attrs="{'invisible': [('xml_file', '=', False)]}">
+                            <group>
+                                <field name="xml_file" filename="full_file_name"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ecdf_report_action" model="ir.actions.act_window">
+        <field name="name">eCDF Financial Reports</field>
+        <field name="res_model">ecdf.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="ecdf_report_menu" name="eCDF Financial Reports"
+        parent="l10n_lu.account_reports_lu_statements_menu" action="ecdf_report_action" />
+</odoo>
