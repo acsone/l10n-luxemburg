@@ -52,6 +52,9 @@
             <form>
                 <header>
                     <button name="print_xml" type="object" string="Generate XML" class="oe_highlight" icon="fa-download" help="Download the Financial Report in XML format, ready for eCDF"/>
+                    <button name="preview" context="{'preview_type': 'ac'}" type="object" string="Preview Chart of Accounts" attrs="{'invisible': [('with_ac', '=', False)]}"/>
+                    <button name="preview" context="{'preview_type': 'bs'}" type="object" string="Preview Balance Sheet" attrs="{'invisible': [('with_bs', '=', False)]}"/>
+                    <button name="preview" context="{'preview_type': 'pl'}" type="object" string="Preview Profit &amp; Loss" attrs="{'invisible': [('with_pl', '=', False)]}"/>
                 </header>
                 <sheet>
                     <group name="top_group">

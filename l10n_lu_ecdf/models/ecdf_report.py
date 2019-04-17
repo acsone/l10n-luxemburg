@@ -24,6 +24,13 @@ from odoo.exceptions import ValidationError, Warning as UserError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
 from odoo.addons.mis_builder.models.accounting_none import AccountingNone
 
+templ = {
+    'CA_PLANCOMPTA': 'l10n_lu_mis_reports.mis_report_ca',
+    'CA_BILAN': 'l10n_lu_mis_reports.mis_report_bs_2016',
+    'CA_BILANABR': 'l10n_lu_mis_reports.mis_report_abr_bs',
+    'CA_COMPP': 'l10n_lu_mis_reports.mis_report_pl_2016',
+    'CA_COMPPABR': 'l10n_lu_mis_reports.mis_report_abr_pl',
+}
 
 class EcdfReport(models.Model):
     '''
@@ -287,13 +294,6 @@ class EcdfReport(models.Model):
         self.ensure_one()
         declarations = etree.Element('Declarations')
         reports = []
-        templ = {
-            'CA_PLANCOMPTA': 'l10n_lu_mis_reports.mis_report_ca',
-            'CA_BILAN': 'l10n_lu_mis_reports.mis_report_bs_2016',
-            'CA_BILANABR': 'l10n_lu_mis_reports.mis_report_abr_bs',
-            'CA_COMPP': 'l10n_lu_mis_reports.mis_report_pl_2016',
-            'CA_COMPPABR': 'l10n_lu_mis_reports.mis_report_abr_pl',
-        }
 
         # Report
         if self.with_ac:  # Chart of Accounts
@@ -361,3 +361,41 @@ class EcdfReport(models.Model):
 
         declarations.append(declarer)
         return declarations
+
+    @api.multi
+    def get_report_instance(self, report_type):
+        instance = self.env['mis.report.instance'].create({
+            'name': self.name,
+            'report_id': self.env.ref(templ.get(report_type)).id,
+            'date_from': fields.Date.from_string(self.date_from),
+            'date_to': fields.Date.from_string(self.date_to),
+            'period_ids': [(0, 0, {
+                'name': _('From %s To %s') % (self.date_from, self.date_to),
+            })],
+            'temporary': True,
+        })
+        return instance
+
+    @api.multi
+    def preview(self):
+        self.ensure_one()
+        view_id = self.env.ref('mis_builder.'
+                               'mis_report_instance_result_view_form')
+        preview_type = self.env.context.get('preview_type')
+        if not preview_type:
+            return
+        report_type = 'CA_PLANCOMPTA'
+        if preview_type == 'bs':
+            report_type = 'CA_BILAN' if self.reports_type == 'full' else 'CA_BILANABR'
+        elif preview_type == 'pl':
+            report_type = 'CA_COMPP' if self.reports_type == 'full' else 'CA_COMPPABR'
+        instance = self.get_report_instance(report_type)
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mis.report.instance',
+            'res_id': instance.id,
+            'view_mode': 'form',
+            'view_type': 'form',
+            'view_id': view_id.id,
+            'target': 'current',
+        }
