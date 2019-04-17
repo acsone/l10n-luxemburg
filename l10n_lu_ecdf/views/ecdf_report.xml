@@ -32,7 +32,7 @@
                 <field name="date_to"/>
                 <field name="reports_type"/>
                 <field name="target_move"/>
-                <filter string="This year" domain="[('date_from', '&lt;=', datetime.date.today()), ('date_to', '&gt;=', datetime.date.today())]"/>
+                <filter string="This year" domain="[('date_from', '&lt;=', context_today().strftime('%Y-%m-%d')), ('date_to', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
                 <filter string="Profit &amp; Loss" domain="[('with_pl', '=', True)]"/>
                 <filter string="Balance Sheet" domain="[('with_bs', '=', True)]"/>
                 <filter string="Chart of Accounts" domain="[('with_ac', '=', True)]"/>
@@ -60,7 +60,7 @@
                             <field name="company_id"/>
                             <label for="date_from"/>
                             <div>
-                                <field name="date_from" class="oe_inline" nolabel="1"/> to
+                                <field name="date_from" class="oe_inline" nolabel="1"/><b> To </b>
                                 <field name="date_to" class="oe_inline" nolabel="1"/>
                             </div>
                             <field name="agent_id" help="If no agent, company data will be used"/>

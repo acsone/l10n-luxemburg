@@ -25,17 +25,18 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
 from odoo.addons.mis_builder.models.accounting_none import AccountingNone
 
 
-class EcdfReport(models.TransientModel):
+class EcdfReport(models.Model):
     '''
-    This wizard allows to generate three types of financial reports :
+    This model allows to generate three types of financial reports :
         - Profit & Loss (P&L)
         - Balance Sheet (BS)
         - Chart of Accounts (CA)
     P&L and BS can be generated in abbreviated version or not
     The selected reports (max. 3) are written in a downloadable XML file
+    ready for eCDF
     '''
     _name = 'ecdf.report'
-    _description = 'eCDF Report Wizard'
+    _description = 'Annual eCDF financial Report'
     _inherit = "ecdf.abstract"
 
     target_move = fields.Selection(
@@ -82,8 +83,8 @@ class EcdfReport(models.TransientModel):
         :param form_data: XML node "form_data"
         :param data_prev: date of the previous year
         '''
-        # Regex : group('current') : ecdf_code for current year
-        #         group('previous') : ecdf_code for previous year
+        # Regex: group('current') : ecdf_code for current year
+        #        group('previous') : ecdf_code for previous year
         exp = r"""^ecdf\_(?P<previous>\d*)\_(?P<current>\d*)"""
         rexp = re.compile(exp, re.X)
         for record in self:
@@ -97,30 +98,16 @@ class EcdfReport(models.TransientModel):
                         report['val'],
                         comment=" current - %s " % report['kpi_name']
                     )
-            if data_prev:
-                # Previous fiscal year
-                for report in data_prev:
-                    line_match = rexp.match(report['kpi_technical_name'])
-                    if line_match:
-                        ecdf_code = line_match.group('previous')
-                        record._append_num_field(
-                            form_data,
-                            ecdf_code,
-                            report['val'],
-                            comment=" previous - %s " % report['kpi_name']
-                        )
-            else:
-                # No Previous fical year: we must output 0.0 for
-                # items where we have a value in current fiscal year
-                form_data.append(etree.Comment(" no previous year"))
-                for report in data_curr:
-                    line_match = rexp.match(report['kpi_technical_name'])
-                    if line_match:
-                        ecdf_code = line_match.group('previous')
-                        if report['val'] not in (AccountingNone, None):
-                            record._append_num_field(form_data,
-                                                     ecdf_code,
-                                                     0.0)
+            for report in data_prev:
+                line_match = rexp.match(report['kpi_technical_name'])
+                if line_match:
+                    ecdf_code = line_match.group('previous')
+                    record._append_num_field(
+                        form_data,
+                        ecdf_code,
+                        report['val'],
+                        comment=" previous - %s " % report['kpi_name']
+                    )
 
     @api.multi
     def _get_finan_report(self, data_current, report_type, report_model,
@@ -175,8 +162,8 @@ class EcdfReport(models.TransientModel):
         :returns: XML node called "declaration"
         '''
         self.ensure_one()
-        # Regex : group('debit') : ecdf_code for debit column
-        #         group('credit') ecdf_code for credit column
+        # Regex : group('current') : ecdf_code for current year
+        #         group('previous') : ecdf_code for previous year
         exp = r"""^ecdf\_(?P<debit>\d*)\_(?P<credit>\d*)"""
         rexp = re.compile(exp, re.X)
 
@@ -286,9 +273,7 @@ class EcdfReport(models.TransientModel):
                 for c in cell:
                     kpi_values[c.row.kpi.name] = {'val': c.val}
 
-        # prepare content
         content = []
-        # rows_by_kpi_name = {}
         for kpi in mis_template.kpi_ids:
             content.append({
                 'kpi_name': kpi.description,
@@ -300,9 +285,7 @@ class EcdfReport(models.TransientModel):
 
     def _get_xml_declarations(self, declarer):
         self.ensure_one()
-        # Declarations
         declarations = etree.Element('Declarations')
-        # Declaration lines
         reports = []
         templ = {
             'CA_PLANCOMPTA': 'l10n_lu_mis_reports.mis_report_ca',
@@ -348,10 +331,8 @@ class EcdfReport(models.TransientModel):
                 error_not_found += '\n\t - ' + report['templ']
 
             data_current = self.compute(mis_report, self.date_from, self.date_to)
-            # data_previous = None
 
             if report['type'] != 'CA_PLANCOMPTA':
-                # if self.prev_fiscyear:  # Previous year
                 date_from = fields.Date.from_string(self.date_from)
                 previous_date_from = date(date_from.year + 1,
                         date_from.month, date_from.day).strftime(DATE_FORMAT)
@@ -373,12 +354,10 @@ class EcdfReport(models.TransientModel):
                 if chart_of_account is not None:
                     declarer.append(chart_of_account)
 
-        # Warning message if template(s) not found
         if error_not_found:
             raise UserError(
                 _('MIS Template(s) not found :'),
                 error_not_found)
 
-        # Declarer
         declarations.append(declarer)
         return declarations
