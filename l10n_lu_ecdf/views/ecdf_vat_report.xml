@@ -26,7 +26,6 @@
                 <field name="regime" filter_domain="[('regime', 'ilike', self)]"/>
                 <field name="company_id" filter_domain="[('company_id.name', 'ilike', self)]"/>
                 <field name="agent_id" filter_domain="[('agent_id.name', 'ilike', self)]"/>
-                <field name="regime" filter_domain="[('regime', 'ilike', self)]"/>
                 <field name="year" filter_domain="[('year', 'ilike', self)]"/>
                 <filter string="This year" domain="[('year', '=', context_today().year)]" help="Declarations for this year"/>
                 <filter string="Sales" domain="[('regime', '=', 'sales')]" help="Tax regime : sales"/>

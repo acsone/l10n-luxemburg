@@ -5,7 +5,7 @@
 from odoo import models, fields
 
 
-class res_company(models.Model):
+class Company(models.Model):
     _inherit = "res.company"
 
     ecdf_prefixe = fields.Char("eCDF Prefix", size=6)
