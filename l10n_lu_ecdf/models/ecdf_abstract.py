@@ -9,8 +9,9 @@ import base64
 from StringIO import StringIO
 
 from odoo import models, fields, api, _, tools
-from odoo.exceptions import ValidationError, Warning as UserError
+from odoo.exceptions import Warning as UserError
 from odoo.addons.mis_builder.models.accounting_none import AccountingNone
+
 
 class EcdfAbstractReport(models.AbstractModel):
     '''
@@ -20,18 +21,31 @@ class EcdfAbstractReport(models.AbstractModel):
     _description = 'eCDF Abstract Report'
 
     name = fields.Char(string='Name')
-    company_id = fields.Many2one('res.company', string='Company', readonly=True,
+    company_id = fields.Many2one('res.company',
+                                 string='Company',
+                                 readonly=True,
                                  default=lambda self: self.env.user.company_id)
     language = fields.Selection(
         (('FR', 'FR'), ('DE', 'DE'), ('EN', 'EN')),
-        'Language',
-        required=True, default='EN')
-    agent_id = fields.Many2one(string='Agent', comodel_name='ecdf.agent',
-                               help='Contains Matricule, VAT and Company Registry')
-    matr = fields.Char(string='Matricule', related="agent_id.matr", readonly=True)
-    rcs = fields.Char(string='Company Registry', related="agent_id.rcs", readonly=True)
-    vat = fields.Char(string='Tax ID', related="agent_id.vat", readonly=True)
-    file_name = fields.Char(sring='File name', size=24, compute='_compute_file_name')
+        string='Language',
+        required=True,
+        default='EN')
+    agent_id = fields.Many2one(
+        string='Agent',
+        comodel_name='ecdf.agent',
+        help='Contains Matricule, VAT and Company Registry')
+    matr = fields.Char(string='Matricule',
+                       related="agent_id.matr",
+                       readonly=True)
+    rcs = fields.Char(string='Company Registry',
+                      related="agent_id.rcs",
+                      readonly=True)
+    vat = fields.Char(string='Tax ID',
+                      related="agent_id.vat",
+                      readonly=True)
+    file_name = fields.Char(sring='File name',
+                            size=24,
+                            compute='_compute_file_name')
     xml_file = fields.Binary('XML File', readonly=True)
 
     @api.multi
@@ -239,8 +253,9 @@ class EcdfAbstractReport(models.AbstractModel):
             return {
                 'type': 'ir.actions.report.xml',
                 'report_type': 'controller',
-                'report_file': '/web/content/%s/%s/xml_file/%s.xml?download=true' % (
-                    self._name, str(self.id), self.file_name),
+                'report_file':
+                    '/web/content/%s/%s/xml_file/%s.xml?download=true'
+                    % (self._name, str(self.id), self.file_name),
             }
         else:
             error = xmlschema.error_log[0]

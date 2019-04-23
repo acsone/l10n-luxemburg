@@ -13,8 +13,8 @@ import calendar
 import datetime
 
 from lxml import etree
-from odoo import api, fields, models, _, tools
-from odoo.exceptions import ValidationError, Warning as UserError
+from odoo import api, fields, models, _
+from odoo.exceptions import Warning as UserError
 
 
 class EcdfManualInput(models.Model):
@@ -43,21 +43,24 @@ class EcdfVatReport(models.Model):
 
     name = fields.Char(required=True)
     description = fields.Char(string='Description')
-    manual_ids = fields.One2many('ecdf.manual.input', 'report_id',
-        string="Manual Input(s)",
-        default=lambda self: self._default_manual())
+    manual_ids = fields.One2many('ecdf.manual.input',
+                                 'report_id',
+                                 string="Manual Input(s)",
+                                 default=lambda self: self._default_manual())
     period_type = fields.Selection(string='Declaration Type',
-        selection=[('month', 'Monthly'),
-                   ('quarter', 'Quarterly'),
-                   ('year', 'Annually')],
-        default='month',
-        required=True)
+                                   selection=[('month', 'Monthly'),
+                                              ('quarter', 'Quarterly'),
+                                              ('year', 'Annually')],
+                                   default='month',
+                                   required=True)
     this_year = datetime.date.today().year
-    year = fields.Selection(string='Year',
+    year = fields.Selection(
+        string='Year',
         selection=[(n, str(n)) for n in range(2019, this_year+1)],
         required=True,
         default=this_year)
-    period_month = fields.Selection(string="Period",
+    period_month = fields.Selection(
+        string="Period",
         selection=[(1, 'January'),
                    (2, 'February'),
                    (3, 'March'),
@@ -72,12 +75,14 @@ class EcdfVatReport(models.Model):
                    (12, 'December')],
         required=True,
         default=1)
-    regime = fields.Selection(string='VAT accounting scheme',
+    regime = fields.Selection(
+        string='VAT accounting scheme',
         selection=[('sales', 'On sales [204]'),
                    ('revenues', 'On payments received [205]')],
         required=True,
         default='sales')
-    mis_instance_id = fields.Many2one('mis.report.instance', string="Mis report instance")
+    mis_instance_id = fields.Many2one('mis.report.instance',
+                                      string="Mis report instance")
 
     @api.multi
     def unlink(self):
@@ -92,7 +97,9 @@ class EcdfVatReport(models.Model):
             return
         report = self.get_mis_report(self.year, self.period_type)
         if not report:
-            raise UserError(_('Cannot find the "%s" MIS report for the year "%s".') % (self.period_type, self.year))
+            raise UserError(
+                _('Cannot find the "%s" MIS report for the year "%s".')
+                % (self.period_type, self.year))
         nb_days = calendar.monthrange(self.year, self.period_month)[1]
         date_start = datetime.date(self.year, self.period_month, 1)
         date_stop = datetime.date(self.year, self.period_month, nb_days)
@@ -109,7 +116,8 @@ class EcdfVatReport(models.Model):
     def _default_manual(self):
         result = []
         for manual_input in self.env['ecdf.manual.data'].search([]):
-            result.append((0, 0, {'name': manual_input.name, 'description': manual_input.description}))
+            result.append((0, 0, {'name': manual_input.name,
+                                  'description': manual_input.description}))
         return result
 
     @api.onchange('period_type')
@@ -205,9 +213,10 @@ class EcdfVatReport(models.Model):
             nb_days = calendar.monthrange(self.year, self.period_month)[1]
             date_start = datetime.date(self.year, self.period_month, 1)
             date_stop = datetime.date(self.year, self.period_month, nb_days)
+            report = self.get_mis_report(self.year, self.period_type)
             instance = self.env['mis.report.instance'].create({
                 'name': self.name,
-                'report_id': self.get_mis_report(self.year, self.period_type).id,
+                'report_id': report.id,
                 'date_from': date_start,
                 'date_to': date_stop,
                 'period_ids': [(0, 0, {

@@ -29,25 +29,29 @@ class MisReport(models.Model):
         if locals_dict is None:
             locals_dict = {}
         if get_additional_query_filter:
-            if get_additional_query_filter.im_self and get_additional_query_filter.im_self.report_instance_id:
+            if get_additional_query_filter.im_self and \
+                    get_additional_query_filter.im_self.report_instance_id:
                 vat_report = self.env['ecdf.vat.report'].search(
-                    [('mis_instance_id', '=', get_additional_query_filter.im_self.report_instance_id.id)])
+                    [('mis_instance_id', '=',
+                      get_additional_query_filter.im_self.report_instance_id.id
+                      )])
                 if vat_report and vat_report.manual_ids:
                     manuals = {}
                     for manual_input in vat_report.manual_ids:
                         manuals[manual_input.name] = manual_input.value
                     locals_dict.update({'manuals': manuals})
 
-        return super(MisReport, self).declare_and_compute_period(kpi_matrix,
-                                 col_key,
-                                 col_label,
-                                 col_description,
-                                 aep,
-                                 date_from, date_to,
-                                 target_move,
-                                 subkpis_filter,
-                                 get_additional_move_line_filter,
-                                 get_additional_query_filter,
-                                 locals_dict,
-                                 aml_model,
-                                 no_auto_expand_accounts)
+        return super(MisReport, self).declare_and_compute_period(
+            kpi_matrix,
+            col_key,
+            col_label,
+            col_description,
+            aep,
+            date_from, date_to,
+            target_move,
+            subkpis_filter,
+            get_additional_move_line_filter,
+            get_additional_query_filter,
+            locals_dict,
+            aml_model,
+            no_auto_expand_accounts)

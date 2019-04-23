@@ -19,7 +19,7 @@ import time
 from datetime import date
 from lxml import etree
 
-from odoo import models, fields, api, tools, _
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, Warning as UserError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
 from odoo.addons.mis_builder.models.accounting_none import AccountingNone
@@ -31,6 +31,7 @@ templ = {
     'CA_COMPP': 'l10n_lu_mis_reports.mis_report_pl_2016',
     'CA_COMPPABR': 'l10n_lu_mis_reports.mis_report_abr_pl',
 }
+
 
 class EcdfReport(models.Model):
     '''
@@ -80,7 +81,8 @@ class EcdfReport(models.Model):
         for record in self:
             if record.date_from >= record.date_to:
                 raise ValidationError(
-                    _("The fiscal year dates aren't valid. Please check the From and To."))
+                    _("The fiscal year dates aren't valid.\
+                     Please check the From and To."))
 
     @api.multi
     def _append_fr_lines(self, data_curr, form_data, data_prev=None):
@@ -330,27 +332,38 @@ class EcdfReport(models.Model):
             if not mis_report:
                 error_not_found += '\n\t - ' + report['templ']
 
-            data_current = self.compute(mis_report, self.date_from, self.date_to)
+            data_current = self.compute(
+                mis_report,
+                self.date_from,
+                self.date_to)
 
             if report['type'] != 'CA_PLANCOMPTA':
                 date_from = fields.Date.from_string(self.date_from)
-                previous_date_from = date(date_from.year + 1,
-                        date_from.month, date_from.day).strftime(DATE_FORMAT)
+                previous_date_from = date(
+                    date_from.year + 1,
+                    date_from.month,
+                    date_from.day).strftime(DATE_FORMAT)
                 date_to = fields.Date.from_string(self.date_to)
-                previous_date_to = date(date_to.year + 1,
-                        date_to.month, date_to.day).strftime(DATE_FORMAT)
-                data_previous = self.compute(mis_report,
-                        previous_date_from, previous_date_to)
-                financial_report = self._get_finan_report(data_current,
-                                                          report['type'],
-                                                          report['model'],
-                                                          data_previous)
+                previous_date_to = date(
+                    date_to.year + 1,
+                    date_to.month,
+                    date_to.day).strftime(DATE_FORMAT)
+                data_previous = self.compute(
+                    mis_report,
+                    previous_date_from,
+                    previous_date_to)
+                financial_report = self._get_finan_report(
+                    data_current,
+                    report['type'],
+                    report['model'],
+                    data_previous)
                 if financial_report is not None:
                     declarer.append(financial_report)
             else:  # Chart of accounts
-                chart_of_account = self._get_chart_ac(data_current,
-                                                      report['type'],
-                                                      report['model'])
+                chart_of_account = self._get_chart_ac(
+                    data_current,
+                    report['type'],
+                    report['model'])
                 if chart_of_account is not None:
                     declarer.append(chart_of_account)
 
@@ -386,9 +399,11 @@ class EcdfReport(models.Model):
             return
         report_type = 'CA_PLANCOMPTA'
         if preview_type == 'bs':
-            report_type = 'CA_BILAN' if self.reports_type == 'full' else 'CA_BILANABR'
+            report_type = 'CA_BILAN' if \
+                self.reports_type == 'full' else 'CA_BILANABR'
         elif preview_type == 'pl':
-            report_type = 'CA_COMPP' if self.reports_type == 'full' else 'CA_COMPPABR'
+            report_type = 'CA_COMPP' if \
+                self.reports_type == 'full' else 'CA_COMPPABR'
         instance = self.get_report_instance(report_type)
         return {
             'type': 'ir.actions.act_window',

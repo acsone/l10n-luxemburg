@@ -5,7 +5,9 @@
 {
     'name': 'Luxemburg eCDF Reports',
     'description': """
-        This modules allows to make VAT and annual reports (P&L, Balance Sheet, Chart of Accounts) in XML format, ready for eCDF.
+        This modules allows to make VAT and annual reports
+        (P&L, Balance Sheet, Chart of Accounts) in XML format,
+        ready for eCDF.
     """,
     'version': '10.0.0.0.1',
     'licence': 'AGPL-3',
