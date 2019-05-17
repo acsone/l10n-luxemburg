@@ -37,4 +37,11 @@
       <field name="indent_level">3</field>
       <field name="font_style_inherit" eval="0"/>
     </record>
+
+    <record id="style_check" model="mis.report.style">
+      <field name="name">check</field>
+      <field name="indent_level_inherit" eval="0"/>
+      <field name="font_style_inherit" eval="0"/>
+        <field name="font_style">italic</field>
+    </record>
 </odoo>

@@ -1,0 +1,1171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_lu_ecdf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-17 14:48+0000\n"
+"PO-Revision-Date: 2019-05-17 14:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_423
+msgid "1) not exempt in the MS where the customer is liable for payment of VAT (Art.17(1)(b))(5) [423]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_sub_title_IID1
+msgid "1. For business purposes"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_457
+msgid "1. Intra-Community supply of goods to persons identified for VAT purposes in another Member State (MS) (Art.43(1)(d),(e) and (f))(3) [457]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_458
+msgid "1. Invoiced by other taxable persons for goods or services supplied (Art.48(1)(a)) [458]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_sub_title_IIE1
+msgid "1. Provided to the declaring person by suppliers established or residing in another MS of the Community"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_title_A1
+msgid "1. VAT accounting scheme"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_094
+msgid "1. relating to transactions which are exempt pursuant to articles 44 and 56quater [094]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_424
+msgid "2) exempt in the MS where the customer is identified (Art.17(1)(b)) [424]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_459
+msgid "2. Due in respect of intra-Community acquisitions of goods (Art.48(1)(b)) [459]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_014
+msgid "2. Exports (Art.43(1)(a) and (b)) [014]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_sub_title_IID2
+msgid "2. For non-business purposes"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_463_464
+msgid "2. Provided to the declaring person by suppliers not established or residing within the Community [463] [464]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_454
+msgid "2. Total Sales / Receipts [454]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_095
+msgid "2. where the deductible proportion determined in accordance to article 50 is applied [095]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,year:0
+msgid "2019"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_455
+msgid "3. Application of goods for non-business use and for business purposes (Art.13) [455]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_460
+msgid "3. Due or paid in respect of importation of goods (Art.48(1)(c)) [460]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_015
+msgid "3. Other exemptions (Art.43 and 60bis) [015]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_765_766
+msgid "3. Provided to the declaring person by suppliers established within the territory [765] [766]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_090
+msgid "4. Due in respect of the application of goods for business purposes (Art.48(1)(d)) [090]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_456
+msgid "4. Non-business use of goods and supply of services free of charge (Art.16) [456]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_016
+msgid "4. Other exemptions (Art.44 and 56quater) [016]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_461
+msgid "5. Due under the reverse charge (see points II.E and F) [461]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_017
+msgid "5. Manufactured tobacco whose VAT was collected at the source or at the exit of the tax warehouse together with excise duties [017]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_092
+msgid "6. Paid as joint and several guarantee [092]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_sub_title_IB6
+msgid "6. Transactions carried out (for which the place of supply is) abroad:"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_228
+msgid "7. Adjusted tax - special arrangement for tax suspension (Art.60bis(9), subpar. 2) [228]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_419
+msgid "7. Inland supplies for which the customer is liable for the payment of VAT [419]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+msgid "<b> To </b>"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_152
+msgid "A subsequent supply to a customer identified for VAT purposes inthe MS of destination of the goods, and for which that customer hasbeen designated as liable for the payment of VAT(Art. 18ter (2), subpar. 2) [152]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_037_046
+msgid "A. Breakdown of taxable turnover [037] [046]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_012
+msgid "A. Overall turnover [012]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_093
+msgid "A. Total input tax [093]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_103
+msgid "A. Total tax due (brought forward from point II.H.) [103]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.report,reports_type:0
+msgid "Abbreviated"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_agent_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_agent_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_agent_id
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Agent"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.report,target_move:0
+msgid "All Entries"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.report,target_move:0
+msgid "All Posted Entries"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_ecdf_report
+msgid "Annual eCDF financial Report"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_type:0
+msgid "Annually"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "April"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "August"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_021
+msgid "B. Exemptions and deductible amounts [021]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_104
+msgid "B. Total input tax deductible (brought forward from point III.C.) [104]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_097
+msgid "B. Total input tax non-deductible [097]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_051_056
+msgid "B.Intra-Community acquisitions of goods (6) [051] [056]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_with_bs
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+msgid "Balance Sheet"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.subkpi,description:l10n_lu_ecdf.base
+msgid "Base"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_sub_title_IIC
+msgid "C. Acquisitions, in the context of triangular transactions, made for "
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_105
+msgid "C. Exceeding amount (a surplus of deductible tax must be preceded by a minus sign)(103-104) [105]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_022
+msgid "C. Taxable turnover (012-021) [022]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_102
+msgid "C. Total input tax deductible (093-097)(to be carried forward to point IV.B) [102]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_vat_report.py:101
+#, python-format
+msgid "Cannot find the \"%s\" MIS report for the year \"%s\"."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_with_ac
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+msgid "Chart of Accounts"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_003
+msgid "Check Import."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_002
+msgid "Check Intracom."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_004
+msgid "Check Supply of services"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_001
+msgid "Check Taxable turnover"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_006
+msgid "Check Total tax deductible"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_005
+msgid "Check Total tax due"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_check_title
+msgid "Checks"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_remarks
+msgid "Comments"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_company_id
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+msgid "Company"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_rcs
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_rcs
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_rcs
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_rcs
+msgid "Company Registry"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_create_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_create_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_create_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_create_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_create_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_create_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_create_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_create_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_065_407
+msgid "D. Importation of goods [065] [407]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.abstract,language:0
+#: selection:ecdf.report,language:0
+#: selection:ecdf.vat.report,language:0
+msgid "DE"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "December"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_period_type
+msgid "Declaration Type"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Declarations for this year"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_description
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_description
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_description
+msgid "Description"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_display_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_display_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_display_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_display_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_display_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+msgid "Download the Financial Report in XML format, ready for eCDF"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "Download the VAT report in XML format, ready for eCDF"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_409_410
+msgid "E. Supply of services for which the customer is liable for the payment of VAT [409] [410]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.abstract,language:0
+#: selection:ecdf.report,language:0
+#: selection:ecdf.vat.report,language:0
+msgid "EN"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_194
+msgid "Exempt [194]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_195
+msgid "Exempt [195]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_196
+msgid "Exempt [196]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_445
+msgid "Exempt [445]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_767_768
+msgid "F. Supply of goods for which the purchaser is liable for the payment of VAT [767] [768]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.abstract,language:0
+#: selection:ecdf.report,language:0
+#: selection:ecdf.vat.report,language:0
+msgid "FR"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "February"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_file_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_file_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_file_name
+msgid "File name"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_date_from
+msgid "Firscal Year From"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_date_to
+msgid "Fiscal Year To"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_report.py:386
+#, python-format
+msgid "From %s To %s"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.report,reports_type:0
+msgid "Full"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_full_file_name
+msgid "Full file name"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_227
+msgid "G. Special arrangement for tax suspension: adjustment(Art.60bis, (5) and (8)) [227]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "Generate XML"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Group by"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_076
+msgid "H. Total tax due (046+056+407+410+768+227)(to be carried forward to point IV.A) [076]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_title_1
+msgid "I. ASSESSMENT OF TAXABLE TURNOVER"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_id
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_title_2
+msgid "II. ASSESSMENT OF TAX DUE (output tax)"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_title_3
+msgid "III. ASSESSMENT OF DEDUCTIBLE TAX (input tax)"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_title_4
+msgid "IV. TAX TO BE PAID OR TO BE CLAIMED"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_res_company_l10n_lu_matricule
+msgid "Identification Number delivered by the Luxembourg authorities as soon as the company is registered"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "If no agent, company data will be used"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "January"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "July"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "June"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_language
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_language
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_language
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Language"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract___last_update
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent___last_update
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data___last_update
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input___last_update
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report___last_update
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_write_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_write_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_write_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_write_uid
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_write_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_write_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_write_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_write_date
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_res_company_l10n_lu_matricule
+msgid "Luxembourg Matricule"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_mis_report
+msgid "MIS Report Template"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_report.py:372
+#, python-format
+msgid "MIS Template(s) not found :"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "Main Information"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_manual_ids
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "Manual Input(s)"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "March"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_matr
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_matr
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_matr
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_matr
+msgid "Matricule"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_agent.py:30
+#, python-format
+msgid "Matricule must be 11 or 13 characters long."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "May"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_mis_instance_id
+msgid "Mis report instance"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Month"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_type:0
+msgid "Monthly"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report,name:l10n_lu_ecdf.mis_report_month_vat_2019
+msgid "Monthly VAT 2019"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_data_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_name
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_name
+msgid "Name"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_report.py:325
+#, python-format
+msgid "No report type selected"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "November"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "October"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_719
+msgid "Of manufactured tobacco whose VAT is collected at the exit of the tax warehouse together with excise duties [719]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_729
+msgid "Of manufactured tobacco whose VAT is collected at the exit of the tax warehouse together with excise duties [729]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,regime:0
+msgid "On payments received [205]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,regime:0
+msgid "On sales [204]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_period_month
+msgid "Period"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_report.py:326
+#, python-format
+msgid "Please, select a report type"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "Preview"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+msgid "Preview Balance Sheet"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+msgid "Preview Chart of Accounts"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+msgid "Preview Profit & Loss"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_with_pl
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+msgid "Profit & Loss"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_type:0
+msgid "Quarterly"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_agent.py:43
+#, python-format
+msgid "RCS number must begin with an uppercase letter followed by 2 to 6 digits. The first digit must not be 0."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_703_704
+msgid "Rate of 14% [703] [704]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_713_714
+msgid "Rate of 14% [713] [714]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_723_724
+msgid "Rate of 14 % [723] [724]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_733_734
+msgid "Rate of 14 % [733] [734]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_743_744
+msgid "Rate of 14 % [743] [744]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_753_754
+msgid "Rate of 14 % [753] [754]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_701_702
+msgid "Rate of 17% [701] [702]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_711_712
+msgid "Rate of 17% [711] [712]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_721_722
+msgid "Rate of 17 % [721] [722]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_731_732
+msgid "Rate of 17 % [731] [732]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_741_742
+msgid "Rate of 17 % [741] [742]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_751_752
+msgid "Rate of 17 % [751] [752]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_761_762
+msgid "Rate of 17 % [761] [762]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_031_040
+msgid "Rate of 3% [031] [040]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_049_054
+msgid "Rate of 3% [049] [054]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_059_068
+msgid "Rate of 3 % [059] [068]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_063_073
+msgid "Rate of 3 % [063] [073]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_431_432
+msgid "Rate of 3 % [431] [432]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_441_442
+msgid "Rate of 3 % [441] [442]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_705_706
+msgid "Rate of 8% [705] [706]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_715_716
+msgid "Rate of 8% [715] [716]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_725_726
+msgid "Rate of 8 % [725] [726]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_735_736
+msgid "Rate of 8 % [735] [736]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_745_746
+msgid "Rate of 8 % [745] [746]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_755_756
+msgid "Rate of 8 % [755] [756]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_763_764
+msgid "Rate of 8 % [763] [764]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_033_042
+msgid "Rate of [403] ___ % [033] [042]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_416_417
+msgid "Rate of [418] ___ % [416] [417]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_451_452
+msgid "Rate of [453] ___ % [451] [452]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+msgid "Remarks"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_report_id
+msgid "Report"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "Report Options"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_reports_type
+msgid "Reports Type"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Revenues"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Sales"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: selection:ecdf.vat.report,period_month:0
+msgid "September"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_ecdf_abstract_language
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_ecdf_report_language
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_ecdf_vat_report_language
+msgid "Specify the language in the eCDF XML report.         This will not change the display Language."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_target_move
+msgid "Target Moves"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.subkpi,description:l10n_lu_ecdf.tax
+msgid "Tax"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_vat
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_agent_vat
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_vat
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_vat
+msgid "Tax ID"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Tax Regime"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Tax regime : sales"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_abstract.py:100
+#, python-format
+msgid "The company has no matricule set."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_report.py:84
+#, python-format
+msgid "The fiscal year dates aren't valid.                     Please check the From and To."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_abstract.py:267
+#, python-format
+msgid "The generated file doesn't fit the required schema !"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_search
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "This year"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_vat_report.py:111
+#: code:addons/l10n_lu_ecdf/models/ecdf_vat_report.py:223
+#, python-format
+msgid "VAT %s-%02d"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "VAT Report"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_regime
+msgid "VAT accounting scheme"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: code:addons/l10n_lu_ecdf/models/ecdf_agent.py:57
+#, python-format
+msgid "VAT number must begin with two uppercase letters followed by 8 digits."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_manual_input_value
+msgid "Value"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_abstract_xml_file
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_report_xml_file
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_xml_file
+msgid "XML File"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_form
+msgid "XML report"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_ecdf_vat_report_year
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "Year"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_ecdf_abstract_agent_id
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_ecdf_report_agent_id
+#: model:ir.model.fields,help:l10n_lu_ecdf.field_ecdf_vat_report_agent_id
+msgid "You can use the Matricule, VAT and Company         Registry from the company itself or create an Agent to         specify new ones."
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_436_462
+msgid "a) Not exempt within the territory [436] [462]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_018
+msgid "a) Supply, subsequent to intra-Community acquisitions of goods, in the context of triangular transactions, when the customer identified for VAT purposes in the MS of destination of the goods is liable for payment of VAT in that MS (4) [018]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_471
+msgid "a. Telecommunications services, radio and television broadcasting services as well as electronically supplied services supplied to non-taxable persons in other Member States for which the total annual value does not exceed EUR 10.000 (place of supply fixedby Art. 17(2), point 7bis°, par 3) [471]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_435
+msgid "b) Exempt within the territory [435]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_sub_title_IB6b
+msgid "b) Supply of services to customers identified for VAT purposes in another MS"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_472
+msgid "b. Other Sales / Receipts [472]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_226
+msgid "c) Supplies carried out within the scope of the special arrangement of art. 56Sexies [226]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:mis.report.kpi,description:l10n_lu_ecdf.mis_report_vat_ecdf_019
+msgid "d) Supplies other than referred to in (6)(a) and (6)(b) [019]"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_ecdf_abstract
+msgid "eCDF Abstract Report"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.actions.act_window,name:l10n_lu_ecdf.ecdf_report_action
+#: model:ir.ui.menu,name:l10n_lu_ecdf.ecdf_report_menu
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_report_view_tree
+msgid "eCDF Financial Reports"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model.fields,field_description:l10n_lu_ecdf.field_res_company_ecdf_prefixe
+msgid "eCDF Prefix"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_ecdf_vat_report
+msgid "eCDF VAT Report"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.actions.act_window,name:l10n_lu_ecdf.ecdf_vat_report_action
+#: model:ir.ui.menu,name:l10n_lu_ecdf.ecdf_vat_report_menu
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_tree
+msgid "eCDF VAT Reports"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_ecdf_agent
+msgid "ecdf.agent"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_ecdf_manual_data
+msgid "ecdf.manual.data"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.model,name:l10n_lu_ecdf.model_ecdf_manual_input
+msgid "ecdf.manual.input"
+msgstr ""
+
+#. module: l10n_lu_ecdf
+#: model:ir.ui.view,arch_db:l10n_lu_ecdf.ecdf_vat_report_search
+msgid "tax regime : revenues"
+msgstr ""
+

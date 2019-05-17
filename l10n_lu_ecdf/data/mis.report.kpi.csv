@@ -91,3 +91,10 @@ l10n_lu_ecdf.mis_report_vat_ecdf_title_4,l10n_lu_ecdf.mis_report_month_vat_2019,
 l10n_lu_ecdf.mis_report_vat_ecdf_103,l10n_lu_ecdf.mis_report_month_vat_2019,3010,ecdf_103,A. Total tax due (brought forward from point II.H.) [103],Numeric,Difference,True,l10n_lu_ecdf.style_tva_sub_1
 l10n_lu_ecdf.mis_report_vat_ecdf_104,l10n_lu_ecdf.mis_report_month_vat_2019,3020,ecdf_104,B. Total input tax deductible (brought forward from point III.C.) [104],Numeric,Difference,True,l10n_lu_ecdf.style_tva_sub_1
 l10n_lu_ecdf.mis_report_vat_ecdf_105,l10n_lu_ecdf.mis_report_month_vat_2019,3030,ecdf_105,C. Exceeding amount (a surplus of deductible tax must be preceded by a minus sign)(103-104) [105],Numeric,Difference,True,l10n_lu_ecdf.style_tva_sub_1
+l10n_lu_ecdf.mis_report_vat_check_title,l10n_lu_ecdf.mis_report_month_vat_2019,3999,check_001,Checks,Numeric,Difference,True,l10n_lu_ecdf.style_tva_title
+l10n_lu_ecdf.mis_report_vat_check_001,l10n_lu_ecdf.mis_report_month_vat_2019,4000,check_001,Check Taxable turnover,Numeric,Difference,True,l10n_lu_ecdf.style_check
+l10n_lu_ecdf.mis_report_vat_check_002,l10n_lu_ecdf.mis_report_month_vat_2019,4010,check_002,Check Intracom.,Numeric,Difference,True,l10n_lu_ecdf.style_check
+l10n_lu_ecdf.mis_report_vat_check_003,l10n_lu_ecdf.mis_report_month_vat_2019,4020,check_003,Check Import.,Numeric,Difference,True,l10n_lu_ecdf.style_check
+l10n_lu_ecdf.mis_report_vat_check_004,l10n_lu_ecdf.mis_report_month_vat_2019,4030,check_004,Check Supply of services,Numeric,Difference,True,l10n_lu_ecdf.style_check
+l10n_lu_ecdf.mis_report_vat_check_005,l10n_lu_ecdf.mis_report_month_vat_2019,4040,check_005,Check Total tax due,Numeric,Difference,True,l10n_lu_ecdf.style_check
+l10n_lu_ecdf.mis_report_vat_check_006,l10n_lu_ecdf.mis_report_month_vat_2019,4050,check_006,Check Total tax deductible,Numeric,Difference,True,l10n_lu_ecdf.style_check

@@ -117,3 +117,9 @@ l10n_lu_ecdf.mis_report_vat_ecdf_102_tax,l10n_lu_ecdf.mis_report_vat_ecdf_102,l1
 l10n_lu_ecdf.mis_report_vat_ecdf_103_tax,l10n_lu_ecdf.mis_report_vat_ecdf_103,l10n_lu_ecdf.tax,+ecdf_076.tax
 l10n_lu_ecdf.mis_report_vat_ecdf_104_tax,l10n_lu_ecdf.mis_report_vat_ecdf_104,l10n_lu_ecdf.tax,+ecdf_102.tax
 l10n_lu_ecdf.mis_report_vat_ecdf_105_tax,l10n_lu_ecdf.mis_report_vat_ecdf_105,l10n_lu_ecdf.tax,+ecdf_103.tax-ecdf_104.tax
+l10n_lu_ecdf.mis_report_vat_check_001_base,l10n_lu_ecdf.mis_report_vat_check_001,l10n_lu_ecdf.base,+ecdf_022.base-ecdf_037_046.base
+l10n_lu_ecdf.mis_report_vat_check_002_tax,l10n_lu_ecdf.mis_report_vat_check_002,l10n_lu_ecdf.tax,+ecdf_051_056.tax-ecdf_459.tax
+l10n_lu_ecdf.mis_report_vat_check_003_tax,l10n_lu_ecdf.mis_report_vat_check_003,l10n_lu_ecdf.tax,+ecdf_065_407.tax-ecdf_460.tax
+l10n_lu_ecdf.mis_report_vat_check_004_tax,l10n_lu_ecdf.mis_report_vat_check_004,l10n_lu_ecdf.tax,+ecdf_409_410.tax-ecdf_461.tax
+l10n_lu_ecdf.mis_report_vat_check_005_tax,l10n_lu_ecdf.mis_report_vat_check_005,l10n_lu_ecdf.tax,+balp[461411%]+crdp[461412%]+ecdf_103.tax
+l10n_lu_ecdf.mis_report_vat_check_006_tax,l10n_lu_ecdf.mis_report_vat_check_006,l10n_lu_ecdf.tax,+balp[421611%]+debp[421612%]+ecdf_104.tax

@@ -29,11 +29,15 @@ class EcdfAbstractReport(models.AbstractModel):
         (('FR', 'FR'), ('DE', 'DE'), ('EN', 'EN')),
         string='Language',
         required=True,
-        default='EN')
+        default='EN',
+        help='Specify the language in the eCDF XML report.\
+         This will not change the display Language.')
     agent_id = fields.Many2one(
         string='Agent',
         comodel_name='ecdf.agent',
-        help='Contains Matricule, VAT and Company Registry')
+        help='You can use the Matricule, VAT and Company\
+         Registry from the company itself or create an Agent to\
+         specify new ones.')
     matr = fields.Char(string='Matricule',
                        related="agent_id.matr",
                        readonly=True)
